@@ -1,0 +1,100 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #eef2f3, #dfe9f3);
+    color: #003366;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0055a5;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+header img {
+    height: 70px;
+    object-fit: contain;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: #005fa3;
+}
+
+section {
+    padding: 20px;
+}
+
+#chatbox {
+    height: 200px;
+    background: white;
+    overflow: auto;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+img {
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.language-selector {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.language-selector button {
+    padding: 8px 15px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.language-selector button:hover {
+    background-color: #005fa3;
+}
+
+.digital-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    font-size: 50px;
+    margin-top: 20px;
+}
+
+.digital-icons span {
+    transition: transform 0.3s;
+    cursor: default;
+}
+
+.digital-icons span:hover {
+    transform: scale(1.3);
+}

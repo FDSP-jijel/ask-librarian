@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>إسأل المكتبي</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- الهيدر -->
+<header>
+  <div class="institution">
+    <p data-lang="ar">الجمهورية الجزائرية الديمقراطية الشعبية</p>
+    <p data-lang="fr">République Algérienne Démocratique et Populaire</p>
+    <p data-lang="en">People's Democratic Republic of Algeria</p>
+
+    <p data-lang="ar">وزارة التعليم العالي والبحث العلمي</p>
+    <p data-lang="fr">Ministère de l'Enseignement Supérieur et de la Recherche Scientifique</p>
+    <p data-lang="en">Ministry of Higher Education and Scientific Research</p>
+
+    <p data-lang="ar">كلية الحقوق والعلوم السياسية</p>
+    <p data-lang="fr">Faculté de Droit et des Sciences Politiques</p>
+    <p data-lang="en">Faculty of Law and Political Sciences</p>
+  </div>
+
+  <div class="logo-title">
+    <img src="img/faculty-logo.png" alt="شعار الكلية" width="90">
+    <h1 data-lang="ar">📚 إسأل المكتبي</h1>
+    <h1 data-lang="fr">📚 Demandez au Bibliothécaire</h1>
+    <h1 data-lang="en">📚 Ask Librarian</h1>
+    <img src="img/faculty.jpg" alt="صورة الكلية" width="90">
+  </div>
+
+  <!-- أزرار اللغة -->
+  <div class="language-selector">
+    <button onclick="setLanguage('ar')">العربية</button>
+    <button onclick="setLanguage('fr')">Français</button>
+    <button onclick="setLanguage('en')">English</button>
+  </div>
+</header>
+
+<!-- قائمة الأقسام -->
+<nav>
+  <button data-lang="ar" onclick="show('home')">الرئيسية</button>
+  <button data-lang="fr" onclick="show('home')">Accueil</button>
+  <button data-lang="en" onclick="show('home')">Home</button>
+
+  <button data-lang="ar" onclick="show('chat')">المساعد</button>
+  <button data-lang="fr" onclick="show('chat')">Assistant</button>
+  <button data-lang="en" onclick="show('chat')">Assistant</button>
+
+  <button data-lang="ar" onclick="show('rules')">القوانين</button>
+  <button data-lang="fr" onclick="show('rules')">Règles</button>
+  <button data-lang="en" onclick="show('rules')">Rules</button>
+
+  <button data-lang="ar" onclick="show('news')">الإعلانات</button>
+  <button data-lang="fr" onclick="show('news')">Annonces</button>
+  <button data-lang="en" onclick="show('news')">News</button>
+
+  <button data-lang="ar" onclick="show('images')">الصور</button>
+  <button data-lang="fr" onclick="show('images')">Photos</button>
+  <button data-lang="en" onclick="show('images')">Images</button>
+
+  <button data-lang="ar" onclick="show('stats')">الإحصائيات</button>
+  <button data-lang="fr" onclick="show('stats')">Statistiques</button>
+  <button data-lang="en" onclick="show('stats')">Statistics</button>
+</nav>
+
+<!-- الرئيسية -->
+<section id="home">
+  <h2 data-lang="ar" dir="rtl">مرحبا بكم في المكتبة الرقمية</h2>
+  <h2 data-lang="fr" dir="ltr">Bienvenue à la bibliothèque numérique</h2>
+  <h2 data-lang="en" dir="ltr">Welcome to the Digital Library</h2>
+
+  <img src="img/library.jpg" alt="المكتبة" width="400">
+
+  <p data-lang="ar" dir="rtl" style="font-size:1.2em;">
+    📚 استكشف الكتب الإلكترونية | 📰 المجلات الرقمية | 🔍 ابحث عن المراجع | 💾 حمّل الملفات | 🖥️ تصفح المواد التعليمية
+  </p>
+  <p data-lang="fr" dir="ltr" style="font-size:1.2em;">
+    📚 Explorez les livres numériques | 📰 Magazines numériques | 🔍 Recherchez des références | 💾 Téléchargez des fichiers | 🖥️ Parcourez le matériel pédagogique
+  </p>
+  <p data-lang="en" dir="ltr" style="font-size:1.2em;">
+    📚 Explore e-books | 📰 Digital magazines | 🔍 Search references | 💾 Download files | 🖥️ Browse learning materials
+  </p>
+</section>
+
+<!-- المساعد الافتراضي -->
+<section id="chat" class="hidden">
+  <h2 data-lang="ar">🤖 المساعد الافتراضي</h2>
+  <h2 data-lang="fr">🤖 Assistant Virtuel</h2>
+  <h2 data-lang="en">🤖 Virtual Assistant</h2>
+
+  <div id="chatbox"></div>
+  <input id="q" placeholder="اكتب سؤالك هنا">
+  <button onclick="reply()">أرسل</button>
+</section>
+
+<!-- النظام الداخلي -->
+<section id="rules" class="hidden">
+  <h2 data-lang="ar">النظام الداخلي</h2>
+  <h2 data-lang="fr">Règlement Intérieur</h2>
+  <h2 data-lang="en">Internal Rules</h2>
+  <p data-lang="ar">هنا تضع قوانين المكتبة...</p>
+  <p data-lang="fr">Ici vous mettez les règles de la bibliothèque...</p>
+  <p data-lang="en">Here you place the library rules...</p>
+</section>
+
+<!-- الإعلانات -->
+<section id="news" class="hidden">
+  <h2 data-lang="ar">📢 الإعلانات</h2>
+  <h2 data-lang="fr">📢 Annonces</h2>
+  <h2 data-lang="en">📢 News</h2>
+
+  <input id="newsTitle" placeholder="عنوان الإعلان"><br><br>
+  <textarea id="newsContent" placeholder="محتوى الإعلان"></textarea><br><br>
+  <button onclick="addNews()">نشر الإعلان</button>
+
+  <hr>
+  <div id="newsList"></div>
+</section>
+
+<!-- معرض الصور -->
+<section id="images" class="hidden">
+  <h2 data-lang="ar">📷 صور المكتبة والكلية</h2>
+  <h2 data-lang="fr">📷 Photos de la bibliothèque et de la faculté</h2>
+  <h2 data-lang="en">📷 Library & Faculty Photos</h2>
+
+  <div class="images-container">
+    <div class="image-box">
+      <img src="img/faculty-logo.png" alt="شعار الكلية">
+      <p data-lang="ar">شعار الكلية</p>
+      <p data-lang="fr">Logo de la Faculté</p>
+      <p data-lang="en">Faculty Logo</p>
+    </div>
+    <div class="image-box">
+      <img src="img/faculty.jpg" alt="صورة الكلية">
+      <p data-lang="ar">صورة الكلية</p>
+      <p data-lang="fr">Photo de la Faculté</p>
+      <p data-lang="en">Faculty Photo</p>
+    </div>
+    <div class="image-box">
+      <img src="img/library.jpg" alt="المكتبة">
+      <p data-lang="ar">المكتبة</p>
+      <p data-lang="fr">Bibliothèque</p>
+      <p data-lang="en">Library</p>
+    </div>
+  </div>
+</section>
+
+<!-- الإحصائيات -->
+<section id="stats" class="hidden">
+  <h2 data-lang="ar">الإحصائيات</h2>
+  <h2 data-lang="fr">Statistiques</h2>
+  <h2 data-lang="en">Statistics</h2>
+  <p data-lang="ar">عدد الكتب: 5000</p>
+  <p data-lang="fr">Nombre de livres: 5000</p>
+  <p data-lang="en">Number of books: 5000</p>
+</section>
+
+<script src="script.js"></script>
+<script src="lang.js"></script>
+</body>
+</html>
