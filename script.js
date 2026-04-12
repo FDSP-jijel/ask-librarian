@@ -119,9 +119,18 @@ function generateReply(q){
 function addMessage(type, text){
     let box = document.getElementById("chatbox");
 
-    let msg = document.createElement("p");
-    msg.className = type === "user" ? "msg user" : "msg bot";
+    let msg = document.createElement("div");
+    msg.className = "msg " + type;
     msg.textContent = text;
+
+    // زر الاستماع للرد فقط للبوت
+    if(type === "bot"){
+        let btn = document.createElement("button");
+        btn.innerHTML = "🔊";
+        btn.className = "speak-btn";
+        btn.onclick = () => speak(text);
+        msg.appendChild(btn);
+    }
 
     box.appendChild(msg);
     box.scrollTop = box.scrollHeight;
