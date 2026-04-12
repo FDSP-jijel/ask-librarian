@@ -242,3 +242,49 @@ button {
 button:active {
     transform: scale(0.97);
 }
+
+/* تحسين عام */
+section{
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* أزرار أجمل */
+button{
+    transition: 0.2s;
+    border-radius: 8px;
+}
+
+button:hover{
+    transform: translateY(-2px);
+}
+
+/* الشات */
+#chatbox{
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px;
+    height: 250px;
+    overflow-y: auto;
+}
+
+/* رسائل */
+#chatbox p{
+    margin: 5px 0;
+    padding: 8px;
+}
+
+.dark{
+    background:#121212;
+    color:white;
+}
+
+.dark section{
+    background:#1e1e1e;
+    color:white;
+}
