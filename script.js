@@ -65,12 +65,18 @@ function displayNews(){
 function reply(){
     let input = document.getElementById("q");
     let q = input.value.trim();
-    let box = document.getElementById("chatbox");
 
     if(!q) return;
 
     addMessage("user", q);
     input.value = "";
+
+    setTimeout(()=>{
+        let r = generateReply(q.toLowerCase());
+        addMessage("bot", r);
+        speak(r);
+    }, 500);
+}
 
     function speak(text){
     let speech = new SpeechSynthesisUtterance();
@@ -235,10 +241,3 @@ function startVoice(){
     };
 }
     
-function speak(text){
-    let speech = new SpeechSynthesisUtterance();
-    speech.text = text;
-    speech.lang = "ar-SA";
-    speech.rate = 1;
-    window.speechSynthesis.speak(speech);
-}
