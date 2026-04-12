@@ -66,6 +66,11 @@
 <!-- ================= HOME ================= -->
 <section id="home">
 
+<input id="searchBook" placeholder="ابحث عن كتاب">
+<button onclick="searchBooks()">بحث</button>
+
+<div id="bookResults"></div>
+
   <h2 data-lang="ar">مرحبا بكم</h2>
   <h2 data-lang="fr">Bienvenue</h2>
   <h2 data-lang="en">Welcome</h2>
@@ -170,7 +175,8 @@
 <!-- ================= STATS ================= -->
 <section id="stats" class="hidden">
   <h2>الإحصائيات</h2>
-  <p>5000 كتاب</p>
+<p>عدد الكتب: <span id="books">5000</span></p>
+<p>عدد الزوار: <span id="visitors">0</span></p>
 </section>
 
 <!-- ================= SCRIPTS ================= -->
