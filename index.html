@@ -2,109 +2,75 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>إسأل المكتبي</title>
+
 <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#003366">
 </head>
 
 <body>
 
-<!-- الهيدر -->
+<!-- ================= HEADER ================= -->
 <header>
+
   <div class="institution">
     <p data-lang="ar">الجمهورية الجزائرية الديمقراطية الشعبية</p>
     <p data-lang="fr">République Algérienne Démocratique et Populaire</p>
     <p data-lang="en">People's Democratic Republic of Algeria</p>
 
     <p data-lang="ar">وزارة التعليم العالي والبحث العلمي</p>
-    <p data-lang="fr">Ministère de l'Enseignement Supérieur et de la Recherche Scientifique</p>
-    <p data-lang="en">Ministry of Higher Education and Scientific Research</p>
+    <p data-lang="fr">Ministère de l'Enseignement Supérieur</p>
+    <p data-lang="en">Ministry of Higher Education</p>
 
     <p data-lang="ar">كلية الحقوق والعلوم السياسية</p>
-    <p data-lang="fr">Faculté de Droit et des Sciences Politiques</p>
-    <p data-lang="en">Faculty of Law and Political Sciences</p>
   </div>
 
   <div class="logo-title">
-    <img src="faculty-logo.png" alt="شعار الكلية" width="90">
-
+    <img src="faculty-logo.png" width="90">
+    
     <h1 data-lang="ar">📚 إسأل المكتبي</h1>
     <h1 data-lang="fr">📚 Demandez au Bibliothécaire</h1>
     <h1 data-lang="en">📚 Ask Librarian</h1>
 
-    <img src="faculty.jpg" alt="صورة الكلية" width="90">
+    <img src="faculty.jpg" width="90">
   </div>
 
-  <!-- أزرار اللغة -->
+  <!-- Language -->
   <div class="language-selector">
     <button onclick="setLanguage('ar')">العربية</button>
     <button onclick="setLanguage('fr')">Français</button>
     <button onclick="setLanguage('en')">English</button>
   </div>
+
 </header>
 
-<!-- القائمة -->
+<!-- ================= NAV ================= -->
 <nav class="navbar">
-  <div class="nav-container">
 
-    <button onclick="show('home')">
-      🏠 <span data-lang="ar">الرئيسية</span>
-      <span data-lang="fr">Accueil</span>
-      <span data-lang="en">Home</span>
-    </button>
+  <button onclick="show('home')">🏠</button>
+  <button onclick="show('about')">📚</button>
+  <button onclick="show('chat')">🤖</button>
+  <button onclick="show('rules')">📜</button>
+  <button onclick="show('news')">📢</button>
+  <button onclick="show('images')">📷</button>
+  <button onclick="show('stats')">📊</button>
 
-    <button onclick="show('about')">
-      📚 <span data-lang="ar">حول المكتبة</span>
-      <span data-lang="fr">À propos</span>
-      <span data-lang="en">About</span>
-    </button>
+  <!-- زر إضافي -->
+  <button onclick="toggleDark()">🌙</button>
 
-    <button onclick="show('chat')">
-      🤖 <span data-lang="ar">المساعد</span>
-      <span data-lang="fr">Assistant</span>
-      <span data-lang="en">Assistant</span>
-    </button>
-
-    <button onclick="show('rules')">
-      📜 <span data-lang="ar">القوانين</span>
-      <span data-lang="fr">Rules</span>
-      <span data-lang="en">Rules</span>
-    </button>
-
-    <button onclick="show('news')">
-      📢 <span data-lang="ar">الإعلانات</span>
-      <span data-lang="fr">News</span>
-      <span data-lang="en">News</span>
-    </button>
-
-    <button onclick="show('images')">
-      📷 <span data-lang="ar">الصور</span>
-      <span data-lang="fr">Photos</span>
-      <span data-lang="en">Images</span>
-    </button>
-
-    <button onclick="show('stats')">
-      📊 <span data-lang="ar">الإحصائيات</span>
-      <span data-lang="fr">Stats</span>
-      <span data-lang="en">Statistics</span>
-    </button>
-
-    <button onclick="toggleDark()">🌙 الوضع الليلي</button>
-
-  </div>
 </nav>
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 <section id="home">
 
-  <h2 data-lang="ar" dir="rtl">مرحبا بكم في المكتبة الرقمية</h2>
-  <h2 data-lang="fr">Bienvenue à la bibliothèque numérique</h2>
-  <h2 data-lang="en">Welcome to the Digital Library</h2>
+  <h2 data-lang="ar">مرحبا بكم</h2>
+  <h2 data-lang="fr">Bienvenue</h2>
+  <h2 data-lang="en">Welcome</h2>
 
-  <img src="library.jpg" alt="المكتبة" width="400">
-
-  <p data-lang="ar">📚 استكشف الكتب | 📰 المجلات | 🔍 البحث | 💾 تحميل | 🖥️ تعلم</p>
-  <p data-lang="fr">📚 Livres | 📰 Magazines | 🔍 Recherche | 💾 Téléchargement</p>
-  <p data-lang="en">📚 Books | 📰 Magazines | 🔍 Search | 💾 Download</p>
+  <img src="library.jpg" width="400">
 
   <div class="cards">
 
@@ -115,95 +81,99 @@
         <span data-lang="fr">Livres</span>
         <span data-lang="en">Books</span>
       </h3>
-      <p>آلاف الكتب في مختلف التخصصات</p>
     </div>
 
     <div class="card">
       📰
       <h3>
         <span data-lang="ar">الدوريات</span>
-        <span data-lang="fr">Périodiques</span>
+        <span data-lang="fr">Journaux</span>
         <span data-lang="en">Journals</span>
       </h3>
-      <p>مجلات علمية وقانونية</p>
     </div>
 
     <div class="card">
       💻
       <h3>
-        <span data-lang="ar">الخدمات الرقمية</span>
-        <span data-lang="fr">Services numériques</span>
-        <span data-lang="en">Digital Services</span>
+        <span data-lang="ar">خدمات رقمية</span>
+        <span data-lang="fr">Services</span>
+        <span data-lang="en">Services</span>
       </h3>
-      <p>فهرس إلكتروني ومستودع رقمي</p>
     </div>
 
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
 <section id="about" class="hidden">
   <h2 data-lang="ar">حول المكتبة</h2>
   <h2 data-lang="fr">À propos</h2>
   <h2 data-lang="en">About</h2>
-
-  <p data-lang="ar">فضاء علمي وثقافي...</p>
-  <p data-lang="fr">Espace scientifique...</p>
-  <p data-lang="en">Scientific space...</p>
 </section>
 
-<!-- CHAT -->
+<!-- ================= CHAT ================= -->
 <section id="chat" class="hidden">
-  <h2 data-lang="ar">المساعد الافتراضي</h2>
+
+  <h2 data-lang="ar">المساعد</h2>
 
   <div id="chatbox"></div>
+
   <input id="q" placeholder="اكتب سؤالك">
   <button onclick="reply()">إرسال</button>
+
 </section>
 
-<!-- RULES -->
+<!-- ================= RULES ================= -->
 <section id="rules" class="hidden">
   <h2 data-lang="ar">القوانين</h2>
-  <p>✔ احترام النظام</p>
 </section>
 
-<!-- NEWS -->
+<!-- ================= NEWS ================= -->
 <section id="news" class="hidden">
+
   <h2>الإعلانات</h2>
-  <input id="newsTitle">
-  <textarea id="newsContent"></textarea>
+
+  <input id="newsTitle" placeholder="عنوان">
+  <textarea id="newsContent" placeholder="محتوى"></textarea>
+
   <button onclick="addNews()">نشر</button>
+
   <div id="newsList"></div>
+
 </section>
 
-<!-- IMAGES -->
+<!-- ================= IMAGES ================= -->
 <section id="images" class="hidden">
+
   <h2>الصور</h2>
 
   <div class="images-container">
+
     <div class="image-box">
       <img src="faculty-logo.png">
-      <p>شعار الكلية</p>
+      <p>شعار</p>
     </div>
 
     <div class="image-box">
       <img src="faculty.jpg">
-      <p>صورة الكلية</p>
+      <p>كلية</p>
     </div>
 
     <div class="image-box">
       <img src="library.jpg">
-      <p>المكتبة</p>
+      <p>مكتبة</p>
     </div>
+
   </div>
 </section>
 
-<!-- STATS -->
+<!-- ================= STATS ================= -->
 <section id="stats" class="hidden">
   <h2>الإحصائيات</h2>
-  <p>عدد الكتب: 5000</p>
+  <p>5000 كتاب</p>
 </section>
 
+<!-- ================= SCRIPTS ================= -->
 <script src="script.js"></script>
 <script src="lang.js"></script>
 
