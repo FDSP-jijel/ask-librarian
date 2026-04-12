@@ -203,3 +203,16 @@ function searchBooks(){
         box.innerHTML += `<div class="card">📚 ${b}</div>`;
     });
 }
+
+function startVoice(){
+    let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+    recognition.lang = "ar-DZ"; // العربية الجزائرية
+    recognition.start();
+
+    recognition.onresult = function(event){
+        let text = event.results[0][0].transcript;
+        document.getElementById("q").value = text;
+        reply(); // يرسل تلقائيًا
+    };
+}
