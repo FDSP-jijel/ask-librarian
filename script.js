@@ -1,84 +1,74 @@
-﻿// التنقل بين الأقسام
+// ================= اللغة =================
+function setLanguage(lang){
+    document.querySelectorAll('[data-lang]').forEach(el=>{
+        el.style.display = (el.getAttribute('data-lang') === lang) ? '' : 'none';
+    });
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    setLanguage('ar');
+});
+
+// ================= التنقل =================
 function show(id){
-    document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));
+    document.querySelectorAll("section").forEach(s=>{
+        s.classList.add("hidden");
+    });
     document.getElementById(id).classList.remove("hidden");
 }
 
-// الإعلانات
+// ================= الإعلانات =================
 let news = JSON.parse(localStorage.getItem("news")) || [];
 
 function addNews(){
     let title = document.getElementById("newsTitle").value;
     let content = document.getElementById("newsContent").value;
 
-    if(title === "" || content === ""){
-        alert("يرجى ملء جميع الحقول");
-        return;
-    }
+    if(title === "" || content === "") return;
 
-    let item = {title, content};
-    news.push(item);
-
+    news.push({title, content});
     localStorage.setItem("news", JSON.stringify(news));
-    displayNews();
 
-    document.getElementById("newsTitle").value = "";
-    document.getElementById("newsContent").value = "";
+    displayNews();
 }
 
 function displayNews(){
-    let newsList = document.getElementById("newsList");
-    newsList.innerHTML = "";
+    let box = document.getElementById("newsList");
+    box.innerHTML = "";
 
-    news.slice().reverse().forEach(n => {
+    news.slice().reverse().forEach(n=>{
         let div = document.createElement("div");
-        div.className = "newsItem";
-        div.innerHTML = "<h3>" + n.title + "</h3><p>" + n.content + "</p>";
-        newsList.appendChild(div);
+        div.innerHTML = "<h3>"+n.title+"</h3><p>"+n.content+"</p>";
+        box.appendChild(div);
     });
 }
 
 displayNews();
 
-// المساعد الافتراضي
+// ================= المساعد =================
 function reply(){
     let q = document.getElementById("q").value;
     let box = document.getElementById("chatbox");
 
-    box.innerHTML += "<p>👤 " + q + "</p>";
+    if(q.trim() === "") return;
 
-    let r = "";
+    box.innerHTML += "<p>👤 "+q+"</p>";
 
-    if(q.includes("قانون") || q.includes("النظام")){
-        r = "يمكنك الاطلاع على النظام الداخلي في قسم القوانين.";
+    let r = "لم أفهم سؤالك";
+
+    if(q.includes("ساعات")){
+        r = "المكتبة من 8:30 إلى 16:30";
     }
-    else if(q.includes("ساعات")){
-        r = "المكتبة مفتوحة من 8:30 إلى 16:30.";
+    else if(q.includes("كتاب") || q.includes("بحث")){
+        r = "يمكنك البحث في الفهرس";
     }
-    else if(q.includes("كتاب") || q.includes("بحث") || q.includes("مراجع") ){
-        r = "يمكنك البحث عن الكتاب عبر فهرس المكتبة أو طلب مساعدة أمين المكتبة.";
-    }
-    else if(q.includes("إعلان") || q.includes("نشاط")){
-        r = "يمكنك مشاهدة آخر الإعلانات في قسم الإعلانات.";
-    }
-    else if(q.includes("استعارة")){
-        r = "يمكنك استعارة الكتب وفق شروط النظام الداخلي للمكتبة.";
-    }
-    else{
-        r = "لم أفهم سؤالك، حاول بصيغة أخرى 😊";
+    else if(q.includes("إعارة")){
+        r = "الإعارة 4 كتب لمدة أسبوع";
     }
 
-    box.innerHTML += "<p>🤖 " + r + "</p>";
+    box.innerHTML += "<p>🤖 "+r+"</p>";
+
+    box.scrollTop = box.scrollHeight;
+
     document.getElementById("q").value = "";
 }
-
-function setLanguage(lang){
-    document.querySelectorAll('[data-lang]').forEach(el=>{
-        el.style.display = (el.getAttribute('data-lang') === lang) ? 'block' : 'none';
-    });
-}
-
-// تعيين اللغة العربية افتراضية عند التحميل
-document.addEventListener('DOMContentLoaded', ()=>{
-    setLanguage('ar');
-});
