@@ -215,12 +215,20 @@ img {
 }
 
 /* ===== DARK MODE ===== */
-.dark {
-    background: #121212;
-    color: white;
+.dark{
+    background:#0f0f0f;
+    color:white;
 }
 
-.dark section {
-    background: #1e1e1e;
-    color: white;
+.dark section{
+    background:#1a1a1a;
+}
+
+.dark nav{
+    background:#111;
+}
+
+.dark button{
+    background:#333;
+    color:white;
 }
