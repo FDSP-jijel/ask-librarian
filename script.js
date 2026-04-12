@@ -54,52 +54,51 @@ function displayNews(){
 
 
 // ================= المساعد =================
-async function reply(){
-
+function reply(){
     let input = document.getElementById("q");
-    let q = input.value.trim();
+    let q = input.value.trim().toLowerCase();
     let box = document.getElementById("chatbox");
 
     if(!q) return;
 
-    // عرض المستخدم
     box.innerHTML += `<p>👤 ${q}</p>`;
 
-    // رسالة انتظار
-    let loading = document.createElement("p");
-    loading.id = "loading";
-    loading.textContent = "🤖 جاري التفكير...";
-    box.appendChild(loading);
+    let r = "❓ لم أفهم سؤالك، حاول مرة أخرى";
 
+    // ===== مرادفات =====
+    if(q.includes("ساعات") || q.includes("وقت") || q.includes("متى") || q.includes("فتح")){
+        r = "🕒 المكتبة مفتوحة من 8:30 صباحاً إلى 16:30 مساءً.";
+    }
+
+    else if(q.includes("كتاب") || q.includes("بحث") || q.includes("مراجع") || q.includes("مصادر")){
+        r = "📚 يمكنك البحث في الفهرس الإلكتروني أو زيارة المكتبة مباشرة للحصول على المراجع.";
+    }
+
+    else if(q.includes("إعارة") || q.includes("استعارة") || q.includes("كتب")){
+        r = "📖 يمكن استعارة 4 كتب لمدة أسبوع واحد مع إمكانية التجديد.";
+    }
+
+    else if(q.includes("موقع") || q.includes("أين") || q.includes("مكان")){
+        r = "📍 تقع المكتبة في الطابق الأول والثاني داخل كلية الحقوق والعلوم السياسية.";
+    }
+
+    else if(q.includes("فهرس") || q.includes("بحث إلكتروني")){
+        r = "🌐 يمكنك استخدام الفهرس الإلكتروني: bc.univ-jijel.dz/opac-dsp";
+    }
+
+    else if(q.includes("مرحبا") || q.includes("السلام")){
+        r = "👋 مرحباً بك! أنا مساعد المكتبة، كيف أساعدك؟";
+    }
+
+    else if(q.includes("شكرا") || q.includes("شكرا لك")){
+        r = "😊 العفو! سعيد بمساعدتك.";
+    }
+
+    box.innerHTML += `<p>🤖 ${r}</p>`;
     box.scrollTop = box.scrollHeight;
-
-    await new Promise(r => setTimeout(r, 700));
-
-    loading.remove();
-
-    let response = "❓ لم أفهم سؤالك";
-
-    if(q.includes("ساعات") || q.includes("وقت")){
-        response = "🕒 المكتبة مفتوحة من 8:30 إلى 16:30.";
-    }
-    else if(q.includes("كتاب") || q.includes("بحث")){
-        response = "📚 يمكنك البحث عبر الفهرس أو سؤال الموظف.";
-    }
-    else if(q.includes("إعارة")){
-        response = "📖 الإعارة: 4 كتب لمدة أسبوع قابلة للتجديد.";
-    }
-    else if(q.includes("موقع")){
-        response = "📍 الطابق الأول والثاني داخل الكلية.";
-    }
-    else if(q.includes("فهرس")){
-        response = "🌐 bc.univ-jijel.dz/opac-dsp";
-    }
-
-    box.innerHTML += `<p>🤖 ${response}</p>`;
 
     input.value = "";
-    box.scrollTop = box.scrollHeight;
-
+}
     saveChat();
 }
 
@@ -120,4 +119,39 @@ function loadChat(){
 // ================= الوضع الليلي =================
 function toggleDark(){
     document.body.classList.toggle("dark");
+}
+
+let visitors = localStorage.getItem("visitors") || 0;
+visitors++;
+localStorage.setItem("visitors", visitors);
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    document.getElementById("visitors").textContent = visitors;
+});
+
+let books = [
+    "القانون المدني",
+    "القانون الدستوري",
+    "مدخل للعلوم السياسية",
+    "الاقتصاد الجزائري",
+    "حقوق الإنسان",
+    "علم الاجتماع"
+];
+
+function searchBooks(){
+    let q = document.getElementById("searchBook").value.toLowerCase();
+    let box = document.getElementById("bookResults");
+
+    box.innerHTML = "";
+
+    let results = books.filter(b => b.toLowerCase().includes(q));
+
+    if(results.length === 0){
+        box.innerHTML = "لا توجد نتائج";
+        return;
+    }
+
+    results.forEach(b=>{
+        box.innerHTML += `<p>📚 ${b}</p>`;
+    });
 }
