@@ -47,28 +47,52 @@ displayNews();
 
 // ================= المساعد =================
 function reply(){
-    let q = document.getElementById("q").value;
+    let q = document.getElementById("q").value.toLowerCase();
     let box = document.getElementById("chatbox");
 
     if(q.trim() === "") return;
 
-    box.innerHTML += "<p>👤 "+q+"</p>";
+    box.innerHTML += `<p>👤 ${q}</p>`;
 
-    let r = "لم أفهم سؤالك";
+    let r = "❓ لم أفهم سؤالك، حاول بطريقة أخرى.";
 
-    if(q.includes("ساعات")){
-        r = "المكتبة من 8:30 إلى 16:30";
+    // ذكاء بسيط (تحسين كبير)
+    if(q.includes("ساعات") || q.includes("وقت")){
+        r = "🕒 المكتبة مفتوحة من 8:30 إلى 16:30.";
     }
-    else if(q.includes("كتاب") || q.includes("بحث")){
-        r = "يمكنك البحث في الفهرس";
+    else if(q.includes("كتاب") || q.includes("بحث") || q.includes("مراجع")){
+        r = "📚 يمكنك استخدام الفهرس الإلكتروني للبحث عن الكتب.";
     }
-    else if(q.includes("إعارة")){
-        r = "الإعارة 4 كتب لمدة أسبوع";
+    else if(q.includes("إعارة") || q.includes("استعارة")){
+        r = "📖 يمكنك استعارة 4 كتب لمدة أسبوع قابل للتجديد.";
+    }
+    else if(q.includes("موقع") || q.includes("أين")){
+        r = "📍 المكتبة تقع في الطابق الأول والثاني.";
+    }
+    else if(q.includes("فهرس")){
+        r = "🌐 رابط الفهرس: bc.univ-jijel.dz/opac-dsp";
     }
 
-    box.innerHTML += "<p>🤖 "+r+"</p>";
+saveChat();
 
+    box.innerHTML += `<p>🤖 ${r}</p>`;
     box.scrollTop = box.scrollHeight;
 
     document.getElementById("q").value = "";
+}
+// حفظ الرسائل
+function saveChat(){
+    localStorage.setItem("chat", document.getElementById("chatbox").innerHTML);
+}
+
+// استرجاع الرسائل عند الدخول
+document.addEventListener("DOMContentLoaded", ()=>{
+    let saved = localStorage.getItem("chat");
+    if(saved){
+        document.getElementById("chatbox").innerHTML = saved;
+    }
+});
+
+function toggleDark(){
+    document.body.classList.toggle("dark");
 }
