@@ -84,7 +84,7 @@ function reply(){
     setTimeout(()=>{
         let r = generateReply(q.toLowerCase());
         typeMessage(r);
-    }, 500);
+speak(r);
 }
 
 
