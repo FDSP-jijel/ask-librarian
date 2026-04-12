@@ -5,21 +5,28 @@ function setLanguage(lang){
     });
 }
 
-// تشغيل اللغة الافتراضية
+// ================= تحميل الصفحة =================
 document.addEventListener("DOMContentLoaded", ()=>{
     setLanguage('ar');
     loadChat();
     displayNews();
+    updateVisitors();
 });
 
 
-// ================= التنقل =================
+// ================= التنقل مع Animation =================
 function show(id){
-    document.querySelectorAll("section").forEach(s=>{
+    document.querySelectorAll(".page").forEach(s=>{
         s.classList.add("hidden");
     });
 
-    document.getElementById(id).classList.remove("hidden");
+    let section = document.getElementById(id);
+    section.classList.remove("hidden");
+
+    section.style.opacity = 0;
+    setTimeout(()=>{
+        section.style.opacity = 1;
+    }, 100);
 }
 
 
@@ -47,59 +54,95 @@ function displayNews(){
 
     news.slice().reverse().forEach(n=>{
         let div = document.createElement("div");
+        div.className = "card";
         div.innerHTML = `<h3>${n.title}</h3><p>${n.content}</p>`;
         box.appendChild(div);
     });
 }
 
 
-// ================= المساعد =================
+// ================= المساعد الذكي =================
 function reply(){
     let input = document.getElementById("q");
-    let q = input.value.trim().toLowerCase();
+    let q = input.value.trim();
     let box = document.getElementById("chatbox");
 
     if(!q) return;
 
-    box.innerHTML += `<p>👤 ${q}</p>`;
+    addMessage("user", q);
+    input.value = "";
 
-    let r = "❓ لم أفهم سؤالك، حاول مرة أخرى";
+    setTimeout(()=>{
+        let r = generateReply(q.toLowerCase());
+        typeMessage(r);
+    }, 500);
+}
 
-    // ===== مرادفات =====
-    if(q.includes("ساعات") || q.includes("وقت") || q.includes("متى") || q.includes("فتح")){
-        r = "🕒 المكتبة مفتوحة من 8:30 صباحاً إلى 16:30 مساءً.";
+
+// ===== إنشاء الرد =====
+function generateReply(q){
+
+    if(q.includes("ساعات") || q.includes("وقت") || q.includes("متى")){
+        return "🕒 المكتبة مفتوحة من 8:30 إلى 16:30.";
     }
 
-    else if(q.includes("كتاب") || q.includes("بحث") || q.includes("مراجع") || q.includes("مصادر")){
-        r = "📚 يمكنك البحث في الفهرس الإلكتروني أو زيارة المكتبة مباشرة للحصول على المراجع.";
+    if(q.includes("كتاب") || q.includes("مراجع")){
+        return "📚 يمكنك البحث في الفهرس الإلكتروني أو زيارة المكتبة.";
     }
 
-    else if(q.includes("إعارة") || q.includes("استعارة") || q.includes("كتب")){
-        r = "📖 يمكن استعارة 4 كتب لمدة أسبوع واحد مع إمكانية التجديد.";
+    if(q.includes("إعارة") || q.includes("استعارة")){
+        return "📖 يمكنك استعارة 4 كتب لمدة أسبوع.";
     }
 
-    else if(q.includes("موقع") || q.includes("أين") || q.includes("مكان")){
-        r = "📍 تقع المكتبة في الطابق الأول والثاني داخل كلية الحقوق والعلوم السياسية.";
+    if(q.includes("مكان") || q.includes("أين")){
+        return "📍 المكتبة في الطابق الأول والثاني.";
     }
 
-    else if(q.includes("فهرس") || q.includes("بحث إلكتروني")){
-        r = "🌐 يمكنك استخدام الفهرس الإلكتروني: bc.univ-jijel.dz/opac-dsp";
+    if(q.includes("مرحبا") || q.includes("السلام")){
+        return "👋 مرحباً بك! كيف أساعدك؟";
     }
 
-    else if(q.includes("مرحبا") || q.includes("السلام")){
-        r = "👋 مرحباً بك! أنا مساعد المكتبة، كيف أساعدك؟";
-    }
+    return "❓ لم أفهم سؤالك، حاول بصيغة أخرى.";
+}
 
-    else if(q.includes("شكرا") || q.includes("شكرا لك")){
-        r = "😊 العفو! سعيد بمساعدتك.";
-    }
 
-    box.innerHTML += `<p>🤖 ${r}</p>`;
+// ================= عرض الرسائل =================
+function addMessage(type, text){
+    let box = document.getElementById("chatbox");
+
+    let msg = document.createElement("p");
+    msg.className = type === "user" ? "msg user" : "msg bot";
+    msg.textContent = text;
+
+    box.appendChild(msg);
     box.scrollTop = box.scrollHeight;
 
-    input.value = "";
-}
     saveChat();
+}
+
+
+// ================= typing effect 🔥 =================
+function typeMessage(text){
+    let box = document.getElementById("chatbox");
+
+    let msg = document.createElement("p");
+    msg.className = "msg bot";
+    box.appendChild(msg);
+
+    let i = 0;
+
+    let interval = setInterval(()=>{
+        msg.textContent += text[i];
+        i++;
+
+        if(i >= text.length){
+            clearInterval(interval);
+            saveChat();
+        }
+
+        box.scrollTop = box.scrollHeight;
+
+    }, 30);
 }
 
 
@@ -121,14 +164,19 @@ function toggleDark(){
     document.body.classList.toggle("dark");
 }
 
-let visitors = localStorage.getItem("visitors") || 0;
-visitors++;
-localStorage.setItem("visitors", visitors);
 
-document.addEventListener("DOMContentLoaded", ()=>{
-    document.getElementById("visitors").textContent = visitors;
-});
+// ================= الإحصائيات =================
+function updateVisitors(){
+    let visitors = localStorage.getItem("visitors") || 0;
+    visitors++;
+    localStorage.setItem("visitors", visitors);
 
+    let el = document.getElementById("visitors");
+    if(el) el.textContent = visitors;
+}
+
+
+// ================= البحث =================
 let books = [
     "القانون المدني",
     "القانون الدستوري",
@@ -147,11 +195,11 @@ function searchBooks(){
     let results = books.filter(b => b.toLowerCase().includes(q));
 
     if(results.length === 0){
-        box.innerHTML = "لا توجد نتائج";
+        box.innerHTML = "<p>❌ لا توجد نتائج</p>";
         return;
     }
 
     results.forEach(b=>{
-        box.innerHTML += `<p>📚 ${b}</p>`;
+        box.innerHTML += `<div class="card">📚 ${b}</div>`;
     });
 }
