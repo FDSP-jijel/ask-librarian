@@ -234,3 +234,11 @@ function startVoice(){
         reply(); // يرسل تلقائيًا
     };
 }
+    
+function speak(text){
+    let speech = new SpeechSynthesisUtterance();
+    speech.text = text;
+    speech.lang = "ar-SA";
+    speech.rate = 1;
+    window.speechSynthesis.speak(speech);
+}
