@@ -72,6 +72,15 @@ function reply(){
     addMessage("user", q);
     input.value = "";
 
+    function speak(text){
+    let speech = new SpeechSynthesisUtterance();
+    speech.text = text;
+    speech.lang = "ar-SA";
+    speech.rate = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+    
     setTimeout(()=>{
         let r = generateReply(q.toLowerCase());
         typeMessage(r);
