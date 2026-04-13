@@ -462,3 +462,38 @@ button:active{
     background: #3b82f6;
     color: white;
 }
+
+/* ===== 3 LANGUAGE BUTTONS ===== */
+
+.language-selector{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:15px;
+    flex-wrap:wrap;
+}
+
+.language-selector .lang{
+    padding:10px 18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.7);
+}
+
+/* Hover */
+.language-selector .lang:hover{
+    transform: scale(1.1);
+    background:#3b82f6;
+    color:white;
+}
+
+/* Active effect (اختياري بصري) */
+.language-selector .lang.active{
+    background:#2563eb;
+    color:white;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
