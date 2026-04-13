@@ -321,6 +321,9 @@ html[dir="ltr"] .msg.user{
 html[dir="ltr"] .msg.bot{
     align-self: flex-end;
 }
+html[dir="ltr"] .structure-item:hover{
+    transform: translateX(-5px);
+}
 
 /* =========================
    CHAT IMPROVEMENT 💬
@@ -335,6 +338,10 @@ html[dir="ltr"] .msg.bot{
 
 .msg.bot{
     background: rgba(0,0,0,0.05);
+}
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(10px);}
+    to {opacity:1; transform: translateY(0);}
 }
 
 /* =========================
@@ -487,6 +494,7 @@ button:active{
 }
 
 .links-box a{
+    font-weight: bold;
     display: block;
     padding: 10px;
     margin: 8px 0;
@@ -497,9 +505,12 @@ button:active{
     transition: 0.3s;
 }
 
-.links-box a:hover{
-    transform: translateX(5px);
-    background: #e0f2fe;
+.links-box{
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
 }
 
 .structure-box{
@@ -508,13 +519,18 @@ button:active{
 }
 
 .structure-btn{
-    background: #2563eb;
+    background: linear-gradient(135deg,#3b82f6,#2563eb);
     color: white;
-    padding: 12px 20px;
+    padding: 12px 22px;
     border: none;
-    border-radius: 12px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 16px;
+    transition: 0.3s;
+}
+
+.structure-btn:hover{
+    transform: scale(1.08);
 }
 
 .structure-content{
