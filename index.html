@@ -7,7 +7,6 @@
 <title>إسأل المكتبي</title>
 
 <link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
 <meta name="theme-color" content="#0f172a">
@@ -19,15 +18,31 @@
 <header class="main-header">
 
   <div class="institution">
-    <p>الجمهورية الجزائرية الديمقراطية الشعبية</p>
-    <p>وزارة التعليم العالي والبحث العلمي</p>
-    <p>جامعة محمد الصديق بن يحيى - جيجل</p>
-    <p>كلية الحقوق والعلوم السياسية</p>
+    <p data-lang="ar">الجمهورية الجزائرية الديمقراطية الشعبية</p>
+    <p data-lang="fr">République Algérienne Démocratique et Populaire</p>
+
+    <p data-lang="ar">وزارة التعليم العالي والبحث العلمي</p>
+    <p data-lang="fr">Ministère de l'Enseignement Supérieur</p>
+
+    <p data-lang="ar">جامعة محمد الصديق بن يحيى - جيجل</p>
+    <p data-lang="fr">Université Jijel</p>
+
+    <p data-lang="ar">كلية الحقوق والعلوم السياسية</p>
+    <p data-lang="fr">Faculté de Droit</p>
   </div>
 
   <div class="title">
-    <h1>📚 إسأل المكتبي</h1>
-    <p>منصة ذكية لخدمة الطلبة والباحثين</p>
+    <h1 data-lang="ar">📚 إسأل المكتبي</h1>
+    <h1 data-lang="fr">📚 Assistant Bibliothécaire</h1>
+
+    <p data-lang="ar">منصة ذكية لخدمة الطلبة والباحثين</p>
+    <p data-lang="fr">Plateforme intelligente pour étudiants</p>
+  </div>
+
+  <!-- 🌐 اللغة -->
+  <div class="language-selector">
+    <button onclick="setLanguage('ar')">العربية</button>
+    <button onclick="setLanguage('fr')">Français</button>
   </div>
 
 </header>
@@ -51,10 +66,11 @@
 <section id="home" class="page">
 
   <div class="hero">
-    <h2>🤖 أمين المكتبة الذكي</h2>
+    <h2 data-lang="ar">🤖 أمين المكتبة الذكي</h2>
+    <h2 data-lang="fr">🤖 Bibliothécaire intelligent</h2>
 
     <div class="search-box">
-      <input id="searchBook" placeholder="ابحث عن كتاب، مؤلف أو موضوع...">
+      <input id="searchBook" placeholder="ابحث عن كتاب...">
       <button onclick="searchBooks()">🔍</button>
     </div>
   </div>
@@ -69,11 +85,6 @@
 
 </section>
 
-<!-- ================= ABOUT ================= -->
-<section id="about" class="page hidden">
-  <h2>حول المكتبة</h2>
-</section>
-
 <!-- ================= CHAT ================= -->
 <section id="chat" class="page hidden">
 
@@ -81,70 +92,40 @@
 
   <div id="chatbox" class="chatbox"></div>
 
-  <!-- ✅ تم إصلاحه هنا -->
   <div class="chat-input">
     <input id="q" placeholder="اكتب أو تكلم...">
-
     <button onclick="reply()">إرسال</button>
 
-    <button onclick="startVoice()" title="تحدث 🎤">
-      🎤
-    </button>
+    <!-- 🎤 ميكروفون -->
+    <button onclick="startVoice()">🎤</button>
   </div>
 
 </section>
 
-<!-- ================= RULES ================= -->
-<section id="rules" class="page hidden">
-  <h2>📜 القوانين</h2>
-</section>
+<!-- باقي الأقسام بدون تغيير -->
+<section id="about" class="page hidden"><h2>حول</h2></section>
+<section id="rules" class="page hidden"><h2>القوانين</h2></section>
 
-<!-- ================= NEWS ================= -->
 <section id="news" class="page hidden">
-
   <h2>📢 الإعلانات</h2>
-
-  <div class="news-form">
-    <input id="newsTitle" placeholder="عنوان الإعلان">
-    <textarea id="newsContent" placeholder="محتوى الإعلان"></textarea>
-    <button onclick="addNews()">نشر</button>
-  </div>
-
+  <input id="newsTitle">
+  <textarea id="newsContent"></textarea>
+  <button onclick="addNews()">نشر</button>
   <div id="newsList"></div>
-
 </section>
 
-<!-- ================= IMAGES ================= -->
 <section id="images" class="page hidden">
-
-  <h2>📷 معرض الصور</h2>
-
+  <h2>📷 الصور</h2>
   <div class="images-container">
-
-    <div class="image-box">
-      <img src="faculty-logo.png">
-      <p>شعار الكلية</p>
-    </div>
-
-    <div class="image-box">
-      <img src="faculty.jpg">
-      <p>الكلية</p>
-    </div>
-
-    <div class="image-box">
-      <img src="library.jpg">
-      <p>المكتبة</p>
-    </div>
-
+    <div class="image-box"><img src="faculty-logo.png"><p>شعار الكلية</p></div>
+    <div class="image-box"><img src="faculty.jpg"><p>الكلية</p></div>
+    <div class="image-box"><img src="library.jpg"><p>المكتبة</p></div>
   </div>
-
 </section>
 
-<!-- ================= STATS ================= -->
 <section id="stats" class="page hidden">
   <h2>📊 الإحصائيات</h2>
-  <p>عدد الكتب: <span id="books">5000</span></p>
-  <p>عدد الزوار: <span id="visitors">0</span></p>
+  <p>عدد الكتب: 5000</p>
 </section>
 
 <script src="script.js"></script>
