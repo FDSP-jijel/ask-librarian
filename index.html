@@ -8,7 +8,6 @@
 
 <link rel="stylesheet" href="style.css">
 
-<!-- خطوط احترافية -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
 <meta name="theme-color" content="#0f172a">
@@ -52,24 +51,20 @@
 <section id="home" class="page">
 
   <div class="hero">
-
     <h2>🤖 أمين المكتبة الذكي</h2>
 
     <div class="search-box">
       <input id="searchBook" placeholder="ابحث عن كتاب، مؤلف أو موضوع...">
       <button onclick="searchBooks()">🔍</button>
     </div>
-
   </div>
 
   <div id="bookResults"></div>
 
   <div class="cards">
-
     <div class="card">📚 <h3>الكتب</h3></div>
     <div class="card">📰 <h3>الدوريات</h3></div>
     <div class="card">💻 <h3>الخدمات الرقمية</h3></div>
-
   </div>
 
 </section>
@@ -86,18 +81,15 @@
 
   <div id="chatbox" class="chatbox"></div>
 
+  <!-- ✅ تم إصلاحه هنا -->
   <div class="chat-input">
-    <input id="q" placeholder="اكتب سؤالك...">
-    <div class="chat-input">
-  <input id="q" placeholder="اكتب أو تكلم...">
+    <input id="q" placeholder="اكتب أو تكلم...">
 
-  <button onclick="reply()">إرسال</button>
-
-  <button onclick="startVoice()" title="تحدث 🎤">
-    🎤
-  </button>
-</div>
     <button onclick="reply()">إرسال</button>
+
+    <button onclick="startVoice()" title="تحدث 🎤">
+      🎤
+    </button>
   </div>
 
 </section>
