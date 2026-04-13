@@ -50,10 +50,16 @@
   </div>
 
   <!-- 🌐 اللغة -->
-  <div class="language-selector">
-  <button onclick="setLanguage('ar')">🌐 العربية</button>
-  <button onclick="setLanguage('fr')">🌐 Français</button>
-  <button onclick="setLanguage('en')">🌐 English</button>
+  <div class="lang-dropdown">
+  <button class="lang-btn" onclick="toggleLangMenu()">
+    🌐 Language
+  </button>
+
+  <div id="langMenu" class="lang-menu">
+    <button onclick="setLanguage('ar')">🇩🇿 العربية</button>
+    <button onclick="setLanguage('fr')">🇫🇷 Français</button>
+    <button onclick="setLanguage('en')">🇬🇧 English</button>
+  </div>
 </div>
 
 </header>
