@@ -357,13 +357,23 @@ function loadMessages(){
     messages.slice().reverse().forEach((m, index)=>{
 
         let div = document.createElement("div");
+        div.className = "msg-admin";
 
         div.innerHTML = `
-            <p><strong>👤 ${m.name}</strong></p>
-            <p>📧 ${m.email}</p>
-            <p>💬 ${m.message}</p>
-            <button onclick="deleteMessage(${index})">🗑 حذف</button>
-            <hr>
+            <div class="msg-avatar">👤</div>
+
+            <div class="msg-content">
+                <div class="msg-header">
+                    <span class="msg-name">${m.name}</span>
+                    <span class="msg-time">${m.time || ""}</span>
+                </div>
+
+                <div class="msg-text">${m.message}</div>
+
+                <button class="delete-btn" onclick="deleteMessage(${index})">
+                    🗑 حذف
+                </button>
+            </div>
         `;
 
         box.appendChild(div);
