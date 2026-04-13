@@ -553,3 +553,22 @@ button:active{
     transform: translateX(5px);
     background: #e0f2fe;
 }
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.admin-box {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 15px;
+}
