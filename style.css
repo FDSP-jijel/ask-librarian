@@ -287,3 +287,19 @@ body {
     opacity: 1;
 }
 
+/* صورة المساعد */
+.msg.bot::before {
+    content: "🤖";
+    position: absolute;
+    right: -30px;
+    top: 0;
+    font-size: 20px;
+}
+
+/* صورة المستخدم */
+.msg.user::after {
+    content: "👤";
+    position: absolute;
+    left: -30px;
+    top: 0;
+}
