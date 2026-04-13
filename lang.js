@@ -1,18 +1,28 @@
-// ================== تغيير اللغة ==================
+// ================== اللغة (نسخة آمنة) ==================
+
 function setLanguage(lang){
 
-    document.querySelectorAll('[data-lang]').forEach(el => {
-        el.style.display = (el.getAttribute('data-lang') === lang) ? '' : 'none';
-    });
-
-    // حفظ اللغة في المتصفح
+    // نحفظ اللغة
     localStorage.setItem('lang', lang);
+
+    // نغيّر فقط العناصر التي لديها data-lang فعليًا
+    document.querySelectorAll('[data-lang]').forEach(el => {
+
+        if(el.getAttribute('data-lang') === lang){
+            el.style.display = '';
+        } else {
+            el.style.display = 'none';
+        }
+    });
 }
 
-// ================== تشغيل تلقائي عند فتح الصفحة ==================
+// ================== تشغيل تلقائي ==================
 document.addEventListener('DOMContentLoaded', () => {
 
     let savedLang = localStorage.getItem('lang') || 'ar';
-    setLanguage(savedLang);
 
+    // تأخير بسيط لضمان تحميل DOM
+    setTimeout(() => {
+        setLanguage(savedLang);
+    }, 100);
 });
