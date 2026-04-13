@@ -312,3 +312,27 @@ function setLanguage(lang){
     let activeBtn = document.querySelector(".language-selector ."+lang);
     if(activeBtn) activeBtn.classList.add("active");
 }
+
+function sendMessage(){
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let message = document.getElementById("message").value.trim();
+
+    if(!name || !email || !message){
+        alert("يرجى ملء جميع الحقول");
+        return;
+    }
+
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+    messages.push({name, email, message});
+
+    localStorage.setItem("messages", JSON.stringify(messages));
+
+    alert("تم إرسال الرسالة بنجاح ✅");
+
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
+}
