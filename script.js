@@ -2,11 +2,19 @@
    INIT
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
-    setLanguage("ar");
+    let lang = localStorage.getItem("lang") || "ar";
+    setLanguage(lang);
     loadChat();
     displayNews();
     updateVisitors();
 });
+
+/* =========================
+   GET CURRENT LANGUAGE
+========================= */
+function getLang(){
+    return localStorage.getItem("lang") || "ar";
+}
 
 /* =========================
    NAVIGATION
@@ -45,11 +53,18 @@ function addMessage(type, text){
 
 function showTyping(){
     let box = document.getElementById("chatbox");
+    let lang = getLang();
+
+    let text = {
+        ar: "يكتب الآن...",
+        fr: "En train d'écrire...",
+        en: "Typing..."
+    };
 
     let typing = document.createElement("div");
     typing.className = "msg bot typing";
     typing.id = "typing";
-    typing.textContent = "يكتب الآن...";
+    typing.textContent = text[lang];
 
     box.appendChild(typing);
     box.scrollTop = box.scrollHeight;
@@ -61,39 +76,56 @@ function removeTyping(){
 }
 
 /* =========================
-   AI RESPONSE (FREE LOGIC)
+   AI RESPONSE (MULTI LANG)
 ========================= */
 function generateReply(q){
 
-    if(q.includes("وقت") || q.includes("ساعات") || q.includes("متى") || q.includes("فتح")){
-        return "🕒 المكتبة مفتوحة من 8:30 صباحاً إلى 16:30 مساءً.";
-    }
+    let lang = getLang();
 
-    if(q.includes("كتاب") || q.includes("بحث") || q.includes("مراجع")){
-        return "📚 يمكنك استخدام الفهرس أو زيارة المكتبة للحصول على الكتب.";
-    }
+    const responses = {
+        ar: {
+            hours: "🕒 المكتبة مفتوحة من 8:30 إلى 16:30.",
+            books: "📚 يمكنك البحث في الفهرس أو زيارة المكتبة.",
+            borrow: "📖 يمكنك استعارة 4 كتب لمدة أسبوع.",
+            place: "📍 المكتبة داخل الكلية.",
+            hello: "👋 مرحباً بك! كيف أساعدك؟",
+            thanks: "😊 على الرحب والسعة!",
+            default: "❓ لم أفهم، حاول بصيغة أخرى."
+        },
+        fr: {
+            hours: "🕒 La bibliothèque est ouverte de 8h30 à 16h30.",
+            books: "📚 Utilisez le catalogue ou visitez la bibliothèque.",
+            borrow: "📖 Vous pouvez emprunter 4 livres pour une semaine.",
+            place: "📍 La bibliothèque est dans la faculté.",
+            hello: "👋 Bonjour ! Comment puis-je aider ?",
+            thanks: "😊 Avec plaisir !",
+            default: "❓ Je n'ai pas compris."
+        },
+        en: {
+            hours: "🕒 Library open from 8:30 to 16:30.",
+            books: "📚 Use the catalog or visit the library.",
+            borrow: "📖 You can borrow 4 books for one week.",
+            place: "📍 Library is inside the faculty.",
+            hello: "👋 Hello! How can I help?",
+            thanks: "😊 You're welcome!",
+            default: "❓ I didn't understand."
+        }
+    };
 
-    if(q.includes("إعارة") || q.includes("استعارة")){
-        return "📖 يمكن استعارة 4 كتب لمدة أسبوع مع إمكانية التجديد.";
-    }
+    let r = responses[lang];
 
-    if(q.includes("أين") || q.includes("موقع") || q.includes("مكان")){
-        return "📍 تقع المكتبة داخل كلية الحقوق والعلوم السياسية.";
-    }
+    if(q.includes("وقت") || q.includes("hour") || q.includes("heure")) return r.hours;
+    if(q.includes("كتاب") || q.includes("book") || q.includes("livre")) return r.books;
+    if(q.includes("إعارة") || q.includes("borrow") || q.includes("emprunter")) return r.borrow;
+    if(q.includes("موقع") || q.includes("where") || q.includes("où")) return r.place;
+    if(q.includes("مرحبا") || q.includes("hello") || q.includes("bonjour")) return r.hello;
+    if(q.includes("شكرا") || q.includes("thanks") || q.includes("merci")) return r.thanks;
 
-    if(q.includes("مرحبا") || q.includes("السلام")){
-        return "👋 مرحباً بك! أنا مساعد المكتبة، كيف أساعدك؟";
-    }
-
-    if(q.includes("شكرا")){
-        return "😊 العفو! سعيد بمساعدتك.";
-    }
-
-    return "❓ لم أفهم سؤالك، حاول بصيغة أخرى.";
+    return r.default;
 }
 
 /* =========================
-   MAIN CHAT FUNCTION
+   MAIN CHAT
 ========================= */
 function reply(){
     let input = document.getElementById("q");
@@ -110,7 +142,7 @@ function reply(){
         removeTyping();
         let r = generateReply(q.toLowerCase());
         addMessage("bot", r);
-    }, 800);
+    }, 700);
 }
 
 /* =========================
@@ -173,64 +205,67 @@ function updateVisitors(){
 }
 
 /* =========================
-   BOOK SEARCH
+   BOOK SEARCH (MULTI LANG)
 ========================= */
 let books = [
-    "القانون المدني",
-    "القانون الدستوري",
-    "مدخل للعلوم السياسية",
-    "حقوق الإنسان",
-    "الاقتصاد الجزائري",
-    "علم الاجتماع"
+    {ar:"القانون المدني", fr:"Droit civil", en:"Civil Law"},
+    {ar:"القانون الدستوري", fr:"Droit constitutionnel", en:"Constitutional Law"},
+    {ar:"علوم سياسية", fr:"Sciences politiques", en:"Political Science"},
+    {ar:"حقوق الإنسان", fr:"Droits de l'homme", en:"Human Rights"}
 ];
 
 function searchBooks(){
     let q = document.getElementById("searchBook").value.toLowerCase();
     let box = document.getElementById("bookResults");
+    let lang = getLang();
 
     if(!box) return;
 
     box.innerHTML = "";
 
-    let results = books.filter(b => b.toLowerCase().includes(q));
+    let results = books.filter(b =>
+        b.ar.toLowerCase().includes(q) ||
+        b.fr.toLowerCase().includes(q) ||
+        b.en.toLowerCase().includes(q)
+    );
 
     if(results.length === 0){
-        box.innerHTML = "لا توجد نتائج";
+        box.innerHTML = (lang==="ar") ? "لا توجد نتائج" :
+                        (lang==="fr") ? "Aucun résultat" :
+                        "No results";
         return;
     }
 
     results.forEach(b=>{
-        box.innerHTML += `<p>📚 ${b}</p>`;
+        box.innerHTML += `<p>📚 ${b[lang]}</p>`;
     });
 }
 
+/* =========================
+   VOICE (SMART LANG)
+========================= */
 function startVoice(){
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if(!SpeechRecognition){
-        alert("المتصفح لا يدعم الميكروفون");
+        alert("Microphone non supporté / Not supported");
         return;
     }
 
+    let lang = getLang();
+
     let recognition = new SpeechRecognition();
 
-    recognition.lang = "ar-SA"; // العربية
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
+    recognition.lang = (lang === "ar") ? "ar-SA" :
+                       (lang === "fr") ? "fr-FR" :
+                       "en-US";
 
     recognition.start();
 
     recognition.onresult = function(event){
         let text = event.results[0][0].transcript;
-
         document.getElementById("q").value = text;
-
-        // تشغيل الرد مباشرة
         reply();
-    };
-
-    recognition.onerror = function(){
-        alert("حدث خطأ في الميكروفون");
     };
 }
