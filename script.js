@@ -91,7 +91,7 @@ function generateReply(q){
             place: "📍 المكتبة داخل الكلية.",
             hello: "👋 مرحباً بك! كيف أساعدك؟",
             thanks: "😊 على الرحب والسعة!",
-            default: "❓ لم أفهم، حاول بصيغة أخرى."
+            default: "❓ لم أفهم سؤالك، حاول بشكل أوضح."
         },
         fr: {
             hours: "🕒 La bibliothèque est ouverte de 8h30 à 16h30.",
@@ -109,12 +109,31 @@ function generateReply(q){
             place: "📍 Library is inside the faculty.",
             hello: "👋 Hello! How can I help?",
             thanks: "😊 You're welcome!",
-            default: "❓ I didn't understand."
+            default: "❓ I didn't understand clearly."
         }
     };
 
     let r = responses[lang];
 
+    /* ================= AI INTENT ENGINE ================= */
+
+    const intents = [
+        { key: "hours", patterns: ["وقت", "ساعات", "متى", "open", "opening", "heure", "horaire"] },
+        { key: "books", patterns: ["كتاب", "بحث", "livre", "book", "search", "recherche"] },
+        { key: "borrow", patterns: ["إعارة", "استعارة", "borrow", "emprunt", "loan"] },
+        { key: "place", patterns: ["أين", "موقع", "where", "place", "où"] },
+        { key: "hello", patterns: ["مرحبا", "bonjour", "hello", "hi"] },
+        { key: "thanks", patterns: ["شكرا", "merci", "thanks"] }
+    ];
+
+    for(let intent of intents){
+        if(intent.patterns.some(p => q.includes(p))){
+            return r[intent.key];
+        }
+    }
+
+    return r.default;
+}
     /* ================= SMART MATCHING ================= */
 
     if(q.match(/(وقت|heure|hour|opening|open|horaire)/)) return r.hours;
