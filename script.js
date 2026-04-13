@@ -30,9 +30,10 @@ function show(id){
     let page = document.getElementById(id);
     if(page) page.classList.remove("hidden");
 
-    // 👇 الحل هنا
+    // 👇 عند فتح لوحة التحكم
     if(id === "admin"){
         loadMessages();
+        updateDashboard();
     }
 }
 
