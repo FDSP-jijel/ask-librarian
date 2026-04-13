@@ -275,27 +275,28 @@ function startVoice(){
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if(!SpeechRecognition){
-        alert("Microphone non supporté / Not supported");
+        alert("المتصفح لا يدعم الميكروفون");
         return;
     }
 
-    let lang = getLang();
-
     let recognition = new SpeechRecognition();
 
-    recognition.lang = (lang === "ar") ? "ar-SA" :
-                       (lang === "fr") ? "fr-FR" :
-                       "en-US";
+    // يدعم 3 لغات حسب اختيار المستخدم
+    let lang = getLang();
+
+    if(lang === "ar") recognition.lang = "ar-SA";
+    if(lang === "fr") recognition.lang = "fr-FR";
+    if(lang === "en") recognition.lang = "en-US";
 
     recognition.start();
 
     recognition.onresult = function(event){
         let text = event.results[0][0].transcript;
+
         document.getElementById("q").value = text;
         reply();
     };
 }
-
 // فتح/غلق القائمة
 function toggleLangMenu(){
     let menu = document.getElementById("langMenu");
@@ -309,7 +310,7 @@ function toggleLangMenu(){
 
 // إغلاق تلقائي عند اختيار لغة
 function setLanguage(lang){
-
+   
     localStorage.setItem("lang", lang);
 
     document.querySelectorAll("[data-lang]").forEach(el=>{
@@ -325,3 +326,5 @@ function setLanguage(lang){
 
     document.querySelector(".language-selector ."+lang).classList.add("active");
 }
+
+document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
