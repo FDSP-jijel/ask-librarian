@@ -269,3 +269,29 @@ function startVoice(){
         reply();
     };
 }
+
+// فتح/غلق القائمة
+function toggleLangMenu(){
+    let menu = document.getElementById("langMenu");
+
+    if(menu.style.display === "flex"){
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "flex";
+    }
+}
+
+// إغلاق تلقائي عند اختيار لغة
+function setLanguage(lang){
+
+    localStorage.setItem("lang", lang);
+
+    document.querySelectorAll("[data-lang]").forEach(el=>{
+        el.style.display = (el.getAttribute("data-lang") === lang) ? "" : "none";
+    });
+
+    document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
+
+    // إغلاق القائمة بعد الاختيار
+    document.getElementById("langMenu").style.display = "none";
+}
