@@ -361,3 +361,14 @@ function loadMessages(){
         box.appendChild(div);
     });
 }
+
+function deleteMessage(i){
+
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+    messages.splice(i,1);
+
+    localStorage.setItem("messages", JSON.stringify(messages));
+
+    loadMessages();
+}
