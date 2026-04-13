@@ -150,9 +150,6 @@ function addMessage(type, text){
     box.appendChild(msg);
     box.scrollTop = box.scrollHeight;
 
-    saveChat();
-}
-
 
 // ================= typing effect 🔥 =================
 function typeMessage(text){
