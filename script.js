@@ -292,6 +292,10 @@ function setLanguage(lang){
 
     document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
 
-    // إغلاق القائمة بعد الاختيار
-    document.getElementById("langMenu").style.display = "none";
+    // 🔥 تمييز الزر النشط
+    document.querySelectorAll(".language-selector .lang").forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    document.querySelector(".language-selector ."+lang).classList.add("active");
 }
