@@ -529,3 +529,39 @@ button:active{
     transform: translateX(5px);
     background: #e0f2fe;
 }
+
+.structure-box{
+    margin-top: 25px;
+    text-align: center;
+}
+
+.structure-btn{
+    background: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.structure-content{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 420px;
+    margin: 15px auto;
+}
+
+.structure-item{
+    background: rgba(255,255,255,0.8);
+    padding: 12px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.structure-item:hover{
+    transform: translateX(5px);
+    background: #e0f2fe;
+}
