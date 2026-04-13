@@ -397,3 +397,21 @@ function deleteMessage(i){
 
     loadMessages();
 }
+
+function updateDashboard(){
+
+    // الكتب
+    document.getElementById("totalBooks").textContent = books.length;
+
+    // الزوار
+    let visitors = localStorage.getItem("visitors") || 0;
+    document.getElementById("totalVisitors").textContent = visitors;
+
+    // الرسائل
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+    document.getElementById("totalMessages").textContent = messages.length;
+
+    // الإعلانات
+    let news = JSON.parse(localStorage.getItem("news")) || [];
+    document.getElementById("totalNews").textContent = news.length;
+}
