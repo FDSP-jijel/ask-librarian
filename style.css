@@ -410,3 +410,55 @@ button:active{
         max-width:90%;
     }
 }
+
+/* ================= LANGUAGE DROPDOWN ================= */
+
+.lang-dropdown{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.lang-btn{
+    background: rgba(255,255,255,0.7);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.lang-btn:hover{
+    background: #3b82f6;
+    color: white;
+    transform: scale(1.05);
+}
+
+.lang-menu{
+    position: absolute;
+    top: 50px;
+    display: none;
+    flex-direction: column;
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    min-width: 150px;
+    z-index: 999;
+}
+
+.lang-menu button{
+    padding: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.lang-menu button:hover{
+    background: #3b82f6;
+    color: white;
+}
