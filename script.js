@@ -22,12 +22,18 @@ function getLang(){
    NAVIGATION
 ========================= */
 function show(id){
+
     document.querySelectorAll("section").forEach(s=>{
         s.classList.add("hidden");
     });
 
     let page = document.getElementById(id);
     if(page) page.classList.remove("hidden");
+
+    // 👇 الحل هنا
+    if(id === "admin"){
+        loadMessages();
+    }
 }
 
 /* =========================
