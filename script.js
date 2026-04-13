@@ -241,3 +241,20 @@ function startVoice(){
     };
 }
     
+function showTyping(){
+    let box = document.getElementById("chatbox");
+
+    let typing = document.createElement("div");
+    typing.className = "msg bot typing";
+    typing.id = "typing";
+
+    typing.innerHTML = "⌛ يكتب الآن...";
+
+    box.appendChild(typing);
+    box.scrollTop = box.scrollHeight;
+}
+
+function removeTyping(){
+    let t = document.getElementById("typing");
+    if(t) t.remove();
+}
