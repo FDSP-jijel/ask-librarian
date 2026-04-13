@@ -71,11 +71,17 @@ function reply(){
     addMessage("user", q);
     input.value = "";
 
+    showTyping(); // 👈 يظهر "يكتب..."
+
     setTimeout(()=>{
+        removeTyping();
+
         let r = generateReply(q.toLowerCase());
+
         addMessage("bot", r);
         speak(r);
-    }, 500);
+
+    }, 1200); // تأخير يعطي واقعية
 }
 
     function speak(text){
