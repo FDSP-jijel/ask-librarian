@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     updateVisitors();
 });
 
+loadMessages();
+
 /* =========================
    GET CURRENT LANGUAGE
 ========================= */
