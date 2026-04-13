@@ -203,3 +203,34 @@ function searchBooks(){
         box.innerHTML += `<p>📚 ${b}</p>`;
     });
 }
+
+function startVoice(){
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if(!SpeechRecognition){
+        alert("المتصفح لا يدعم الميكروفون");
+        return;
+    }
+
+    let recognition = new SpeechRecognition();
+
+    recognition.lang = "ar-SA"; // العربية
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.start();
+
+    recognition.onresult = function(event){
+        let text = event.results[0][0].transcript;
+
+        document.getElementById("q").value = text;
+
+        // تشغيل الرد مباشرة
+        reply();
+    };
+
+    recognition.onerror = function(){
+        alert("حدث خطأ في الميكروفون");
+    };
+}
