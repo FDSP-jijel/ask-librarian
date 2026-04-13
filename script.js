@@ -135,6 +135,9 @@ function addMessage(type, text){
     msg.className = "msg " + type;
     msg.textContent = text;
 
+    box.appendChild(msg);
+}
+
     // زر الاستماع للرد فقط للبوت
     if(type === "bot"){
         let btn = document.createElement("button");
