@@ -20,29 +20,40 @@
   <div class="institution">
     <p data-lang="ar">الجمهورية الجزائرية الديمقراطية الشعبية</p>
     <p data-lang="fr">République Algérienne Démocratique et Populaire</p>
+    <p data-lang="en">People's Democratic Republic of Algeria</p>
 
     <p data-lang="ar">وزارة التعليم العالي والبحث العلمي</p>
     <p data-lang="fr">Ministère de l'Enseignement Supérieur</p>
+    <p data-lang="en">Ministry of Higher Education</p>
 
     <p data-lang="ar">جامعة محمد الصديق بن يحيى - جيجل</p>
     <p data-lang="fr">Université Jijel</p>
+    <p data-lang="en">University of Jijel</p>
 
     <p data-lang="ar">كلية الحقوق والعلوم السياسية</p>
     <p data-lang="fr">Faculté de Droit</p>
+    <p data-lang="en">Faculty of Law and Political Sciences</p>
   </div>
 
   <div class="title">
-    <h1 data-lang="ar">📚 إسأل المكتبي</h1>
-    <h1 data-lang="fr">📚 Assistant Bibliothécaire</h1>
+    <h1>
+      <span data-lang="ar">📚 إسأل المكتبي</span>
+      <span data-lang="fr">📚 Assistant Bibliothécaire</span>
+      <span data-lang="en">📚 Ask Librarian</span>
+    </h1>
 
-    <p data-lang="ar">منصة ذكية لخدمة الطلبة والباحثين</p>
-    <p data-lang="fr">Plateforme intelligente pour étudiants</p>
+    <p>
+      <span data-lang="ar">منصة ذكية لخدمة الطلبة والباحثين</span>
+      <span data-lang="fr">Plateforme intelligente pour étudiants</span>
+      <span data-lang="en">Smart platform for students and researchers</span>
+    </p>
   </div>
 
   <!-- 🌐 اللغة -->
   <div class="language-selector">
-    <button onclick="setLanguage('ar')">العربية</button>
-    <button onclick="setLanguage('fr')">Français</button>
+    <button onclick="setLanguage('ar')">🇩🇿 العربية</button>
+    <button onclick="setLanguage('fr')">🇫🇷 Français</button>
+    <button onclick="setLanguage('en')">🇬🇧 English</button>
   </div>
 
 </header>
@@ -50,13 +61,47 @@
 <!-- ================= NAV ================= -->
 <nav class="navbar">
 
-  <button onclick="show('home')">🏠 الرئيسية</button>
-  <button onclick="show('about')">📚 حول</button>
-  <button onclick="show('chat')">🤖 المساعد</button>
-  <button onclick="show('rules')">📜 القوانين</button>
-  <button onclick="show('news')">📢 الإعلانات</button>
-  <button onclick="show('images')">📷 الصور</button>
-  <button onclick="show('stats')">📊 إحصائيات</button>
+  <button onclick="show('home')">
+    <span data-lang="ar">🏠 الرئيسية</span>
+    <span data-lang="fr">🏠 Accueil</span>
+    <span data-lang="en">🏠 Home</span>
+  </button>
+
+  <button onclick="show('about')">
+    <span data-lang="ar">📚 حول</span>
+    <span data-lang="fr">📚 À propos</span>
+    <span data-lang="en">📚 About</span>
+  </button>
+
+  <button onclick="show('chat')">
+    <span data-lang="ar">🤖 المساعد</span>
+    <span data-lang="fr">🤖 Assistant</span>
+    <span data-lang="en">🤖 Assistant</span>
+  </button>
+
+  <button onclick="show('rules')">
+    <span data-lang="ar">📜 القوانين</span>
+    <span data-lang="fr">📜 Règles</span>
+    <span data-lang="en">📜 Rules</span>
+  </button>
+
+  <button onclick="show('news')">
+    <span data-lang="ar">📢 الإعلانات</span>
+    <span data-lang="fr">📢 Annonces</span>
+    <span data-lang="en">📢 News</span>
+  </button>
+
+  <button onclick="show('images')">
+    <span data-lang="ar">📷 الصور</span>
+    <span data-lang="fr">📷 Photos</span>
+    <span data-lang="en">📷 Images</span>
+  </button>
+
+  <button onclick="show('stats')">
+    <span data-lang="ar">📊 إحصائيات</span>
+    <span data-lang="fr">📊 Statistiques</span>
+    <span data-lang="en">📊 Statistics</span>
+  </button>
 
   <button onclick="toggleDark()">🌙</button>
 
@@ -66,11 +111,17 @@
 <section id="home" class="page">
 
   <div class="hero">
-    <h2 data-lang="ar">🤖 أمين المكتبة الذكي</h2>
-    <h2 data-lang="fr">🤖 Bibliothécaire intelligent</h2>
+    <h2>
+      <span data-lang="ar">🤖 أمين المكتبة الذكي</span>
+      <span data-lang="fr">🤖 Bibliothécaire intelligent</span>
+      <span data-lang="en">🤖 Smart Librarian</span>
+    </h2>
 
     <div class="search-box">
-      <input id="searchBook" placeholder="ابحث عن كتاب...">
+      <input id="searchBook"
+        data-lang-placeholder-ar="ابحث عن كتاب..."
+        data-lang-placeholder-fr="Rechercher un livre..."
+        data-lang-placeholder-en="Search for a book...">
       <button onclick="searchBooks()">🔍</button>
     </div>
   </div>
@@ -78,9 +129,32 @@
   <div id="bookResults"></div>
 
   <div class="cards">
-    <div class="card">📚 <h3>الكتب</h3></div>
-    <div class="card">📰 <h3>الدوريات</h3></div>
-    <div class="card">💻 <h3>الخدمات الرقمية</h3></div>
+    <div class="card">
+      📚
+      <h3>
+        <span data-lang="ar">الكتب</span>
+        <span data-lang="fr">Livres</span>
+        <span data-lang="en">Books</span>
+      </h3>
+    </div>
+
+    <div class="card">
+      📰
+      <h3>
+        <span data-lang="ar">الدوريات</span>
+        <span data-lang="fr">Périodiques</span>
+        <span data-lang="en">Journals</span>
+      </h3>
+    </div>
+
+    <div class="card">
+      💻
+      <h3>
+        <span data-lang="ar">الخدمات الرقمية</span>
+        <span data-lang="fr">Services numériques</span>
+        <span data-lang="en">Digital Services</span>
+      </h3>
+    </div>
   </div>
 
 </section>
@@ -88,34 +162,82 @@
 <!-- ================= CHAT ================= -->
 <section id="chat" class="page hidden">
 
-  <h2>🤖 المساعد الذكي</h2>
+  <h2>
+    <span data-lang="ar">🤖 المساعد الذكي</span>
+    <span data-lang="fr">🤖 Assistant intelligent</span>
+    <span data-lang="en">🤖 Smart Assistant</span>
+  </h2>
 
   <div id="chatbox" class="chatbox"></div>
 
   <div class="chat-input">
-    <input id="q" placeholder="اكتب أو تكلم...">
-    <button onclick="reply()">إرسال</button>
+    <input id="q"
+      data-lang-placeholder-ar="اكتب أو تكلم..."
+      data-lang-placeholder-fr="Écrire ou parler..."
+      data-lang-placeholder-en="Type or speak...">
 
-    <!-- 🎤 ميكروفون -->
+    <button onclick="reply()">
+      <span data-lang="ar">إرسال</span>
+      <span data-lang="fr">Envoyer</span>
+      <span data-lang="en">Send</span>
+    </button>
+
     <button onclick="startVoice()">🎤</button>
   </div>
 
 </section>
 
-<!-- باقي الأقسام بدون تغيير -->
-<section id="about" class="page hidden"><h2>حول</h2></section>
-<section id="rules" class="page hidden"><h2>القوانين</h2></section>
+<!-- ================= باقي الأقسام ================= -->
+
+<section id="about" class="page hidden">
+  <h2>
+    <span data-lang="ar">حول</span>
+    <span data-lang="fr">À propos</span>
+    <span data-lang="en">About</span>
+  </h2>
+</section>
+
+<section id="rules" class="page hidden">
+  <h2>
+    <span data-lang="ar">القوانين</span>
+    <span data-lang="fr">Règles</span>
+    <span data-lang="en">Rules</span>
+  </h2>
+</section>
 
 <section id="news" class="page hidden">
-  <h2>📢 الإعلانات</h2>
-  <input id="newsTitle">
-  <textarea id="newsContent"></textarea>
-  <button onclick="addNews()">نشر</button>
+  <h2>
+    <span data-lang="ar">📢 الإعلانات</span>
+    <span data-lang="fr">📢 Annonces</span>
+    <span data-lang="en">📢 News</span>
+  </h2>
+
+  <input id="newsTitle"
+    data-lang-placeholder-ar="عنوان الإعلان"
+    data-lang-placeholder-fr="Titre"
+    data-lang-placeholder-en="Title">
+
+  <textarea id="newsContent"
+    data-lang-placeholder-ar="محتوى الإعلان"
+    data-lang-placeholder-fr="Contenu"
+    data-lang-placeholder-en="Content"></textarea>
+
+  <button onclick="addNews()">
+    <span data-lang="ar">نشر</span>
+    <span data-lang="fr">Publier</span>
+    <span data-lang="en">Publish</span>
+  </button>
+
   <div id="newsList"></div>
 </section>
 
 <section id="images" class="page hidden">
-  <h2>📷 الصور</h2>
+  <h2>
+    <span data-lang="ar">📷 الصور</span>
+    <span data-lang="fr">📷 Photos</span>
+    <span data-lang="en">📷 Images</span>
+  </h2>
+
   <div class="images-container">
     <div class="image-box"><img src="faculty-logo.png"><p>شعار الكلية</p></div>
     <div class="image-box"><img src="faculty.jpg"><p>الكلية</p></div>
@@ -124,8 +246,17 @@
 </section>
 
 <section id="stats" class="page hidden">
-  <h2>📊 الإحصائيات</h2>
-  <p>عدد الكتب: 5000</p>
+  <h2>
+    <span data-lang="ar">📊 الإحصائيات</span>
+    <span data-lang="fr">📊 Statistiques</span>
+    <span data-lang="en">📊 Statistics</span>
+  </h2>
+
+  <p>
+    <span data-lang="ar">عدد الكتب: 5000</span>
+    <span data-lang="fr">Nombre de livres: 5000</span>
+    <span data-lang="en">Books: 5000</span>
+  </p>
 </section>
 
 <script src="script.js"></script>
