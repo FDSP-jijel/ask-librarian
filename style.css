@@ -502,3 +502,30 @@ button:active{
     text-decoration: none;
     display: block;
 }
+
+.links-box{
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 15px;
+}
+
+.links-box h2{
+    margin-bottom: 15px;
+}
+
+.links-box a{
+    display: block;
+    padding: 10px;
+    margin: 8px 0;
+    background: white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #0f172a;
+    transition: 0.3s;
+}
+
+.links-box a:hover{
+    transform: translateX(5px);
+    background: #e0f2fe;
+}
