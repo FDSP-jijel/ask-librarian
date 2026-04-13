@@ -632,3 +632,8 @@ button:active{
 .delete-btn:hover {
     background: darkred;
 }
+
+body.dark .msg-content {
+    background: #1f2937;
+    color: white;
+}
