@@ -134,22 +134,7 @@ function generateReply(q){
 
     return r.default;
 }
-    /* ================= SMART MATCHING ================= */
-
-    if(q.match(/(وقت|heure|hour|opening|open|horaire)/)) return r.hours;
-
-    if(q.match(/(كتاب|livre|book|recherche|search)/)) return r.books;
-
-    if(q.match(/(إعارة|borrow|emprunt|loan)/)) return r.borrow;
-
-    if(q.match(/(موقع|place|où|where)/)) return r.place;
-
-    if(q.match(/(مرحبا|bonjour|hello|hi)/)) return r.hello;
-
-    if(q.match(/(شكرا|merci|thanks)/)) return r.thanks;
-
-    return r.default;
-}
+  
 /* =========================
    MAIN CHAT
 ========================= */
@@ -310,21 +295,20 @@ function toggleLangMenu(){
 
 // إغلاق تلقائي عند اختيار لغة
 function setLanguage(lang){
-   
+
     localStorage.setItem("lang", lang);
 
     document.querySelectorAll("[data-lang]").forEach(el=>{
         el.style.display = (el.getAttribute("data-lang") === lang) ? "" : "none";
     });
 
+    // ✔ هنا الصحيح
     document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
 
-    // 🔥 تمييز الزر النشط
     document.querySelectorAll(".language-selector .lang").forEach(btn=>{
         btn.classList.remove("active");
     });
 
-    document.querySelector(".language-selector ."+lang).classList.add("active");
+    let activeBtn = document.querySelector(".language-selector ."+lang);
+    if(activeBtn) activeBtn.classList.add("active");
 }
-
-document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
