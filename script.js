@@ -81,6 +81,7 @@ function removeTyping(){
 function generateReply(q){
 
     let lang = getLang();
+    q = q.toLowerCase();
 
     const responses = {
         ar: {
@@ -114,16 +115,22 @@ function generateReply(q){
 
     let r = responses[lang];
 
-    if(q.includes("وقت") || q.includes("hour") || q.includes("heure")) return r.hours;
-    if(q.includes("كتاب") || q.includes("book") || q.includes("livre")) return r.books;
-    if(q.includes("إعارة") || q.includes("borrow") || q.includes("emprunter")) return r.borrow;
-    if(q.includes("موقع") || q.includes("where") || q.includes("où")) return r.place;
-    if(q.includes("مرحبا") || q.includes("hello") || q.includes("bonjour")) return r.hello;
-    if(q.includes("شكرا") || q.includes("thanks") || q.includes("merci")) return r.thanks;
+    /* ================= SMART MATCHING ================= */
+
+    if(q.match(/(وقت|heure|hour|opening|open|horaire)/)) return r.hours;
+
+    if(q.match(/(كتاب|livre|book|recherche|search)/)) return r.books;
+
+    if(q.match(/(إعارة|borrow|emprunt|loan)/)) return r.borrow;
+
+    if(q.match(/(موقع|place|où|where)/)) return r.place;
+
+    if(q.match(/(مرحبا|bonjour|hello|hi)/)) return r.hello;
+
+    if(q.match(/(شكرا|merci|thanks)/)) return r.thanks;
 
     return r.default;
 }
-
 /* =========================
    MAIN CHAT
 ========================= */
