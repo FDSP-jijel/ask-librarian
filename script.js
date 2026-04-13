@@ -416,3 +416,56 @@ function updateDashboard(){
     let news = JSON.parse(localStorage.getItem("news")) || [];
     document.getElementById("totalNews").textContent = news.length;
 }
+
+let chart;
+
+function drawChart(){
+
+    let visitors = localStorage.getItem("visitors") || 0;
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+    let news = JSON.parse(localStorage.getItem("news")) || [];
+
+    let data = {
+        labels: ["الزوار", "الرسائل", "الإعلانات"],
+        datasets: [{
+            label: "إحصائيات النظام",
+            data: [visitors, messages.length, news.length],
+            borderWidth: 2
+        }]
+    };
+
+    let config = {
+        type: "bar",
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: document.body.classList.contains("dark") ? "white" : "black"
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        color: document.body.classList.contains("dark") ? "white" : "black"
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: document.body.classList.contains("dark") ? "white" : "black"
+                    }
+                }
+            }
+        }
+    };
+
+    let ctx = document.getElementById("myChart");
+
+    if(chart){
+        chart.destroy(); // تحديث بدون تكرار
+    }
+
+    chart = new Chart(ctx, config);
+}
