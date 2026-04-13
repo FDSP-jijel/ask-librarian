@@ -336,3 +336,28 @@ function sendMessage(){
     document.getElementById("email").value = "";
     document.getElementById("message").value = "";
 }
+
+function loadMessages(){
+
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+    let box = document.getElementById("messagesList");
+
+    if(!box) return;
+
+    box.innerHTML = "";
+
+    messages.slice().reverse().forEach((m, index)=>{
+
+        let div = document.createElement("div");
+
+        div.innerHTML = `
+            <p><strong>👤 ${m.name}</strong></p>
+            <p>📧 ${m.email}</p>
+            <p>💬 ${m.message}</p>
+            <button onclick="deleteMessage(${index})">🗑 حذف</button>
+            <hr>
+        `;
+
+        box.appendChild(div);
+    });
+}
