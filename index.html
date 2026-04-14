@@ -12,8 +12,6 @@
 <meta name="theme-color" content="#0f172a">
 </head>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
 <body>
 
 <!-- ================= HEADER ================= -->
@@ -437,43 +435,14 @@
 
 <section id="admin" class="page hidden">
 
-  <h2>📊 لوحة التحكم</h2>
+  <h2>🧑‍💻 لوحة التحكم</h2>
 
-  <!-- ===== CARDS ===== -->
-  <div class="dashboard-cards">
+  <div class="admin-box">
 
-    <div class="dash-card">
-      📚
-      <h3 id="totalBooks">0</h3>
-      <p>عدد الكتب</p>
-      <h3>📊 إحصائيات النظام</h3>
-
-<canvas id="myChart" height="100"></canvas>
-    </div>
-
-    <div class="dash-card">
-      👥
-      <h3 id="totalVisitors">0</h3>
-      <p>عدد الزوار</p>
-    </div>
-
-    <div class="dash-card">
-      📩
-      <h3 id="totalMessages">0</h3>
-      <p>عدد الرسائل</p>
-    </div>
-
-    <div class="dash-card">
-      📢
-      <h3 id="totalNews">0</h3>
-      <p>عدد الإعلانات</p>
-    </div>
+    <h3>📩 الرسائل</h3>
+    <div id="messagesList"></div>
 
   </div>
-
-  <!-- ===== MESSAGES ===== -->
-  <h3>📩 آخر الرسائل</h3>
-  <div id="messagesList"></div>
 
 </section>
   
