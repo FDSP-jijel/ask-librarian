@@ -678,3 +678,6 @@ canvas {
     border-radius: 15px;
     padding: 10px;
 }
+body.dark canvas {
+    background: rgba(0,0,0,0.4);
+}
