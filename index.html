@@ -10,10 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
 <meta name="theme-color" content="#0f172a">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
 <body>
 
 <!-- ================= HEADER ================= -->
@@ -51,294 +53,114 @@
     </p>
   </div>
 
-  <!-- 🌐 اللغة -->
-<div class="language-selector">
-  <button onclick="setLanguage('ar')">🌐 العربية</button>
-  <button onclick="setLanguage('fr')">🌐 Français</button>
-  <button onclick="setLanguage('en')">🌐 English</button>
-</div>
+  <!-- اللغة -->
+  <div class="language-selector">
+    <button onclick="setLanguage('ar')">🌐 العربية</button>
+    <button onclick="setLanguage('fr')">🌐 Français</button>
+    <button onclick="setLanguage('en')">🌐 English</button>
+  </div>
 
 </header>
 
 <!-- ================= NAV ================= -->
 <nav class="navbar">
 
-  <button onclick="show('home')">
-    <span data-lang="ar">🏠 الرئيسية</span>
-    <span data-lang="fr">🏠 Accueil</span>
-    <span data-lang="en">🏠 Home</span>
-  </button>
-
-  <button onclick="show('about')">
-    <span data-lang="ar">📚 حول المكتبة</span>
-    <span data-lang="fr">📚 À propos</span>
-    <span data-lang="en">📚 About</span>
-  </button>
-
-  <button onclick="show('structure')">
-  🏛️ <span data-lang="ar">هيكل المكتبة</span>
-  <span data-lang="fr">Structure de la bibliothèque</span>
-  <span data-lang="en">Library Structure</span>
-</button>
-
-  <button onclick="show('chat')">
-    <span data-lang="ar">🤖 المساعد</span>
-    <span data-lang="fr">🤖 Assistant</span>
-    <span data-lang="en">🤖 Assistant</span>
-  </button>
-
-  <button onclick="show('rules')">
-    <span data-lang="ar">📜 القوانين</span>
-    <span data-lang="fr">📜 Règles</span>
-    <span data-lang="en">📜 Rules</span>
-  </button>
-
-  <button onclick="show('news')">
-    <span data-lang="ar">📢 الإعلانات</span>
-    <span data-lang="fr">📢 Annonces</span>
-    <span data-lang="en">📢 News</span>
-  </button>
-
-  <button onclick="show('images')">
-    <span data-lang="ar">📷 الصور</span>
-    <span data-lang="fr">📷 Photos</span>
-    <span data-lang="en">📷 Images</span>
-  </button>
-
-  <button onclick="show('stats')">
-    <span data-lang="ar">📊 إحصائيات</span>
-    <span data-lang="fr">📊 Statistiques</span>
-    <span data-lang="en">📊 Statistics</span>
-  </button>
-
-<button onclick="show('contact')">📬 تواصل</button>
-  
-<button onclick="show('admin')">🧑‍💻 إدارة</button>
-
+  <button onclick="show('home')">🏠 الرئيسية</button>
+  <button onclick="show('about')">📚 حول</button>
+  <button onclick="show('structure')">🏛️ هيكل المكتبة</button>
+  <button onclick="show('chat')">🤖 المساعد</button>
+  <button onclick="show('rules')">📜 القوانين</button>
+  <button onclick="show('news')">📢 الإعلانات</button>
+  <button onclick="show('images')">📷 الصور</button>
+  <button onclick="show('stats')">📊 إحصائيات</button>
+  <button onclick="show('contact')">📬 تواصل</button>
+  <button onclick="show('admin')">🧑‍💻 إدارة</button>
   <button onclick="toggleDark()">🌙</button>
 
-  
 </nav>
 
 <!-- ================= HOME ================= -->
 <section id="home" class="page">
 
-<!-- ================= LINKS ================= -->
 <div class="links-box">
-
   <h2>🔗 روابط مهمة</h2>
 
   <a href="https://fdsp.univ-jijel.dz" target="_blank">الموقع الرسمي للكلية</a>
-
-  <a href="https://www.facebook.com/fdsp.univ.jijel.dz" target="_blank">
-    صفحة فايسبوك كلية الحقوق والعلوم السياسية - جامعة جيجل
-  </a>
-
-  <a href="https://www.facebook.com/100093331232112/" target="_blank">
-    صفحة فايسبوم نيابة العمادة لما بعد التدرج-كلية الحقوق والعلوم السياسية-جامعة جيجل
-  </a>
-
-  <a href="https://www.facebook.com/100093063495998/" target="_blank">
-    صفحة فايسبوم نيابة العمادة للبيداخوجيا-كلية الحقوق والعلوم السياسية-جامعة جيج
-  </a>
-
-  <a href="https://www.facebook.com/100093121361593/" target="_blank">
-    قسم الحقوق-جامعة جيجل
-  </a>
-
-  <a href="https://www.facebook.com/100093294033964/" target="_blank">
-    قسم العلوم السياسية-جامعة جيجل
-  </a>
-
-  <a href="https://www.youtube.com/@univ-jijel-dz" target="_blank">
-    قناة يوتيوب الكلية
-  </a>
-
-  <a href="https://repository.univ-jijel.dz" target="_blank">
-    المستودع الرقمي جامعة جيجل
-  </a>
-
+  <a href="https://www.facebook.com/fdsp.univ.jijel.dz" target="_blank">صفحة فايسبوك الكلية</a>
+  <a href="https://www.facebook.com/100093331232112/" target="_blank">نيابة العمادة بعد التدرج</a>
+  <a href="https://www.facebook.com/100093063495998/" target="_blank">نيابة العمادة للبيداغوجيا</a>
+  <a href="https://www.facebook.com/100093121361593/" target="_blank">قسم الحقوق</a>
+  <a href="https://www.facebook.com/100093294033964/" target="_blank">قسم العلوم السياسية</a>
+  <a href="https://www.youtube.com/@univ-jijel-dz" target="_blank">قناة اليوتيوب</a>
+  <a href="https://repository.univ-jijel.dz" target="_blank">المستودع الرقمي</a>
 </div>
-  
-  <div class="hero">
-    <h2>
-      <span data-lang="ar">🤖 المكتبي الذكي</span>
-      <span data-lang="fr">🤖 Bibliothécaire intelligent</span>
-      <span data-lang="en">🤖 Smart Librarian</span>
-    </h2>
 
-    <div class="search-box">
-      <input id="searchBook"
-        data-lang-placeholder-ar="ابحث عن كتاب..."
-        data-lang-placeholder-fr="Rechercher un livre..."
-        data-lang-placeholder-en="Search for a book...">
-      <button onclick="searchBooks()">🔍</button>
-    </div>
+<div class="hero">
+  <h2>🤖 المكتبي الذكي</h2>
+
+  <div class="search-box">
+    <input id="searchBook" placeholder="ابحث عن كتاب...">
+    <button onclick="searchBooks()">🔍</button>
   </div>
+</div>
 
-  <div id="bookResults"></div>
+<div id="bookResults"></div>
 
-  <div class="cards">
-    <div class="card">
-      📚
-      <h3>
-        <span data-lang="ar">الكتب</span>
-        <span data-lang="fr">Livres</span>
-        <span data-lang="en">Books</span>
-      </h3>
-    </div>
-
-    <div class="card">
-      📰
-      <h3>
-        <span data-lang="ar">الدوريات</span>
-        <span data-lang="fr">Périodiques</span>
-        <span data-lang="en">Journals</span>
-      </h3>
-    </div>
-
-    <div class="card">
-      💻
-      <h3>
-        <span data-lang="ar">الخدمات الرقمية</span>
-        <span data-lang="fr">Services numériques</span>
-        <span data-lang="en">Digital Services</span>
-      </h3>
-    </div>
-  </div>
+<div class="cards">
+  <div class="card">📚 <h3>الكتب</h3></div>
+  <div class="card">📰 <h3>الدوريات</h3></div>
+  <div class="card">💻 <h3>الخدمات الرقمية</h3></div>
+</div>
 
 </section>
 
 <!-- ================= CHAT ================= -->
 <section id="chat" class="page hidden">
 
-  <h2>
-    <span data-lang="ar">🤖 المساعد الذكي</span>
-    <span data-lang="fr">🤖 Assistant intelligent</span>
-    <span data-lang="en">🤖 Smart Assistant</span>
-  </h2>
+  <h2>🤖 المساعد الذكي</h2>
 
   <div id="chatbox" class="chatbox"></div>
 
   <div class="chat-input">
-    <input id="q"
-      data-lang-placeholder-ar="اكتب أو تكلم..."
-      data-lang-placeholder-fr="Écrire ou parler..."
-      data-lang-placeholder-en="Type or speak...">
-
-    <button onclick="reply()">
-      <span data-lang="ar">إرسال</span>
-      <span data-lang="fr">Envoyer</span>
-      <span data-lang="en">Send</span>
-    </button>
-
+    <input id="q" placeholder="اكتب أو تكلم...">
+    <button onclick="reply()">إرسال</button>
     <button onclick="startVoice()">🎤</button>
   </div>
 
 </section>
 
-<!-- ================= باقي الأقسام ================= -->
-
-<section id="about" class="page hidden">
-  <h2>
-    <span data-lang="ar">حول المكتبة</span>
-    <span data-lang="fr">À propos</span>
-    <span data-lang="en">About</span>
-  </h2>
-</section>
-
- <!-- ================= STRUCTURE ================= -->
+<!-- ================= STRUCTURE ================= -->
 <section id="structure" class="page hidden">
 
-  <h2>
-    🏛️ <span data-lang="ar">هيكل المكتبة</span>
-    <span data-lang="fr">Structure de la bibliothèque</span>
-    <span data-lang="en">Library Structure</span>
-  </h2>
+  <h2>🏛️ هيكل المكتبة</h2>
 
   <div class="structure-content">
 
-    <div class="structure-item">
-      📁 <span data-lang="ar">الإدارة</span>
-      <span data-lang="fr">Administration</span>
-      <span data-lang="en">Administration</span>
-    </div>
-
-    <div class="structure-item">
-      📦 <span data-lang="ar">المخزن</span>
-      <span data-lang="fr">Magasin</span>
-      <span data-lang="en">Storage</span>
-    </div>
-
-    <div class="structure-item">
-      💳 <span data-lang="ar">بنك الإعارة</span>
-      <span data-lang="fr">Service de prêt</span>
-      <span data-lang="en">Loan Service</span>
-    </div>
-
-    <div class="structure-item">
-      📰 <span data-lang="ar">قاعة الدوريات</span>
-      <span data-lang="fr">Salle des périodiques</span>
-      <span data-lang="en">Journals Room</span>
-    </div>
-
-    <div class="structure-item">
-      👨‍🏫 <span data-lang="ar">قاعة الأساتذة</span>
-      <span data-lang="fr">Salle des enseignants</span>
-      <span data-lang="en">Teachers Room</span>
-    </div>
-
-    <div class="structure-item">
-      📖 <span data-lang="ar">قاعة المطالعة</span>
-      <span data-lang="fr">Salle de lecture</span>
-      <span data-lang="en">Reading Room</span>
-    </div>
+    <div class="structure-item">📁 الإدارة</div>
+    <div class="structure-item">📦 المخزن</div>
+    <div class="structure-item">💳 بنك الإعارة</div>
+    <div class="structure-item">📰 قاعة الدوريات</div>
+    <div class="structure-item">👨‍🏫 قاعة الأساتذة</div>
+    <div class="structure-item">📖 قاعة المطالعة</div>
 
   </div>
 
 </section>
-  
-<section id="rules" class="page hidden">
-  <h2>
-    <span data-lang="ar">القوانين</span>
-    <span data-lang="fr">Règles</span>
-    <span data-lang="en">Rules</span>
-  </h2>
-</section>
+
+<!-- ================= باقي الأقسام ================= -->
+<section id="about" class="page hidden"><h2>حول المكتبة</h2></section>
+<section id="rules" class="page hidden"><h2>القوانين</h2></section>
 
 <section id="news" class="page hidden">
-  <h2>
-    <span data-lang="ar">📢 الإعلانات</span>
-    <span data-lang="fr">📢 Annonces</span>
-    <span data-lang="en">📢 News</span>
-  </h2>
-
-  <input id="newsTitle"
-    data-lang-placeholder-ar="عنوان الإعلان"
-    data-lang-placeholder-fr="Titre"
-    data-lang-placeholder-en="Title">
-
-  <textarea id="newsContent"
-    data-lang-placeholder-ar="محتوى الإعلان"
-    data-lang-placeholder-fr="Contenu"
-    data-lang-placeholder-en="Content"></textarea>
-
-  <button onclick="addNews()">
-    <span data-lang="ar">نشر</span>
-    <span data-lang="fr">Publier</span>
-    <span data-lang="en">Publish</span>
-  </button>
-
+  <h2>📢 الإعلانات</h2>
+  <input id="newsTitle" placeholder="عنوان الإعلان">
+  <textarea id="newsContent" placeholder="محتوى الإعلان"></textarea>
+  <button onclick="addNews()">نشر</button>
   <div id="newsList"></div>
 </section>
 
 <section id="images" class="page hidden">
-  <h2>
-    <span data-lang="ar">📷 الصور</span>
-    <span data-lang="fr">📷 Photos</span>
-    <span data-lang="en">📷 Images</span>
-  </h2>
-
+  <h2>📷 الصور</h2>
   <div class="images-container">
     <div class="image-box"><img src="faculty-logo.png"><p>شعار الكلية</p></div>
     <div class="image-box"><img src="faculty.jpg"><p>الكلية</p></div>
@@ -347,50 +169,29 @@
 </section>
 
 <section id="stats" class="page hidden">
-  <h2>
-    <span data-lang="ar">📊 الإحصائيات</span>
-    <span data-lang="fr">📊 Statistiques</span>
-    <span data-lang="en">📊 Statistics</span>
-  </h2>
-
-  <p>
-    <span data-lang="ar">عدد الكتب: 5000</span>
-    <span data-lang="fr">Nombre de livres: 5000</span>
-    <span data-lang="en">Books: 5000</span>
-  </p>
+  <h2>📊 الإحصائيات</h2>
+  <p>عدد الكتب: 5000</p>
 </section>
 
 <section id="contact" class="page hidden">
-
   <h2>📬 تواصل معنا</h2>
-
-  <div class="contact-form">
-    <input id="name" placeholder="الاسم">
-    <input id="email" placeholder="البريد الإلكتروني">
-    <textarea id="message" placeholder="اكتب رسالتك..."></textarea>
-
-    <button onclick="sendMessage()">إرسال</button>
-  </div>
-
+  <input id="name" placeholder="الاسم">
+  <input id="email" placeholder="البريد الإلكتروني">
+  <textarea id="message" placeholder="اكتب رسالتك..."></textarea>
+  <button onclick="sendMessage()">إرسال</button>
 </section>
 
 <section id="admin" class="page hidden">
 
   <h2>📊 لوحة التحكم</h2>
 
-  <!-- ===== CARDS ===== -->
   <div class="dashboard-cards">
 
     <div class="dash-card">
-  📚
-  <h3 id="totalBooks">0</h3>
-  <p>عدد الكتب</p>
-</div>
-
-<h3>📊 إحصائيات النظام</h3>
-
-<canvas id="myChart" height="100"></canvas>
-<canvas id="pieChart" height="100"></canvas>
+      📚
+      <h3 id="totalBooks">0</h3>
+      <p>عدد الكتب</p>
+    </div>
 
     <div class="dash-card">
       👥
@@ -412,12 +213,15 @@
 
   </div>
 
-  <!-- ===== MESSAGES ===== -->
+  <h3>📊 إحصائيات النظام</h3>
+  <canvas id="myChart"></canvas>
+  <canvas id="pieChart"></canvas>
+
   <h3>📩 آخر الرسائل</h3>
   <div id="messagesList"></div>
 
 </section>
-  
+
 <script src="script.js"></script>
 <script src="lang.js"></script>
 
