@@ -180,11 +180,10 @@ body {
 }
 
 /* البوت */
-.msg.bot {
-    align-self: flex-start;
-    background: rgba(0,0,0,0.05);
-    color: #0f172a;
-    border-bottom-left-radius: 5px;
+..msg.bot {
+    background: rgba(255,255,255,0.9);
+    color: #111;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 /* أنيميشن */
@@ -676,10 +675,17 @@ body.dark .dash-card {
 
 canvas {
     margin-top: 20px;
-    background: rgba(255,255,255,0.2); /* أو 0.15 */
+    background: rgba(255,255,255,0.25);
     border-radius: 15px;
     padding: 10px;
+    display: block;
+    width: 100%;
 }
 body.dark canvas {
     background: rgba(0,0,0,0.4);
+}
+
+.chat-input button:last-child {
+    background: #10b981;
+    font-size: 18px;
 }
