@@ -2,18 +2,17 @@
    INIT
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
-    document.addEventListener("click", () => {
-    console.log("User interaction detected");
-}, { once: true });
-   let lang = localStorage.getItem("lang") || "ar";
+    let lang = localStorage.getItem("lang") || "ar";
     setLanguage(lang);
     loadChat();
     displayNews();
     updateVisitors();
 });
 
+loadMessages();
+
 /* =========================
-   LANGUAGE
+   GET CURRENT LANGUAGE
 ========================= */
 function getLang(){
     return localStorage.getItem("lang") || "ar";
@@ -31,15 +30,12 @@ function show(id){
     let page = document.getElementById(id);
     if(page) page.classList.remove("hidden");
 
-    // لوحة التحكم
+    // 👇 عند فتح لوحة التحكم
     if(id === "admin"){
         loadMessages();
         updateDashboard();
-        drawChart();
-        drawPieChart();
     }
-
-} // ✅ إصلاح القوس
+}
 
 /* =========================
    DARK MODE
@@ -66,13 +62,21 @@ function addMessage(type, text){
 
 function showTyping(){
     let box = document.getElementById("chatbox");
+    let lang = getLang();
+
+    let text = {
+        ar: "يكتب الآن...",
+        fr: "En train d'écrire...",
+        en: "Typing..."
+    };
 
     let typing = document.createElement("div");
     typing.className = "msg bot typing";
     typing.id = "typing";
-    typing.textContent = "يكتب الآن...";
+    typing.textContent = text[lang];
 
     box.appendChild(typing);
+    box.scrollTop = box.scrollHeight;
 }
 
 function removeTyping(){
@@ -81,7 +85,7 @@ function removeTyping(){
 }
 
 /* =========================
-   AI RESPONSE
+   AI RESPONSE (MULTI LANG)
 ========================= */
 function generateReply(q){
 
@@ -94,24 +98,52 @@ function generateReply(q){
             books: "📚 يمكنك البحث في الفهرس أو زيارة المكتبة.",
             borrow: "📖 يمكنك استعارة 4 كتب لمدة أسبوع.",
             place: "📍 المكتبة داخل الكلية.",
-            hello: "👋 مرحباً بك!",
+            hello: "👋 مرحباً بك! كيف أساعدك؟",
             thanks: "😊 على الرحب والسعة!",
-            default: "❓ لم أفهم سؤالك."
+            default: "❓ لم أفهم سؤالك، حاول بشكل أوضح."
+        },
+        fr: {
+            hours: "🕒 La bibliothèque est ouverte de 8h30 à 16h30.",
+            books: "📚 Utilisez le catalogue ou visitez la bibliothèque.",
+            borrow: "📖 Vous pouvez emprunter 4 livres pour une semaine.",
+            place: "📍 La bibliothèque est dans la faculté.",
+            hello: "👋 Bonjour ! Comment puis-je aider ?",
+            thanks: "😊 Avec plaisir !",
+            default: "❓ Je n'ai pas compris."
+        },
+        en: {
+            hours: "🕒 Library open from 8:30 to 16:30.",
+            books: "📚 Use the catalog or visit the library.",
+            borrow: "📖 You can borrow 4 books for one week.",
+            place: "📍 Library is inside the faculty.",
+            hello: "👋 Hello! How can I help?",
+            thanks: "😊 You're welcome!",
+            default: "❓ I didn't understand clearly."
         }
     };
 
-    let r = responses[lang] || responses["ar"];
+    let r = responses[lang];
 
-    if(q.includes("وقت")) return r.hours;
-    if(q.includes("كتاب")) return r.books;
-    if(q.includes("استعارة")) return r.borrow;
-    if(q.includes("أين")) return r.place;
-    if(q.includes("مرحبا")) return r.hello;
-    if(q.includes("شكرا")) return r.thanks;
+    /* ================= AI INTENT ENGINE ================= */
+
+    const intents = [
+        { key: "hours", patterns: ["وقت", "ساعات", "متى", "open", "opening", "heure", "horaire"] },
+        { key: "books", patterns: ["كتاب", "بحث", "livre", "book", "search", "recherche"] },
+        { key: "borrow", patterns: ["إعارة", "استعارة", "borrow", "emprunt", "loan"] },
+        { key: "place", patterns: ["أين", "موقع", "where", "place", "où"] },
+        { key: "hello", patterns: ["مرحبا", "bonjour", "hello", "hi"] },
+        { key: "thanks", patterns: ["شكرا", "merci", "thanks"] }
+    ];
+
+    for(let intent of intents){
+        if(intent.patterns.some(p => q.includes(p))){
+            return r[intent.key];
+        }
+    }
 
     return r.default;
 }
-
+  
 /* =========================
    MAIN CHAT
 ========================= */
@@ -128,7 +160,7 @@ function reply(){
 
     setTimeout(()=>{
         removeTyping();
-        let r = generateReply(q);
+        let r = generateReply(q.toLowerCase());
         addMessage("bot", r);
     }, 700);
 }
@@ -187,10 +219,13 @@ function updateVisitors(){
     let visitors = localStorage.getItem("visitors") || 0;
     visitors++;
     localStorage.setItem("visitors", visitors);
+
+    let el = document.getElementById("visitors");
+    if(el) el.textContent = visitors;
 }
 
 /* =========================
-   BOOK SEARCH
+   BOOK SEARCH (MULTI LANG)
 ========================= */
 let books = [
     {ar:"القانون المدني", fr:"Droit civil", en:"Civil Law"},
@@ -202,6 +237,7 @@ let books = [
 function searchBooks(){
     let q = document.getElementById("searchBook").value.toLowerCase();
     let box = document.getElementById("bookResults");
+    let lang = getLang();
 
     if(!box) return;
 
@@ -214,56 +250,87 @@ function searchBooks(){
     );
 
     if(results.length === 0){
-        box.innerHTML = "لا توجد نتائج";
+        box.innerHTML = (lang==="ar") ? "لا توجد نتائج" :
+                        (lang==="fr") ? "Aucun résultat" :
+                        "No results";
         return;
     }
 
     results.forEach(b=>{
-        box.innerHTML += `<p>📚 ${b.ar}</p>`;
+        box.innerHTML += `<p>📚 ${b[lang]}</p>`;
     });
 }
 
 /* =========================
-   VOICE
+   VOICE (SMART LANG)
 ========================= */
 function startVoice(){
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if(!SpeechRecognition){
-        alert("❌ المتصفح لا يدعم الميكروفون");
+        alert("المتصفح لا يدعم الميكروفون");
         return;
     }
 
     let recognition = new SpeechRecognition();
 
-    recognition.lang = getLang() === "ar" ? "ar-SA" : "fr-FR";
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
+    // يدعم 3 لغات حسب اختيار المستخدم
+    let lang = getLang();
+
+    if(lang === "ar") recognition.lang = "ar-SA";
+    if(lang === "fr") recognition.lang = "fr-FR";
+    if(lang === "en") recognition.lang = "en-US";
 
     recognition.start();
 
-    recognition.onstart = () => {
-        console.log("🎤 تم تشغيل الميكروفون");
-    };
-
-    recognition.onerror = (e) => {
-        console.log("خطأ ميكروفون:", e);
-        alert("⚠️ حدث خطأ في الميكروفون");
-    };
-
     recognition.onresult = function(event){
         let text = event.results[0][0].transcript;
+
         document.getElementById("q").value = text;
         reply();
     };
 }
+// فتح/غلق القائمة
+function toggleLangMenu(){
+    let menu = document.getElementById("langMenu");
 
-/* =========================
-   CONTACT (FIXED)
-========================= */
+    if(menu.style.display === "flex"){
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "flex";
+    }
+}
+
+// إغلاق تلقائي عند اختيار لغة
+function setLanguage(lang){
+
+    localStorage.setItem("lang", lang);
+
+    document.querySelectorAll("[data-lang]").forEach(el=>{
+        el.style.display = (el.getAttribute("data-lang") === lang) ? "" : "none";
+    });
+
+    // ✔ هنا الصحيح
+    document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
+
+    document.querySelectorAll(".language-selector .lang").forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    let activeBtn = document.querySelector(".language-selector ."+lang);
+    if(activeBtn) activeBtn.classList.add("active");
+}
+
 function sendMessage(){
 
+   messages.push({
+    name,
+    email,
+    message,
+    time: new Date().toLocaleTimeString()
+});
+   
     let name = document.getElementById("name").value.trim();
     let email = document.getElementById("email").value.trim();
     let message = document.getElementById("message").value.trim();
@@ -275,12 +342,7 @@ function sendMessage(){
 
     let messages = JSON.parse(localStorage.getItem("messages")) || [];
 
-    messages.push({
-        name,
-        email,
-        message,
-        time: new Date().toLocaleTimeString()
-    });
+    messages.push({name, email, message});
 
     localStorage.setItem("messages", JSON.stringify(messages));
 
@@ -291,9 +353,6 @@ function sendMessage(){
     document.getElementById("message").value = "";
 }
 
-/* =========================
-   ADMIN
-========================= */
 function loadMessages(){
 
     let messages = JSON.parse(localStorage.getItem("messages")) || [];
@@ -304,72 +363,56 @@ function loadMessages(){
     box.innerHTML = "";
 
     messages.slice().reverse().forEach((m, index)=>{
-        box.innerHTML += `
-        <div>
-            <strong>${m.name}</strong> - ${m.message}
-        </div>`;
+
+        let div = document.createElement("div");
+        div.className = "msg-admin";
+
+        div.innerHTML = `
+            <div class="msg-avatar">👤</div>
+
+            <div class="msg-content">
+                <div class="msg-header">
+                    <span class="msg-name">${m.name}</span>
+                    <span class="msg-time">${m.time || ""}</span>
+                </div>
+
+                <div class="msg-text">${m.message}</div>
+
+                <button class="delete-btn" onclick="deleteMessage(${index})">
+                    🗑 حذف
+                </button>
+            </div>
+        `;
+
+        box.appendChild(div);
     });
 }
 
-/* =========================
-   DASHBOARD
-========================= */
+function deleteMessage(i){
+
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+    messages.splice(i,1);
+
+    localStorage.setItem("messages", JSON.stringify(messages));
+
+    loadMessages();
+}
+
 function updateDashboard(){
 
-    let visitors = localStorage.getItem("visitors") || 0;
-    let messages = JSON.parse(localStorage.getItem("messages")) || [];
-    let news = JSON.parse(localStorage.getItem("news")) || [];
-
+    // الكتب
     document.getElementById("totalBooks").textContent = books.length;
+
+    // الزوار
+    let visitors = localStorage.getItem("visitors") || 0;
     document.getElementById("totalVisitors").textContent = visitors;
+
+    // الرسائل
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
     document.getElementById("totalMessages").textContent = messages.length;
+
+    // الإعلانات
+    let news = JSON.parse(localStorage.getItem("news")) || [];
     document.getElementById("totalNews").textContent = news.length;
-}
-
-/* =========================
-   CHARTS
-========================= */
-let chart;
-let pie;
-
-function drawChart(){
-
-    let visitors = localStorage.getItem("visitors") || 0;
-    let messages = JSON.parse(localStorage.getItem("messages")) || [];
-    let news = JSON.parse(localStorage.getItem("news")) || [];
-
-    let ctx = document.getElementById("myChart");
-
-    if(chart) chart.destroy();
-
-    chart = new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: ["الزوار","الرسائل","الإعلانات"],
-            datasets: [{
-                data: [visitors, messages.length, news.length]
-            }]
-        }
-    });
-}
-
-function drawPieChart(){
-
-    let visitors = localStorage.getItem("visitors") || 0;
-    let messages = JSON.parse(localStorage.getItem("messages")) || [];
-    let news = JSON.parse(localStorage.getItem("news")) || [];
-
-    let ctx = document.getElementById("pieChart");
-
-    if(pie) pie.destroy();
-
-    pie = new Chart(ctx, {
-        type: "pie",
-        data: {
-            labels: ["الزوار","الرسائل","الإعلانات"],
-            datasets: [{
-                data: [visitors, messages.length, news.length]
-            }]
-        }
-    });
 }
