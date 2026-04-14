@@ -674,7 +674,7 @@ body.dark .dash-card {
 
 canvas {
     margin-top: 20px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.2); /* أو 0.15 */
     border-radius: 15px;
     padding: 10px;
 }
