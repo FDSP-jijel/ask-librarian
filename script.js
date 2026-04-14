@@ -470,3 +470,41 @@ function drawChart(){
 
     chart = new Chart(ctx, config);
 }
+
+let pie;
+
+function drawPieChart(){
+
+    let visitors = localStorage.getItem("visitors") || 0;
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+    let news = JSON.parse(localStorage.getItem("news")) || [];
+
+    let data = {
+        labels: ["الزوار", "الرسائل", "الإعلانات"],
+        datasets: [{
+            data: [visitors, messages.length, news.length],
+        }]
+    };
+
+    let config = {
+        type: "pie",
+        data: data,
+        options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: document.body.classList.contains("dark") ? "white" : "black"
+                    }
+                }
+            }
+        }
+    };
+
+    let ctx = document.getElementById("pieChart");
+
+    if(pie){
+        pie.destroy();
+    }
+
+    pie = new Chart(ctx, config);
+}
