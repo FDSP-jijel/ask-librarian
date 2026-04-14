@@ -30,10 +30,11 @@ function show(id){
     let page = document.getElementById(id);
     if(page) page.classList.remove("hidden");
 
-    // 👇 عند فتح لوحة التحكم
+    // 👇 هنا نضيف الكود
     if(id === "admin"){
         loadMessages();
         updateDashboard();
+        drawChart();
     }
 }
 
