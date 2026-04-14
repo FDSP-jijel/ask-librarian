@@ -2,7 +2,10 @@
    INIT
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
-    let lang = localStorage.getItem("lang") || "ar";
+    document.addEventListener("click", () => {
+    console.log("User interaction detected");
+}, { once: true });
+   let lang = localStorage.getItem("lang") || "ar";
     setLanguage(lang);
     loadChat();
     displayNews();
