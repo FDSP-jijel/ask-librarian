@@ -264,33 +264,64 @@ function searchBooks(){
 /* =========================
    VOICE (SMART LANG)
 ========================= */
+let recognition; // نخليه global
+
 function startVoice(){
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if(!SpeechRecognition){
-        alert("❌ المتصفح لا يدعم الميكروفون");
+        alert("❌ المتصفح لا يدعم الميكروفون (استعمل Chrome)");
         return;
     }
 
-    let recognition = new SpeechRecognition();
+    // إذا كان شغال من قبل نوقفه
+    if(recognition){
+        recognition.stop();
+    }
+
+    recognition = new SpeechRecognition();
 
     let lang = getLang();
 
-    if(lang === "ar") recognition.lang = "ar-SA";
-    if(lang === "fr") recognition.lang = "fr-FR";
-    if(lang === "en") recognition.lang = "en-US";
+    recognition.lang = (lang === "ar") ? "ar-SA" :
+                       (lang === "fr") ? "fr-FR" :
+                       "en-US";
+
+    recognition.continuous = false;
+    recognition.interimResults = false;
 
     recognition.start();
 
+    console.log("🎤 بدأ التسجيل");
+
+    recognition.onstart = function(){
+        let btn = document.getElementById("micBtn");
+        if(btn) btn.textContent = "🔴";
+    };
+
     recognition.onresult = function(event){
         let text = event.results[0][0].transcript;
+
+        console.log("🎤 تم التعرف:", text);
+
         document.getElementById("q").value = text;
         reply();
     };
 
-    recognition.onerror = function(e){
-        console.log("Mic error:", e.error);
+    recognition.onerror = function(event){
+        console.error("❌ Mic Error:", event.error);
+
+        if(event.error === "not-allowed"){
+            alert("❌ لازم تسمح للميكروفون");
+        }
+    };
+
+    recognition.onend = function(){
+        console.log("🛑 توقف الميكروفون");
+
+        let btn = document.getElementById("micBtn");
+        if(btn) btn.textContent = "🎤";
     };
 }
 
