@@ -507,18 +507,20 @@ function drawPieChart(){
 function animateValue(id, start, end, duration){
 
     let obj = document.getElementById(id);
-    let range = end - start;
-    let stepTime = Math.abs(Math.floor(duration / range));
+    let startTime = null;
 
-    let current = start;
+    function animation(currentTime){
+        if(!startTime) startTime = currentTime;
 
-    let timer = setInterval(() => {
-        current++;
-        obj.textContent = current;
+        let progress = Math.min((currentTime - startTime) / duration, 1);
+        let value = Math.floor(progress * (end - start) + start);
 
-        if(current >= end){
-            clearInterval(timer);
+        obj.textContent = value;
+
+        if(progress < 1){
+            requestAnimationFrame(animation);
         }
+    }
 
-    }, stepTime);
+    requestAnimationFrame(animation);
 }
