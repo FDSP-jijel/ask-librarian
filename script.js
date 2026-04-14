@@ -228,14 +228,26 @@ function startVoice(){
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if(!SpeechRecognition){
-        alert("المتصفح لا يدعم الميكروفون");
+        alert("❌ المتصفح لا يدعم الميكروفون");
         return;
     }
 
     let recognition = new SpeechRecognition();
-    recognition.lang = "ar-SA";
+
+    recognition.lang = getLang() === "ar" ? "ar-SA" : "fr-FR";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
 
     recognition.start();
+
+    recognition.onstart = () => {
+        console.log("🎤 تم تشغيل الميكروفون");
+    };
+
+    recognition.onerror = (e) => {
+        console.log("خطأ ميكروفون:", e);
+        alert("⚠️ حدث خطأ في الميكروفون");
+    };
 
     recognition.onresult = function(event){
         let text = event.results[0][0].transcript;
