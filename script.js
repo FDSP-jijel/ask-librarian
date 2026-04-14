@@ -402,20 +402,15 @@ function deleteMessage(i){
 
 function updateDashboard(){
 
-    // الكتب
-    document.getElementById("totalBooks").textContent = books.length;
-
-    // الزوار
     let visitors = localStorage.getItem("visitors") || 0;
-    document.getElementById("totalVisitors").textContent = visitors;
-
-    // الرسائل
     let messages = JSON.parse(localStorage.getItem("messages")) || [];
-    document.getElementById("totalMessages").textContent = messages.length;
-
-    // الإعلانات
     let news = JSON.parse(localStorage.getItem("news")) || [];
-    document.getElementById("totalNews").textContent = news.length;
+
+    // 👇 مع الحركة
+    animateValue("totalBooks", 0, books.length, 800);
+    animateValue("totalVisitors", 0, visitors, 800);
+    animateValue("totalMessages", 0, messages.length, 800);
+    animateValue("totalNews", 0, news.length, 800);
 }
 
 let chart;
