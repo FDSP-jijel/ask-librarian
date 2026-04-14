@@ -32,10 +32,10 @@ function show(id){
 
     // 👇 هنا نضيف الكود
     if(id === "admin"){
-        loadMessages();
-        updateDashboard();
-        drawChart();
-    }
+    loadMessages();
+    updateDashboard();
+    drawChart();
+    drawPieChart(); // 👈 الجديد
 }
 
 /* =========================
