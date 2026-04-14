@@ -160,15 +160,13 @@ body {
 }
 
 /* الرسائل */
-.msg{
+.msg {
     max-width: 70%;
     padding: 12px 15px;
-    border-radius: 18px;
+    border-radius: 15px;
     line-height: 1.5;
-    animation: fadeIn 0.25s ease;
+    animation: fadeIn 0.3s ease;
     position: relative;
-    word-wrap: break-word;
-    font-size: 14px;
 }
 
 /* المستخدم */
@@ -180,10 +178,11 @@ body {
 }
 
 /* البوت */
-..msg.bot {
-    background: rgba(255,255,255,0.9);
-    color: #111;
-    border: 1px solid rgba(0,0,0,0.05);
+.msg.bot {
+    align-self: flex-start;
+    background: rgba(0,0,0,0.05);
+    color: #0f172a;
+    border-bottom-left-radius: 5px;
 }
 
 /* أنيميشن */
@@ -671,21 +670,4 @@ body.dark .msg-content {
 /* DARK MODE */
 body.dark .dash-card {
     background: linear-gradient(135deg, #1e293b, #334155);
-}
-
-canvas {
-    margin-top: 20px;
-    background: rgba(255,255,255,0.25);
-    border-radius: 15px;
-    padding: 10px;
-    display: block;
-    width: 100%;
-}
-body.dark canvas {
-    background: rgba(0,0,0,0.4);
-}
-
-.chat-input button:last-child {
-    background: #10b981;
-    font-size: 18px;
 }
