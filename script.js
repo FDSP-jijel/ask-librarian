@@ -269,13 +269,12 @@ function startVoice(){
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if(!SpeechRecognition){
-        alert("المتصفح لا يدعم الميكروفون");
+        alert("❌ المتصفح لا يدعم الميكروفون");
         return;
     }
 
     let recognition = new SpeechRecognition();
 
-    // يدعم 3 لغات حسب اختيار المستخدم
     let lang = getLang();
 
     if(lang === "ar") recognition.lang = "ar-SA";
@@ -286,11 +285,15 @@ function startVoice(){
 
     recognition.onresult = function(event){
         let text = event.results[0][0].transcript;
-
         document.getElementById("q").value = text;
         reply();
     };
+
+    recognition.onerror = function(e){
+        console.log("Mic error:", e.error);
+    };
 }
+
 // فتح/غلق القائمة
 function toggleLangMenu(){
     let menu = document.getElementById("langMenu");
