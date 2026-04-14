@@ -160,13 +160,15 @@ body {
 }
 
 /* الرسائل */
-.msg {
+.msg{
     max-width: 70%;
     padding: 12px 15px;
-    border-radius: 15px;
+    border-radius: 18px;
     line-height: 1.5;
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.25s ease;
     position: relative;
+    word-wrap: break-word;
+    font-size: 14px;
 }
 
 /* المستخدم */
