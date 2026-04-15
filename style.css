@@ -671,3 +671,13 @@ body.dark .msg-content {
 body.dark .dash-card {
     background: linear-gradient(135deg, #1e293b, #334155);
 }
+.links-box i {
+    margin-left: 8px;
+    font-size: 18px;
+}
+
+/* ألوان */
+.fa-facebook { color: #1877f2; }
+.fa-youtube { color: #ff0000; }
+.fa-globe { color: #3b82f6; }
+.fa-folder { color: #f59e0b; }
