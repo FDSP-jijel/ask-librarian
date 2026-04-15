@@ -685,3 +685,14 @@ body.dark .dash-card {
 .fa-facebook {
     color: #1877f2;
 }
+
+.card i {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+/* ألوان */
+.fa-facebook { color: #1877f2; }
+.fa-youtube { color: #ff0000; }
+.fa-globe { color: #3b82f6; }
+.fa-folder { color: #f59e0b; }
