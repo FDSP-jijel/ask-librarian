@@ -829,3 +829,7 @@ body.dark .dash-card {
 .links-cards .card:hover::before {
     opacity: 1;
 }
+
+body {
+    border: 5px solid red;
+}
