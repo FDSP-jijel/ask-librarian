@@ -775,3 +775,41 @@ body.dark .dash-card {
 .card:nth-child(8) i {
     color: #f59e0b; /* مستودع */
 }
+
+/* كروت الروابط فقط */
+.links-cards .card i {
+    font-size: 35px;
+    margin-bottom: 10px;
+    transition: 0.4s;
+}
+
+.links-cards .card span {
+    display: block;
+    font-weight: bold;
+}
+
+.links-cards .card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.links-cards .card:hover i {
+    transform: scale(1.3) rotate(5deg);
+}
+
+/* Glow */
+.links-cards .card::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+    background: radial-gradient(circle, rgba(59,130,246,0.3), transparent 70%);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.links-cards .card:hover::before {
+    opacity: 1;
+}
