@@ -776,60 +776,20 @@ body.dark .dash-card {
     color: #f59e0b; /* مستودع */
 }
 
-/* =========================
-   CLEAN LINK CARDS ✨
-========================= */
-
-.links-cards .card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    padding: 25px;
-    text-align: center;
-    transition: 0.4s;
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(10px);
-}
-
-.links-cards .card i {
-    font-size: 40px;
+.card i {
+    font-size: 32px;
     margin-bottom: 10px;
-    transition: 0.4s;
 }
 
-.links-cards .card span {
-    display: block;
-    font-weight: bold;
+.fa-facebook { color: #1877f2; }
+.fa-youtube { color: #ff0000; }
+.fa-globe { color: #3b82f6; }
+.fa-folder { color: #f59e0b; }
+
+.card i {
+    transition: 0.3s;
 }
 
-/* Hover */
-.links-cards .card:hover {
-    transform: translateY(-12px) scale(1.06);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-}
-
-/* Icon hover */
-.links-cards .card:hover i {
-    transform: scale(1.35) rotate(6deg);
-}
-
-/* Glow effect */
-.links-cards .card::before {
-    content: "";
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    top: -25%;
-    left: -25%;
-    background: radial-gradient(circle, rgba(59,130,246,0.25), transparent 70%);
-    opacity: 0;
-    transition: 0.5s;
-}
-
-.links-cards .card:hover::before {
-    opacity: 1;
-}
-
-body {
-    border: 5px solid red;
+.card:hover i {
+    transform: scale(1.2);
 }
