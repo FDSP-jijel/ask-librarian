@@ -694,3 +694,30 @@ body.dark .dash-card {
 .card:hover i {
     transform: scale(1.2);
 }
+
+/* تحسين ناعم وآمن ✨ */
+.card i {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover أنعم */
+.card:hover i {
+    transform: scale(1.25);
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+/* حركة خفيفة عند التحميل */
+.card i {
+    animation: iconFade 0.6s ease;
+}
+
+@keyframes iconFade {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
