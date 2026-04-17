@@ -138,12 +138,17 @@ function generateReply(q){
     ];
 
     for(let intent of intents){
-        if(intent.patterns.some(p => q.includes(p) || p.includes(q)))
-            return r[intent.key];
-        }
+    if(intent.patterns.some(p => q.includes(p))){
+        return r[intent.key];
     }
+}
 
-    return r.default;
+// 👇 هنا تضيفه
+if(q.length > 2){
+    return "📚 يمكنك استخدام البحث في الفهرس للعثور على الكتب أو اسألني عن: ساعات العمل، الإعارة، الموقع.";
+}
+
+return r.default;
 }
   
 /* =========================
