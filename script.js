@@ -126,8 +126,6 @@ function generateReply(q){
 
     let r = responses[lang];
 
-    /* ================= AI INTENT ENGINE ================= */
-
     const intents = [
         { key: "hours", patterns: ["وقت", "ساعات", "متى", "open", "opening", "heure", "horaire"] },
         { key: "books", patterns: ["كتاب", "بحث", "livre", "book", "search", "recherche"] },
@@ -138,17 +136,21 @@ function generateReply(q){
     ];
 
     for(let intent of intents){
-    if(intent.patterns.some(p => q.includes(p))){
-        return r[intent.key];
+        if(intent.patterns.some(p => q.includes(p))){
+            return r[intent.key];
+        }
     }
-}
 
-// 👇 هنا تضيفه
-if(q.length > 2){
-    return "📚 يمكنك استخدام البحث في الفهرس للعثور على الكتب أو اسألني عن: ساعات العمل، الإعارة، الموقع.";
-}
+    // 👇 fallback الصحيح
+    if(q.length > 2){
+        return (lang === "ar") ?
+            "📚 يمكنك استخدام البحث في الفهرس للعثور على الكتب." :
+            (lang === "fr") ?
+            "📚 Utilisez le catalogue pour trouver des livres." :
+            "📚 Use the catalog search to find books.";
+    }
 
-return r.default;
+    return r.default;
 }
   
 /* =========================
