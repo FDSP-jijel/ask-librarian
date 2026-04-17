@@ -488,3 +488,10 @@ async function loadCatalog() {
         catalog = [];
     }
 }
+
+window.show = show;
+window.searchBooks = searchBooks;
+window.startVoice = startVoice;
+window.toggleDark = toggleDark;
+window.reply = reply;
+window.setLanguage = setLanguage;
