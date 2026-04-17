@@ -260,21 +260,34 @@ function searchBooks(){
 
     box.innerHTML = "";
 
-    let results = books.filter(b =>
-        b.ar.toLowerCase().includes(q) ||
-        b.fr.toLowerCase().includes(q) ||
-        b.en.toLowerCase().includes(q)
+    let results = catalog.filter(row =>
+        row.some(col => col.toLowerCase().includes(q))
     );
 
     if(results.length === 0){
-        box.innerHTML = (lang==="ar") ? "لا توجد نتائج" :
-                        (lang==="fr") ? "Aucun résultat" :
-                        "No results";
+        box.innerHTML =
+            lang === "ar" ? "❌ لا توجد نتائج" :
+            lang === "fr" ? "❌ Aucun résultat" :
+            "❌ No results";
         return;
     }
 
-    results.forEach(b=>{
-        box.innerHTML += `<p>📚 ${b[lang]}</p>`;
+    results.slice(0, 20).forEach(r => {
+        let text = "";
+
+        switch(lang){
+            case "ar":
+                text = r[0] || "";
+                break;
+            case "fr":
+                text = r[1] || "";
+                break;
+            case "en":
+                text = r[2] || "";
+                break;
+        }
+
+        box.innerHTML += `<p>📚 ${text}</p>`;
     });
 }
 
