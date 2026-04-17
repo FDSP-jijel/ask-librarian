@@ -677,27 +677,20 @@ body.dark .dash-card {
     margin-left: 8px;
 }
 
-/* ألوان */
+/* ===== ICON COLORS ===== */
 .fa-facebook { color: #1877f2; }
 .fa-youtube { color: #ff0000; }
 .fa-globe { color: #3b82f6; }
 .fa-folder { color: #f59e0b; }
-.fa-facebook {
-    color: #1877f2;
-}
 
+/* ===== ICON STYLE ===== */
 .card i {
     font-size: 30px;
     margin-bottom: 10px;
+    transition: 0.3s;
 }
 
-/* ألوان */
-.fa-facebook { color: #1877f2; }
-.fa-youtube { color: #ff0000; }
-.fa-globe { color: #3b82f6; }
-.fa-folder { color: #f59e0b; }
-
+/* ===== HOVER ===== */
 .card:hover i {
     transform: scale(1.2);
-    transition: 0.3s;
 }
