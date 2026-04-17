@@ -2,7 +2,6 @@
    INIT
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
-    document.addEventListener("DOMContentLoaded", () => {
     let lang = localStorage.getItem("lang") || "ar";
     setLanguage(lang);
 
@@ -11,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateVisitors();
     loadMessages();
 
-    loadCatalog(); // فقط هذا
+    loadCatalog();
 });
 
 /* =========================
