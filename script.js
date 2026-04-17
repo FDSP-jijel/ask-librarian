@@ -11,8 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadMessages();
 
     loadCatalog();
-   console.log("LOADING CSV...");
-   console.log("CATALOG SIZE:", catalog.length);
 });
 
 /* =========================
@@ -475,23 +473,30 @@ let catalog = [];
 
 async function loadCatalog() {
     try {
-        let res = await fetch("catalog_FLPS_jijel.csv");
+        console.log("📂 Loading catalog...");
+
+        let res = await fetch("./catalog_FLPS_jijel.csv");
+
+        if(!res.ok){
+            throw new Error("CSV not found");
+        }
+
         let data = await res.text();
 
         let rows = data.split("\n")
             .map(r => r.split(",").map(c => c.trim()))
-            .filter(r => r.length >= 3);
+            .filter(r => r.length >= 2);
 
-        if(rows[0][0].toLowerCase().includes("ar")){
+        if(rows[0] && rows[0][0].toLowerCase().includes("ar")){
             rows.shift();
         }
 
         catalog = rows;
 
-        console.log("📚 Catalog loaded:", catalog.length);
+        console.log("✅ Catalog loaded:", catalog.length);
 
     } catch (e) {
-        console.log("❌ Error loading catalog:", e);
+        console.log("❌ Catalog error:", e);
         catalog = [];
     }
 }
