@@ -2,30 +2,17 @@
    INIT
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
-    let catalog = [];
-   let lang = localStorage.getItem("lang") || "ar";
+    document.addEventListener("DOMContentLoaded", () => {
+    let lang = localStorage.getItem("lang") || "ar";
     setLanguage(lang);
+
     loadChat();
     displayNews();
     updateVisitors();
-loadCatalog();
-   
-    let res = await fetch("catalog_FLPS_jijel.csv");
-    let data = await res.text();
+    loadMessages();
 
-    let rows = data.split("\n")
-        .map(r => r.split(",").map(c => c.trim()))
-        .filter(r => r.length >= 3);
-
-    // حذف العنوان إذا موجود
-    if (rows[0][0].toLowerCase().includes("ar")) {
-        rows.shift();
-    }
-
-    catalog = rows;
-}
-   
-loadMessages();
+    loadCatalog(); // فقط هذا
+});
 
 /* =========================
    GET CURRENT LANGUAGE
