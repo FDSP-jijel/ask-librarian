@@ -448,3 +448,17 @@ function updateDashboard(){
     let news = JSON.parse(localStorage.getItem("news")) || [];
     document.getElementById("totalNews").textContent = news.length;
 }
+
+let catalog = [];
+
+async function loadCatalog() {
+    let res = await fetch("catalog_FLPS_jijel.csv");
+    let data = await res.text();
+
+    let rows = data.split("\n").map(r => r.split(","));
+
+    // نحذف السطر الأول (العناوين)
+    rows.shift();
+
+    catalog = rows;
+}
