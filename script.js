@@ -270,6 +270,9 @@ let books = [
     }
 
     results.slice(0, 20).forEach(r => {
+    let text = r.join(" | ");
+    box.innerHTML += `<p>📚 ${text}</p>`;
+});
 
         let text = "";
 
