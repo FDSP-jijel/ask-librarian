@@ -236,8 +236,9 @@ let books = [
     {ar:"حقوق الإنسان", fr:"Droits de l'homme", en:"Human Rights"}
 ];
 
-function searchBooks(){
-    let q = document.getElementById("searchBook").value.toLowerCase();
+ function searchBooks(){
+
+    let q = document.getElementById("searchBook").value.trim().toLowerCase();
     let box = document.getElementById("bookResults");
     let lang = getLang();
 
@@ -245,9 +246,20 @@ function searchBooks(){
 
     box.innerHTML = "";
 
-    let results = catalog.filter(row =>
-        row.some(col => col.toLowerCase().includes(q))
-    );
+    if(!catalog || catalog.length === 0){
+        box.innerHTML = "⚠️ الفهرس لم يتم تحميله";
+        return;
+    }
+
+    // 🔍 البحث في كل اللغات
+    let results = catalog.filter(row => {
+
+        let ar = (row[0] || "").toLowerCase();
+        let fr = (row[1] || "").toLowerCase();
+        let en = (row[2] || "").toLowerCase();
+
+        return ar.includes(q) || fr.includes(q) || en.includes(q);
+    });
 
     if(results.length === 0){
         box.innerHTML =
@@ -258,19 +270,12 @@ function searchBooks(){
     }
 
     results.slice(0, 20).forEach(r => {
+
         let text = "";
 
-        switch(lang){
-            case "ar":
-                text = r[0] || "";
-                break;
-            case "fr":
-                text = r[1] || "";
-                break;
-            case "en":
-                text = r[2] || "";
-                break;
-        }
+        if(lang === "ar") text = r[0] || "";
+        else if(lang === "fr") text = r[1] || "";
+        else text = r[2] || "";   // 👈 EN هنا
 
         box.innerHTML += `<p>📚 ${text}</p>`;
     });
