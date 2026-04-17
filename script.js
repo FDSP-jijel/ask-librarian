@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     loadChat();
     displayNews();
     updateVisitors();
+
+    loadCatalog(); // 🔥 جديد
 });
 
 loadMessages();
