@@ -5,13 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let lang = localStorage.getItem("lang") || "ar";
     setLanguage(lang);
 
-    console.log("LOADING CSV...");
    loadChat();
     displayNews();
     updateVisitors();
     loadMessages();
 
     loadCatalog();
+   console.log("LOADING CSV...");
+   console.log("CATALOG SIZE:", catalog.length);
 });
 
 /* =========================
