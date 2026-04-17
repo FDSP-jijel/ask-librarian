@@ -242,6 +242,7 @@ let books = [
 ];
 
  function searchBooks(){
+function searchBooks(){
 
     let q = document.getElementById("searchBook").value.trim().toLowerCase();
     let box = document.getElementById("bookResults");
@@ -274,22 +275,23 @@ let books = [
         return;
     }
 
-results.slice(0, 20).forEach(r => {
+    results.slice(0, 20).forEach(r => {
 
-    let main = "";
-    if(lang === "ar") main = r[0];
-    else if(lang === "fr") main = r[1];
-    else main = r[2];
+        let main = "";
+        if(lang === "ar") main = r[0];
+        else if(lang === "fr") main = r[1];
+        else main = r[2];
 
-    let full = r.join(" | ");
+        let full = r.join(" | ");
 
-    box.innerHTML += `
-        <div>
-            <strong>📚 ${main}</strong><br>
-            <small>${full}</small>
-        </div>
-    `;
-});
+        box.innerHTML += `
+            <div>
+                <strong>📚 ${main}</strong><br>
+                <small>${full}</small>
+            </div>
+        `;
+    });
+}
 
 /* =========================
    VOICE (SMART LANG)
