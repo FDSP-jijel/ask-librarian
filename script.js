@@ -138,7 +138,7 @@ function generateReply(q){
     ];
 
     for(let intent of intents){
-        if(intent.patterns.some(p => q.includes(p))){
+        if(intent.patterns.some(p => q.includes(p) || p.includes(q)))
             return r[intent.key];
         }
     }
