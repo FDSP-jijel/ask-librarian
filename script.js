@@ -269,20 +269,22 @@ let books = [
         return;
     }
 
-    results.slice(0, 20).forEach(r => {
-    let text = r.join(" | ");
-    box.innerHTML += `<p>📚 ${text}</p>`;
+results.slice(0, 20).forEach(r => {
+
+    let main = "";
+    if(lang === "ar") main = r[0];
+    else if(lang === "fr") main = r[1];
+    else main = r[2];
+
+    let full = r.join(" | ");
+
+    box.innerHTML += `
+        <div>
+            <strong>📚 ${main}</strong><br>
+            <small>${full}</small>
+        </div>
+    `;
 });
-
-        let text = "";
-
-        if(lang === "ar") text = r[0] || "";
-        else if(lang === "fr") text = r[1] || "";
-        else text = r[2] || "";   // 👈 EN هنا
-
-        box.innerHTML += `<p>📚 ${text}</p>`;
-    });
-}
 
 /* =========================
    VOICE (SMART LANG)
