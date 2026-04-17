@@ -244,7 +244,6 @@ let books = [
 ];
 
  function searchBooks(){
-function searchBooks(){
 
     let q = document.getElementById("searchBook").value.trim().toLowerCase();
     let box = document.getElementById("bookResults");
@@ -259,7 +258,6 @@ function searchBooks(){
         return;
     }
 
-    // 🔍 البحث في كل اللغات
     let results = catalog.filter(row => {
 
         let ar = (row[0] || "").toLowerCase();
