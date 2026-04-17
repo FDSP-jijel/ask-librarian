@@ -479,13 +479,24 @@ function updateDashboard(){
 let catalog = [];
 
 async function loadCatalog() {
-    let res = await fetch("catalog_FLPS_jijel.csv");
-    let data = await res.text();
+    try {
+        let res = await fetch("catalog_FLPS_jijel.csv");
+        let data = await res.text();
 
-    let rows = data.split("\n").map(r => r.split(","));
+        let rows = data.split("\n")
+            .map(r => r.split(",").map(c => c.trim()))
+            .filter(r => r.length >= 3);
 
-    // نحذف السطر الأول (العناوين)
-    rows.shift();
+        if(rows[0][0].toLowerCase().includes("ar")){
+            rows.shift();
+        }
 
-    catalog = rows;
+        catalog = rows;
+
+        console.log("📚 Catalog loaded:", catalog.length);
+
+    } catch (e) {
+        console.log("❌ Error loading catalog:", e);
+        catalog = [];
+    }
 }
