@@ -8,9 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     displayNews();
     updateVisitors();
 
-    let catalog = [];
-
-async function loadCatalog() {
     let res = await fetch("catalog_FLPS_jijel.csv");
     let data = await res.text();
 
