@@ -8,9 +8,24 @@ document.addEventListener("DOMContentLoaded", () => {
     displayNews();
     updateVisitors();
 
-    loadCatalog(); // 🔥 جديد
-});
+    let catalog = [];
 
+async function loadCatalog() {
+    let res = await fetch("catalog_FLPS_jijel.csv");
+    let data = await res.text();
+
+    let rows = data.split("\n")
+        .map(r => r.split(",").map(c => c.trim()))
+        .filter(r => r.length >= 3);
+
+    // حذف العنوان إذا موجود
+    if (rows[0][0].toLowerCase().includes("ar")) {
+        rows.shift();
+    }
+
+    catalog = rows;
+}
+   
 loadMessages();
 
 /* =========================
