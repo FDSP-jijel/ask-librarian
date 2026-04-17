@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let lang = localStorage.getItem("lang") || "ar";
     setLanguage(lang);
 
-    loadChat();
+    console.log("LOADING CSV...");
+   loadChat();
     displayNews();
     updateVisitors();
     loadMessages();
