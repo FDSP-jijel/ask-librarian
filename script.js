@@ -270,7 +270,11 @@ let books = [
     }
 
     let results = catalog.filter(row => {
-    return row.join(" ").toLowerCase().includes(q);
+
+    let full = normalize(row.join(" "));
+    let query = normalize(q);
+
+    return full.includes(query);
 });
 
     if(results.length === 0){
