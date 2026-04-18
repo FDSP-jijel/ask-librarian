@@ -143,9 +143,8 @@ function generateReply(q){
 
     // 👇 fallback الصحيح
     if(q.length > 2){
-        return (lang === "ar") ?
-            "📚 يمكنك استخدام البحث في الفهرس للعثور على الكتب." :
-            (lang === "fr") ?
+        return "📚 لم أجد إجابة مباشرة، لكن يمكنك البحث في الفهرس أو كتابة عنوان أوضح.";
+           (lang === "fr") ?
             "📚 Utilisez le catalogue pour trouver des livres." :
             "📚 Use the catalog search to find books.";
     }
