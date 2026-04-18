@@ -260,6 +260,11 @@ let books = [
     let box = document.getElementById("bookResults");
     let lang = getLang();
 
+    if(q.length < 2){
+    box.innerHTML = "✏️ اكتب كلمة أكثر";
+    return;
+}
+    
     if(!box) return;
 
     box.innerHTML = "";
