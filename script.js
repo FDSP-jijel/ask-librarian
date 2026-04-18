@@ -259,13 +259,8 @@ let books = [
     }
 
     let results = catalog.filter(row => {
-
-        let ar = (row[0] || "").toLowerCase();
-        let fr = (row[1] || "").toLowerCase();
-        let en = (row[2] || "").toLowerCase();
-
-        return ar.includes(q) || fr.includes(q) || en.includes(q);
-    });
+    return row.join(" ").toLowerCase().includes(q);
+});
 
     if(results.length === 0){
         box.innerHTML =
