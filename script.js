@@ -274,7 +274,7 @@ let books = [
     let full = normalize(row.join(" "));
     let query = normalize(q);
 
-    return full.includes(query);
+    return query.split(" ").every(word => full.includes(word));  // 👈 هنا
 });
 
     if(results.length === 0){
