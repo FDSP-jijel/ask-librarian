@@ -142,8 +142,7 @@ function generateReply(q){
     }
 
     // 👇 fallback الصحيح
-    if(q.length > 2){
-        if(q.length > 2){
+if(q.length > 2){
     return (lang === "ar") ?
         "📚 لم أجد إجابة مباشرة، لكن يمكنك البحث في الفهرس أو كتابة عنوان أوضح." :
         (lang === "fr") ?
