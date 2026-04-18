@@ -515,10 +515,12 @@ async function loadCatalog() {
 
         let data = await res.text();
 
-        let rows = data.split("\n")
-            .map(r => r.split(",").map(c => c.trim()))
-            .filter(r => r.length >= 2);
-
+        let rows = data
+    .split("\n")
+    .map(r => r.trim())
+    .filter(r => r.length > 0)
+    .map(r => r.split(",").map(c => c.trim()));
+       
         if(rows[0] && rows[0][0].toLowerCase().includes("ar")){
             rows.shift();
         }
