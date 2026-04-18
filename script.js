@@ -143,11 +143,13 @@ function generateReply(q){
 
     // 👇 fallback الصحيح
     if(q.length > 2){
-        return "📚 لم أجد إجابة مباشرة، لكن يمكنك البحث في الفهرس أو كتابة عنوان أوضح.";
-           (lang === "fr") ?
-            "📚 Utilisez le catalogue pour trouver des livres." :
-            "📚 Use the catalog search to find books.";
-    }
+        if(q.length > 2){
+    return (lang === "ar") ?
+        "📚 لم أجد إجابة مباشرة، لكن يمكنك البحث في الفهرس أو كتابة عنوان أوضح." :
+        (lang === "fr") ?
+        "📚 Je n'ai pas trouvé de réponse directe, essayez de rechercher dans le catalogue." :
+        "📚 I didn't find a direct answer, try searching in the catalog.";
+}
 
     return r.default;
 }
