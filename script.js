@@ -500,7 +500,9 @@ let catalog = [];
 
 async function loadCatalog() {
     try {
-        console.log("📂 Loading catalog...");
+        console.log("ROW EXAMPLE:", catalog[0]);
+console.log("TOTAL ROWS:", catalog.length);
+       console.log("📂 Loading catalog...");
 
         let res = await fetch("./catalog_FLPS_jijel.csv");
 
