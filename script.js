@@ -13,18 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadCatalog();
 });
 
-function normalize(text){
-    return (text || "")
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u064B-\u065F]/g, "") // إزالة التشكيل
-        .replace(/[إأآا]/g, "ا")
-        .replace(/ى/g, "ي")
-        .replace(/ة/g, "ه")
-        .replace(/\s+/g, " ")
-        .trim();
-}
-
 /* =========================
    GET CURRENT LANGUAGE
 ========================= */
@@ -254,6 +242,18 @@ let books = [
     {ar:"علوم سياسية", fr:"Sciences politiques", en:"Political Science"},
     {ar:"حقوق الإنسان", fr:"Droits de l'homme", en:"Human Rights"}
 ];
+
+function normalize(text){
+    return (text || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u064B-\u065F]/g, "")
+        .replace(/[إأآا]/g, "ا")
+        .replace(/ى/g, "ي")
+        .replace(/ة/g, "ه")
+        .replace(/\s+/g, " ")
+        .trim();
+}
 
  function searchBooks(){
 
