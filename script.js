@@ -255,34 +255,37 @@ let books = [
     {ar:"حقوق الإنسان", fr:"Droits de l'homme", en:"Human Rights"}
 ];
 
- function searchBooks(){
+
+function searchBooks(){
 
     let q = document.getElementById("searchBook").value.trim().toLowerCase();
     let box = document.getElementById("bookResults");
     let lang = getLang();
 
-    if(q.length < 2){
-    box.innerHTML = "✏️ اكتب كلمة أكثر";
-    return;
-}
-    
     if(!box) return;
 
-    box.innerHTML = "";
+    if(q.length < 2){
+        box.innerHTML = "✏️ اكتب كلمة أكثر";
+        return;
+    }
 
     if(!catalog || catalog.length === 0){
         box.innerHTML = "⚠️ الفهرس لم يتم تحميله";
         return;
     }
 
+    box.innerHTML = "";
+
     let results = catalog.filter(row => {
 
-    let full = normalize(row.join(" "));
-    let query = normalize(q);
+        let full = normalize(row.join(" "));
+        let query = normalize(q);
 
-    let words = query.split(" ");
+        let words = query.split(" ");
 
-return words.filter(word => full.includes(word)).length >= Math.ceil(words.length / 2);
+        return words.filter(word => full.includes(word)).length >= Math.ceil(words.length / 2);
+    });
+
     if(results.length === 0){
         box.innerHTML =
             lang === "ar" ? "❌ لا توجد نتائج" :
