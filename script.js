@@ -277,10 +277,10 @@ let books = [
 
     let results = catalog.filter(row => {
 
-    let full = normalize((row || []).join(" "));
+    let full = normalize(row.join(" "));
     let query = normalize(q);
 
-    return full.indexOf(query) !== -1;
+    return query.split(" ").every(word => full.includes(word));
 });
 
     if(results.length === 0){
