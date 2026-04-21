@@ -500,7 +500,6 @@ function updateDashboard(){
 let catalog = [];
 
 async function loadCatalog() {
-async function loadCatalog() {
     try {
         console.log("📂 Loading catalog...");
 
