@@ -280,9 +280,9 @@ let books = [
     let full = normalize(row.join(" "));
     let query = normalize(q);
 
-    return query.split(" ").every(word => full.includes(word));
-});
+    let words = query.split(" ");
 
+return words.filter(word => full.includes(word)).length >= Math.ceil(words.length / 2);
     if(results.length === 0){
         box.innerHTML =
             lang === "ar" ? "❌ لا توجد نتائج" :
