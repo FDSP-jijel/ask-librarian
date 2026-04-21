@@ -499,10 +499,9 @@ function updateDashboard(){
 let catalog = [];
 
 async function loadCatalog() {
+async function loadCatalog() {
     try {
-        console.log("ROW EXAMPLE:", catalog[0]);
-console.log("TOTAL ROWS:", catalog.length);
-       console.log("📂 Loading catalog...");
+        console.log("📂 Loading catalog...");
 
         let res = await fetch("./catalog_FLPS_jijel.csv");
 
@@ -513,18 +512,22 @@ console.log("TOTAL ROWS:", catalog.length);
         let data = await res.text();
 
         let rows = data
-    .split("\n")
-    .map(r => r.trim())
-    .filter(r => r.length > 0)
-    .map(r => r.split(",").map(c => c.trim()));
-       
+            .split("\n")
+            .map(r => r.trim())
+            .filter(r => r.length > 0)
+            .map(r => r.split(",").map(c => c.trim()));
+
         if(rows[0] && rows[0][0].toLowerCase().includes("ar")){
             rows.shift();
         }
 
         catalog = rows;
 
-        console.log("✅ Catalog loaded:", catalog.length);
+        // ✅ هنا مكان الطباعة الصحيح
+        console.log("ROW EXAMPLE:", catalog[0]);
+        console.log("TOTAL ROWS:", catalog.length);
+
+        console.log("✅ Catalog loaded successfully");
 
     } catch (e) {
         console.log("❌ Catalog error:", e);
