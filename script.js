@@ -14,14 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function normalize(text){
-    return text
+    return (text || "")
         .toLowerCase()
-        .replace(/[أإآ]/g, "ا")
-        .replace(/ة/g, "ه")
+        .normalize("NFD")
+        .replace(/[\u064B-\u065F]/g, "") // إزالة التشكيل
+        .replace(/[إأآا]/g, "ا")
         .replace(/ى/g, "ي")
-        .replace(/ؤ/g, "و")
-        .replace(/ئ/g, "ي")
-        .replace(/[^a-z0-9\u0600-\u06FF ]/g, "");
+        .replace(/ة/g, "ه")
+        .replace(/\s+/g, " ")
+        .trim();
 }
 
 /* =========================
