@@ -233,16 +233,6 @@ function updateVisitors(){
     if(el) el.textContent = visitors;
 }
 
-/* =========================
-   BOOK SEARCH (MULTI LANG)
-========================= */
-let books = [
-    {ar:"القانون المدني", fr:"Droit civil", en:"Civil Law"},
-    {ar:"القانون الدستوري", fr:"Droit constitutionnel", en:"Constitutional Law"},
-    {ar:"علوم سياسية", fr:"Sciences politiques", en:"Political Science"},
-    {ar:"حقوق الإنسان", fr:"Droits de l'homme", en:"Human Rights"}
-];
-
 function normalize(text){
     return (text || "")
         .toLowerCase()
@@ -254,6 +244,16 @@ function normalize(text){
         .replace(/\s+/g, " ")
         .trim();
 }
+
+/* =========================
+   BOOK SEARCH (MULTI LANG)
+========================= */
+let books = [
+    {ar:"القانون المدني", fr:"Droit civil", en:"Civil Law"},
+    {ar:"القانون الدستوري", fr:"Droit constitutionnel", en:"Constitutional Law"},
+    {ar:"علوم سياسية", fr:"Sciences politiques", en:"Political Science"},
+    {ar:"حقوق الإنسان", fr:"Droits de l'homme", en:"Human Rights"}
+];
 
  function searchBooks(){
 
