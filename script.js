@@ -537,8 +537,6 @@ async function loadCatalog() {
     }
 }
 
-} // نهاية loadCatalog
-
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
