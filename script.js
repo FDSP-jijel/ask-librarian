@@ -523,7 +523,6 @@ async function loadCatalog() {
 
         catalog = rows;
 
-        // ✅ هنا مكان الطباعة الصحيح
         console.log("ROW EXAMPLE:", catalog[0]);
         console.log("TOTAL ROWS:", catalog.length);
 
