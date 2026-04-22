@@ -294,8 +294,8 @@ function searchBooks(){
         return;
     }
 
-    results.slice(0, 20).forEach(r => {
-
+    results.slice(0, 200).forEach(item => {
+       
         let main = "";
         if(lang === "ar") main = r[0];
         else if(lang === "fr") main = r[1];
