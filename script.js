@@ -373,24 +373,36 @@ function toggleLangMenu(){
     }
 }
 
-// إغلاق تلقائي عند اختيار لغة
 function setLanguage(lang){
 
+    // حفظ اللغة
     localStorage.setItem("lang", lang);
 
+    // إظهار النصوص حسب اللغة
     document.querySelectorAll("[data-lang]").forEach(el=>{
         el.style.display = (el.getAttribute("data-lang") === lang) ? "" : "none";
     });
 
-    // ✔ هنا الصحيح
+    // اتجاه الصفحة
     document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
 
-    document.querySelectorAll(".language-selector .lang").forEach(btn=>{
+    // تفعيل زر اللغة المختارة (اختياري)
+    document.querySelectorAll(".language-selector button").forEach(btn=>{
         btn.classList.remove("active");
     });
 
-    let activeBtn = document.querySelector(".language-selector ."+lang);
+    let activeBtn = document.querySelector(`.language-selector button[onclick="setLanguage('${lang}')"]`);
     if(activeBtn) activeBtn.classList.add("active");
+
+    // ✅ تحديث placeholder لكل input و textarea
+    document.querySelectorAll("input, textarea").forEach(el => {
+
+        let placeholder = el.getAttribute("data-lang-placeholder-" + lang);
+
+        if(placeholder){
+            el.placeholder = placeholder;
+        }
+    });
 }
 
 function sendMessage(){
