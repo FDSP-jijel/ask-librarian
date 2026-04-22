@@ -580,6 +580,42 @@ function showMoreResults(){
     }
 }
 
+function displayMore(){
+
+    let box = document.getElementById("bookResults");
+    let lang = getLang();
+
+    let next = currentResults.slice(displayIndex, displayIndex + 50);
+
+    next.forEach(r => {
+
+        let main = "";
+        if(lang === "ar") main = r[0];
+        else if(lang === "fr") main = r[1];
+        else main = r[2];
+
+        let full = r.join(" | ");
+
+        box.innerHTML += `
+            <div>
+                <strong>📚 ${main}</strong><br>
+                <small>${full}</small>
+            </div>
+        `;
+    });
+
+    displayIndex += 50;
+
+    // زر عرض المزيد
+    if(displayIndex < currentResults.length){
+        box.innerHTML += `
+            <button onclick="displayMore()" style="margin-top:10px">
+                ⬇️ عرض المزيد
+            </button>
+        `;
+    }
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
