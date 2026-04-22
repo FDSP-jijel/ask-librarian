@@ -581,7 +581,9 @@ function showMoreResults(){
 }
 
 function displayMore(){
-
+let oldBtn = document.querySelector("#bookResults button");
+if(oldBtn) oldBtn.remove();
+   
     let box = document.getElementById("bookResults");
     let lang = getLang();
 
