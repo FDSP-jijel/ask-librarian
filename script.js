@@ -1,4 +1,11 @@
 /* =========================
+   GLOBAL VARIABLES
+========================= */
+let catalog = [];
+let currentResults = []; // 👈 هنا
+let displayIndex = 0;    // 👈 هنا
+
+/* =========================
    INIT
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
