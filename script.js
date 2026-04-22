@@ -258,7 +258,7 @@ let books = [
 
 function searchBooks(){
 
-    let q = document.getElementById("searchBook").value.trim().toLowerCase();
+    let q = document.getElementById("searchBook").value.trim();
     let box = document.getElementById("bookResults");
     let lang = getLang();
 
@@ -274,42 +274,28 @@ function searchBooks(){
         return;
     }
 
-    box.innerHTML = "";
+    let query = normalize(q);
 
-    let results = catalog.filter(row => {
+    currentResults = catalog.map(row => {
 
         let full = normalize(row.join(" "));
-        let query = normalize(q);
+        let score = 0;
 
-        let words = query.split(" ");
+        if(full.includes(query)) score += 5;
 
-        return words.filter(word => full.includes(word)).length >= Math.ceil(words.length / 2);
-    });
+        query.split(" ").forEach(word => {
+            if(full.includes(word)) score += 1;
+        });
 
-    if(results.length === 0){
-        box.innerHTML =
-            lang === "ar" ? "❌ لا توجد نتائج" :
-            lang === "fr" ? "❌ Aucun résultat" :
-            "❌ No results";
-        return;
-    }
+        return { row, score };
 
-    results.slice(0, 200).forEach(item => {
-       
-        let main = "";
-        if(lang === "ar") main = r[0];
-        else if(lang === "fr") main = r[1];
-        else main = r[2];
+    }).filter(r => r.score > 0)
+      .sort((a,b) => b.score - a.score);
 
-        let full = r.join(" | ");
+    displayIndex = 0;
+    box.innerHTML = "";
 
-        box.innerHTML += `
-            <div>
-                <strong>📚 ${main}</strong><br>
-                <small>${full}</small>
-            </div>
-        `;
-    });
+    showMoreResults();
 }
 
 /* =========================
