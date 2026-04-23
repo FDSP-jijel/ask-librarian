@@ -277,7 +277,10 @@ function searchBooks(){
     if(!box) return;
 
     if(q.length < 2){
-        box.innerHTML = "✏️ اكتب كلمة أكثر";
+        box.innerHTML =
+    lang === "ar" ? "✏️ اكتب كلمة أكثر" :
+    lang === "fr" ? "✏️ Écrivez plus de lettres" :
+    "✏️ Type more characters";
         return;
     }
 
