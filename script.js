@@ -594,11 +594,13 @@ function showMoreResults(){
 }
 
 function displayMore(){
-let oldBtn = document.querySelector("#bookResults button");
-if(oldBtn) oldBtn.remove();
-   
+
     let box = document.getElementById("bookResults");
     let lang = getLang();
+
+    // حذف زر قديم
+    let oldBtn = document.querySelector("#bookResults button");
+    if(oldBtn) oldBtn.remove();
 
     let next = currentResults.slice(displayIndex, displayIndex + 50);
 
@@ -621,12 +623,9 @@ if(oldBtn) oldBtn.remove();
 
     displayIndex += 50;
 
-    // زر عرض المزيد
     if(displayIndex < currentResults.length){
         box.innerHTML += `
-            <button onclick="displayMore()" style="margin-top:10px">
-                ⬇️ عرض المزيد
-            </button>
+            <button onclick="displayMore()">⬇️ عرض المزيد</button>
         `;
     }
 }
