@@ -12,12 +12,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let lang = localStorage.getItem("lang") || "ar";
     setLanguage(lang);
 
-   loadChat();
+    loadChat();
     displayNews();
     updateVisitors();
     loadMessages();
-
     loadCatalog();
+
+    // 👇 ضع الكود هنا بالضبط
+    document.getElementById("searchBook").addEventListener("keypress", function(e){
+        if(e.key === "Enter"){
+            searchBooks();
+        }
+    });
 });
 
 /* =========================
