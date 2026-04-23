@@ -297,8 +297,9 @@ function searchBooks(){
         let full = normalize(row.join(" "));
         let score = 0;
 
-        if(full.includes(query)) score += 5;
-
+        if(full.startsWith(query)) score += 10;
+else if(full.includes(query)) score += 5;
+       
         query.split(" ").forEach(word => {
             if(full.includes(word)) score += 1;
         });
