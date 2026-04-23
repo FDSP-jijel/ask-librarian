@@ -262,7 +262,6 @@ let books = [
     {ar:"حقوق الإنسان", fr:"Droits de l'homme", en:"Human Rights"}
 ];
 
-
 function searchBooks(){
 
     let q = document.getElementById("searchBook").value.trim();
@@ -283,6 +282,7 @@ function searchBooks(){
 
     let query = normalize(q);
 
+    // 🔥 بناء النتائج مع score
     currentResults = catalog.map(row => {
 
         let full = normalize(row.join(" "));
@@ -296,13 +296,26 @@ function searchBooks(){
 
         return { row, score };
 
-    }).filter(r => r.score > 0)
-      .sort((a,b) => b.score - a.score);
+    })
+    .filter(r => r.score > 0) // فقط النتائج المطابقة
+    .sort((a,b) => b.score - a.score) // ترتيب ذكي
+    .map(r => r.row); // ❗ مهم جداً (نرجع فقط row)
 
+    // 🔁 إعادة البداية
     displayIndex = 0;
     box.innerHTML = "";
 
-    showMoreResults();
+    // ❌ لا توجد نتائج
+    if(currentResults.length === 0){
+        box.innerHTML =
+            lang === "ar" ? "❌ لا توجد نتائج" :
+            lang === "fr" ? "❌ Aucun résultat" :
+            "❌ No results";
+        return;
+    }
+
+    // ✅ عرض أول دفعة
+    displayMore();
 }
 
 /* =========================
