@@ -163,6 +163,33 @@ if(q.length > 2){
         "📚 I didn't find a direct answer, try searching in the catalog.";
 }
 
+// 🔍 ربط المساعد بالبحث في الفهرس
+if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
+
+    let query = normalize(q);
+
+    let results = catalog.filter(row => {
+        return normalize(row.join(" ")).includes(query);
+    }).slice(0, 5); // فقط 5 نتائج
+
+    if(results.length > 0){
+
+        let reply = (lang === "ar") ? "📚 هذه بعض النتائج:\n" :
+                    (lang === "fr") ? "📚 Voici quelques résultats:\n" :
+                    "📚 Here are some results:\n";
+
+        results.forEach(r => {
+            let title = (lang === "ar") ? r[0] :
+                        (lang === "fr") ? r[1] :
+                        r[2];
+
+            reply += "• " + title + "\n";
+        });
+
+        return reply;
+    }
+}
+   
     return r.default;
 }
   
