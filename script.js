@@ -148,48 +148,41 @@ function generateReply(q){
         { key: "thanks", patterns: ["شكرا", "merci", "thanks"] }
     ];
 
+    // ✅ 1. ربط الفهرس أولاً (الأهم)
+    if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
+
+        let query = normalize(q);
+
+        let results = catalog.filter(row => {
+            return normalize(row.join(" ")).includes(query);
+        }).slice(0, 5);
+
+        if(results.length > 0){
+
+            let reply = (lang === "ar") ? "📚 هذه بعض النتائج:\n" :
+                        (lang === "fr") ? "📚 Voici quelques résultats:\n" :
+                        "📚 Here are some results:\n";
+
+            results.forEach(r => {
+                let title = (lang === "ar") ? r[0] :
+                            (lang === "fr") ? r[1] :
+                            r[2];
+
+                reply += "• " + title + "\n";
+            });
+
+            return reply;
+        }
+    }
+
+    // ✅ 2. intents بعده
     for(let intent of intents){
         if(intent.patterns.some(p => q.includes(p))){
             return r[intent.key];
         }
     }
 
-    // 👇 fallback الصحيح
-if(q.length > 2){
-    return (lang === "ar") ?
-        "📚 لم أجد إجابة مباشرة، لكن يمكنك البحث في الفهرس أو كتابة عنوان أوضح." :
-        (lang === "fr") ?
-        "📚 Je n'ai pas trouvé de réponse directe, essayez de rechercher dans le catalogue." :
-        "📚 I didn't find a direct answer, try searching in the catalog.";
-}
-
-// 🔍 ربط المساعد بالبحث في الفهرس
-if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
-
-    let query = normalize(q);
-
-    let results = catalog.filter(row => {
-        return normalize(row.join(" ")).includes(query);
-    }).slice(0, 5); // فقط 5 نتائج
-
-    if(results.length > 0){
-
-        let reply = (lang === "ar") ? "📚 هذه بعض النتائج:\n" :
-                    (lang === "fr") ? "📚 Voici quelques résultats:\n" :
-                    "📚 Here are some results:\n";
-
-        results.forEach(r => {
-            let title = (lang === "ar") ? r[0] :
-                        (lang === "fr") ? r[1] :
-                        r[2];
-
-            reply += "• " + title + "\n";
-        });
-
-        return reply;
-    }
-}
-   
+    // ❌ 3. fallback في الأخير فقط
     return r.default;
 }
   
