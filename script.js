@@ -148,32 +148,34 @@ function generateReply(q){
         { key: "thanks", patterns: ["شكرا", "merci", "thanks"] }
     ];
 
-    // ✅ 1. ربط الفهرس أولاً (الأهم)
-    if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
+    // 🔍 ربط ذكي مع الفهرس
+if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
 
-        let query = normalize(q);
+    let query = normalize(q);
 
-        let results = catalog.filter(row => {
-            return normalize(row.join(" ")).includes(query);
-        }).slice(0, 5);
+    let results = catalog.filter(row =>
+        normalize(row.join(" ")).includes(query)
+    );
 
-        if(results.length > 0){
+    if(results.length > 0){
 
-            let reply = (lang === "ar") ? "📚 هذه بعض النتائج:\n" :
-                        (lang === "fr") ? "📚 Voici quelques résultats:\n" :
-                        "📚 Here are some results:\n";
+        // نخزن النتائج في البحث الرئيسي
+        currentResults = results;
+        displayIndex = 0;
 
-            results.forEach(r => {
-                let title = (lang === "ar") ? r[0] :
-                            (lang === "fr") ? r[1] :
-                            r[2];
+        // نفتح صفحة البحث تلقائياً
+        setTimeout(() => {
+            show("search");      // إذا عندك section search
+            displayMore();       // عرض النتائج
+        }, 500);
 
-                reply += "• " + title + "\n";
-            });
+        let reply = (lang === "ar") ? "📚 وجدت بعض الكتب، يتم عرضها الآن..." :
+                    (lang === "fr") ? "📚 Résultats trouvés..." :
+                    "📚 Results found...";
 
-            return reply;
-        }
+        return reply;
     }
+}
 
     // ✅ 2. intents بعده
     for(let intent of intents){
