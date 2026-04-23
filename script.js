@@ -542,8 +542,7 @@ async function loadCatalog() {
             .split("\n")
             .map(r => r.trim())
             .filter(r => r.length > 0)
-            .map(r => r.split(",").map(c => c.trim()));
-
+            .map(r => r.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(c => c.trim()));
         if(rows[0] && rows[0][0].toLowerCase().includes("ar")){
             rows.shift();
         }
@@ -557,7 +556,6 @@ async function loadCatalog() {
 
     } catch (e) {
         console.log("❌ Catalog error:", e);
-        catalog = [];
     }
 }
 
