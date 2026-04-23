@@ -270,7 +270,7 @@ let books = [
 
 function searchBooks(){
 
-    let q = document.getElementById("searchBook").value.trim();
+ let q = document.getElementById("searchBook").value.trim().toLowerCase();
     let box = document.getElementById("bookResults");
     let lang = getLang();
 
