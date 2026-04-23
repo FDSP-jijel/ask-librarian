@@ -148,7 +148,7 @@ function generateReply(q){
         { key: "thanks", patterns: ["شكرا", "merci", "thanks"] }
     ];
 
-    // 🔍 ربط ذكي مع الفهرس
+ // 🔍 ربط ذكي مع الفهرس
 if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
 
     let query = normalize(q);
