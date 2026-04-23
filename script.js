@@ -524,8 +524,6 @@ function updateDashboard(){
     document.getElementById("totalNews").textContent = news.length;
 }
 
-let catalog = [];
-
 async function loadCatalog() {
     try {
         console.log("📂 Loading catalog...");
