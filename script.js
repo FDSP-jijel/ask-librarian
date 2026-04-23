@@ -555,44 +555,6 @@ async function loadCatalog() {
     }
 }
 
-function showMoreResults(){
-
-    let box = document.getElementById("bookResults");
-    let lang = getLang();
-
-    let next = currentResults.slice(displayIndex, displayIndex + 50);
-
-    next.forEach(item => {
-
-        let r = item.row;
-
-        let main = "";
-        if(lang === "ar") main = r[0];
-        else if(lang === "fr") main = r[1];
-        else main = r[2];
-
-        let full = r.join(" | ");
-
-        box.innerHTML += `
-            <div>
-                <strong>📚 ${main}</strong><br>
-                <small>${full}</small>
-            </div>
-        `;
-    });
-
-    displayIndex += 50;
-
-    // زر عرض المزيد
-    if(displayIndex < currentResults.length){
-        box.innerHTML += `
-            <button onclick="showMoreResults()" class="load-more">
-                ⬇️ عرض المزيد
-            </button>
-        `;
-    }
-}
-
 function displayMore(){
 
     let box = document.getElementById("bookResults");
