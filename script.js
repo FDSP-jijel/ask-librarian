@@ -175,8 +175,6 @@ setTimeout(() => {
         return (lang === "ar") ? "📚 وجدت نتائج:" :
        (lang === "fr") ? "📚 Résultats trouvés:" :
        "📚 Results found:";
-
-        return reply + "\n\n📖 تم عرض النتائج في الصفحة الرئيسية";
     }
 }
 
@@ -647,11 +645,13 @@ chunk.forEach((r, i) => {
                 r[2];
 
     html += `
-        <div onclick="showBookDetails(${realIndex})"
-             style="cursor:pointer; padding:6px; border-bottom:1px solid #ddd;">
-             📚 ${title}
-        </div>
-    `;
+    <div onclick="showBookDetails(${realIndex})"
+         style="cursor:pointer; padding:6px; border-bottom:1px solid #ddd; transition:0.3s;"
+         onmouseover="this.style.background='#f1f5f9'"
+         onmouseout="this.style.background='transparent'">
+         📚 ${title}
+    </div>
+`;
 });
 
     displayIndex += 5;
