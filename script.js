@@ -658,6 +658,10 @@ function displayChatResults(){
     addMessage("bot", html);
 }
 
+function loadMoreChat(){
+    displayChatResults();
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
