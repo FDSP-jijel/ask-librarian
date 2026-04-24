@@ -639,13 +639,20 @@ function displayChatResults(){
     chunk.forEach((r, i) => {
         let realIndex = displayIndex + i;
 
-html += `
-    <div onclick="showBookDetails(${realIndex})"
-         style="cursor:pointer; padding:6px; border-bottom:1px solid #ddd;">
-         📚 ${title}
-    </div>
-`;
-    });
+chunk.forEach((r, i) => {
+    let realIndex = displayIndex + i;
+
+    let title = (lang === "ar") ? r[0] :
+                (lang === "fr") ? r[1] :
+                r[2];
+
+    html += `
+        <div onclick="showBookDetails(${realIndex})"
+             style="cursor:pointer; padding:6px; border-bottom:1px solid #ddd;">
+             📚 ${title}
+        </div>
+    `;
+});
 
     displayIndex += 5;
 
