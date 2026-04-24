@@ -620,6 +620,44 @@ function displayMore(){
     }
 }
 
+function displayChatResults(){
+
+    let lang = getLang();
+    let chunk = currentResults.slice(displayIndex, displayIndex + 5);
+
+    if(chunk.length === 0) return;
+
+    let html = `<div>📚 <strong>${
+        lang === "ar" ? "نتائج البحث:" :
+        lang === "fr" ? "Résultats:" :
+        "Results:"
+    }</strong><br>`;
+
+    chunk.forEach(r => {
+
+        let title = (lang === "ar") ? r[0] :
+                    (lang === "fr") ? r[1] :
+                    r[2];
+
+        html += `• ${title}<br>`;
+    });
+
+    displayIndex += 5;
+
+    // زر عرض المزيد
+    if(displayIndex < currentResults.length){
+        html += `<br><button onclick="loadMoreChat()">⬇️ ${
+            lang === "ar" ? "عرض المزيد" :
+            lang === "fr" ? "Afficher plus" :
+            "Load more"
+        }</button>`;
+    }
+
+    html += `</div>`;
+
+    addMessage("bot", html);
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
