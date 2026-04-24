@@ -165,7 +165,7 @@ if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
 
         // نفتح صفحة البحث تلقائياً
         setTimeout(() => {
-            show("search");      // إذا عندك section search
+            show("home");     
             displayMore();       // عرض النتائج
         }, 500);
 
