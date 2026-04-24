@@ -173,7 +173,7 @@ if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
                     (lang === "fr") ? "📚 Résultats trouvés..." :
                     "📚 Results found...";
 
-        return reply + "\n\n📖 اضغط على البحث لرؤية المزيد";
+        return reply + "\n\n📖 تم عرض النتائج في الصفحة الرئيسية";
     }
 }
 
