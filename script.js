@@ -67,7 +67,7 @@ function addMessage(type, text){
 
     let msg = document.createElement("div");
     msg.className = "msg " + type;
-    msg.textContent = text;
+    msg.innerHTML = text;
 
     box.appendChild(msg);
     box.scrollTop = box.scrollHeight;
