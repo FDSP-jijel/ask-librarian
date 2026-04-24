@@ -665,6 +665,27 @@ function loadMoreChat(){
     displayChatResults();
 }
 
+function showBookDetails(index){
+
+    let lang = getLang();
+    let book = currentResults[index];
+
+    if(!book) return;
+
+    let title = (lang === "ar") ? book[0] :
+                (lang === "fr") ? book[1] :
+                book[2];
+
+    let details = `
+        <div>
+            <strong>📖 ${title}</strong><br>
+            <small>${book.join(" | ")}</small>
+        </div>
+    `;
+
+    addMessage("bot", details);
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
