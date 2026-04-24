@@ -638,10 +638,6 @@ function displayChatResults(){
 
     chunk.forEach(r => {
 
-        let title = (lang === "ar") ? r[0] :
-                    (lang === "fr") ? r[1] :
-                    r[2];
-
         let realIndex = displayIndex + i;
 
 html += `
