@@ -694,3 +694,5 @@ window.startVoice = startVoice;
 window.toggleDark = toggleDark;
 window.reply = reply;
 window.setLanguage = setLanguage;
+window.showBookDetails = showBookDetails;
+window.loadMoreChat = loadMoreChat;
