@@ -163,11 +163,14 @@ if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
         currentResults = results;
         displayIndex = 0;
 
-        // نفتح صفحة البحث تلقائياً
-        setTimeout(() => {
-            show("home");     
-            displayMore();       // عرض النتائج
-        }, 500);
+        // نخزن النتائج
+currentResults = results;
+displayIndex = 0;
+
+// عرض أول دفعة داخل الشات
+setTimeout(() => {
+    displayChatResults();
+}, 300);
 
         let reply = (lang === "ar") ? "📚 وجدت بعض الكتب، يتم عرضها الآن..." :
                     (lang === "fr") ? "📚 Résultats trouvés..." :
