@@ -636,8 +636,7 @@ function displayChatResults(){
         "Results:"
     }</strong><br>`;
 
-    chunk.forEach(r => {
-
+    chunk.forEach((r, i) => {
         let realIndex = displayIndex + i;
 
 html += `
