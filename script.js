@@ -172,9 +172,9 @@ setTimeout(() => {
     displayChatResults();
 }, 300);
 
-        let reply = (lang === "ar") ? "📚 وجدت بعض الكتب، يتم عرضها الآن..." :
-                    (lang === "fr") ? "📚 Résultats trouvés..." :
-                    "📚 Results found...";
+        return (lang === "ar") ? "📚 وجدت نتائج:" :
+       (lang === "fr") ? "📚 Résultats trouvés:" :
+       "📚 Results found:";
 
         return reply + "\n\n📖 تم عرض النتائج في الصفحة الرئيسية";
     }
