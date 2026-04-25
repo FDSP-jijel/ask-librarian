@@ -635,28 +635,25 @@ function displayChatResults(){
     }</strong><br>`;
 
     chunk.forEach((r, i) => {
+
         let realIndex = displayIndex + i;
 
-chunk.forEach((r, i) => {
-    let realIndex = displayIndex + i;
+        let title = (lang === "ar") ? r[0] :
+                    (lang === "fr") ? r[1] :
+                    r[2];
 
-    let title = (lang === "ar") ? r[0] :
-                (lang === "fr") ? r[1] :
-                r[2];
-
-    html += `
-    <div onclick="showBookDetails(${realIndex})"
-         style="cursor:pointer; padding:6px; border-bottom:1px solid #ddd; transition:0.3s;"
-         onmouseover="this.style.background='##e2e8f0'"
-         onmouseout="this.style.background='transparent'">
-         📚 ${title}
-    </div>
-`;
-});
+        html += `
+        <div onclick="showBookDetails(${realIndex})"
+             style="cursor:pointer; padding:6px; border-bottom:1px solid #ddd; transition:0.3s;"
+             onmouseover="this.style.background='#e2e8f0'"
+             onmouseout="this.style.background='transparent'">
+             📚 ${title}
+        </div>
+        `;
+    });
 
     displayIndex += 5;
 
-    // زر عرض المزيد
     if(displayIndex < currentResults.length){
         html += `<br><button onclick="loadMoreChat()">⬇️ ${
             lang === "ar" ? "عرض المزيد" :
