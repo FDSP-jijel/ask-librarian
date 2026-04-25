@@ -670,13 +670,23 @@ let query = document.getElementById("q").value || "";
 title = highlight(title, query);
 
         html += `
-        <div onclick="showBookDetails(${realIndex})"
-             style="cursor:pointer; padding:6px; border-bottom:1px solid #ddd; transition:0.3s;"
-             onmouseover="this.style.background='#e2e8f0'"
-             onmouseout="this.style.background='transparent'">
-             📚 ${title}
-        </div>
-        `;
+<div onclick="showBookDetails(${realIndex})"
+     style="
+        cursor:pointer;
+        padding:10px;
+        margin-bottom:6px;
+        border-radius:8px;
+        border:1px solid #e5e7eb;
+        transition:0.3s;
+     "
+     onmouseover="this.style.background='#f1f5f9'"
+     onmouseout="this.style.background='white'">
+
+     <div style="font-weight:bold;">📚 ${title}</div>
+     <div style="font-size:12px; color:#666;">📖 اضغط لرؤية التفاصيل</div>
+
+</div>
+`;
     });
 
     displayIndex += 5;
