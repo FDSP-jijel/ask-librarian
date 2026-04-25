@@ -175,9 +175,6 @@ if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
 displayIndex = 0;
 
 if(currentResults.length > 0){
-        // نخزن النتائج في البحث الرئيسي
-        currentResults = results;
-        displayIndex = 0;
 
         // نخزن النتائج
 currentResults = results;
