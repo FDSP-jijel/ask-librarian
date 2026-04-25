@@ -662,8 +662,12 @@ function displayChatResults(){
         let realIndex = displayIndex + i;
 
         let title = (lang === "ar") ? r[0] :
-                    (lang === "fr") ? r[1] :
-                    r[2];
+            (lang === "fr") ? r[1] :
+            r[2];
+
+// 🔥 تطبيق التلوين
+let query = document.getElementById("q").value || "";
+title = highlight(title, query);
 
         html += `
         <div onclick="showBookDetails(${realIndex})"
