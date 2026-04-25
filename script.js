@@ -290,6 +290,20 @@ function normalize(text){
         .trim();
 }
 
+function highlight(text, query){
+
+    if(!query) return text;
+
+    let words = query.split(" ").filter(w => w.length > 1);
+
+    words.forEach(word => {
+        let regex = new RegExp(`(${word})`, "gi");
+        text = text.replace(regex, `<span style="background:#fde68a; padding:2px 4px; border-radius:4px;">$1</span>`);
+    });
+
+    return text;
+}
+
 /* =========================
    BOOK SEARCH (MULTI LANG)
 ========================= */
