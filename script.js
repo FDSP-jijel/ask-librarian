@@ -647,7 +647,7 @@ chunk.forEach((r, i) => {
     html += `
     <div onclick="showBookDetails(${realIndex})"
          style="cursor:pointer; padding:6px; border-bottom:1px solid #ddd; transition:0.3s;"
-         onmouseover="this.style.background='#f1f5f9'"
+         onmouseover="this.style.background='##e2e8f0'"
          onmouseout="this.style.background='transparent'">
          📚 ${title}
     </div>
