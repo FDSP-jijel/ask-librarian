@@ -172,8 +172,9 @@ if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
 .sort((a,b) => b.score - a.score)
 .map(r => r.row);
 
-    if(results.length > 0){
+displayIndex = 0;
 
+if(currentResults.length > 0){
         // نخزن النتائج في البحث الرئيسي
         currentResults = results;
         displayIndex = 0;
@@ -390,7 +391,7 @@ function startVoice(){
     let lang = getLang();
 
     recognition.lang = (lang === "ar") ? "ar-SA" :
-                       (lang === "fr") ? "fr-FR" :
+                       (lng === "fr") ? "fr-FR" :
                        "en-US";
 
     recognition.continuous = false;
