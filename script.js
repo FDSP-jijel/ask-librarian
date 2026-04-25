@@ -162,8 +162,17 @@ if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
     else if(full.includes(query)) score += 5;
 
     query.split(" ").forEach(word => {
-        if(full.includes(word)) score += 1;
-    });
+
+    // تطابق كلمة كاملة فقط
+    let regex = new RegExp(`\\b${word}\\b`, "i");
+
+    if(regex.test(full)){
+        score += 3; // نعطيها وزن أعلى
+    } else if(full.includes(word)){
+        score += 1;
+    }
+
+});
 
     return { row, score };
 
