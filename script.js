@@ -176,10 +176,6 @@ displayIndex = 0;
 
 if(currentResults.length > 0){
 
-        // نخزن النتائج
-currentResults = results;
-displayIndex = 0;
-
 // عرض أول دفعة داخل الشات
 setTimeout(() => {
     displayChatResults();
