@@ -180,6 +180,12 @@ if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
 .filter(r => r.score > 0)
 .sort((a,b) => b.score - a.score)
 .map(r => r.row);
+   
+ // 🔥 فلترة إضافية لتحسين الدقة
+currentResults = currentResults.filter(row => {
+    let text = normalize(row.join(" "));
+    return query.split(" ").some(word => text.includes(word));
+});  
 
 displayIndex = 0;
 
