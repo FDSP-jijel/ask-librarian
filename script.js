@@ -153,9 +153,24 @@ if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
 
     let query = normalize(q);
 
-    let results = catalog.filter(row =>
-        normalize(row.join(" ")).includes(query)
-    );
+    currentResults = catalog.map(row => {
+
+    let full = normalize(row.join(" "));
+    let score = 0;
+
+    if(full.startsWith(query)) score += 10;
+    else if(full.includes(query)) score += 5;
+
+    query.split(" ").forEach(word => {
+        if(full.includes(word)) score += 1;
+    });
+
+    return { row, score };
+
+})
+.filter(r => r.score > 0)
+.sort((a,b) => b.score - a.score)
+.map(r => r.row);
 
     if(results.length > 0){
 
