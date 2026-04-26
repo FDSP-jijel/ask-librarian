@@ -771,6 +771,11 @@ function showBookDetails(index){
     addMessage("bot", details);
 }
 
+function toggleAddBook(){
+    let box = document.getElementById("addBookBox");
+    box.style.display = (box.style.display === "none") ? "block" : "none";
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
