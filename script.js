@@ -10,28 +10,27 @@ let lastQuery = "";
    INIT
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
-document.addEventListener("DOMContentLoaded", () => {
-    
+
    localStorage.removeItem("chat");
-   
+
    let lang = localStorage.getItem("lang") || "ar";
-    setLanguage(lang);
+   setLanguage(lang);
 
-    loadChat();
-    displayNews();
-    updateVisitors();
-    loadMessages();
-    loadCatalog();
+   loadChat();
+   displayNews();
+   updateVisitors();
+   loadMessages();
+   loadCatalog();
 
-    let searchInput = document.getElementById("searchBook");
+   let searchInput = document.getElementById("searchBook");
 
-    if(searchInput){
-        searchInput.addEventListener("keypress", function(e){
-            if(e.key === "Enter"){
-                searchBooks();
-            }
-        });
-    }
+   if(searchInput){
+       searchInput.addEventListener("keypress", function(e){
+           if(e.key === "Enter"){
+               searchBooks();
+           }
+       });
+   }
 
 });
 
