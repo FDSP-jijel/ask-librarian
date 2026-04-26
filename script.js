@@ -186,7 +186,7 @@ if(query.length > 2 && !["مرحبا","hello","bonjour"].includes(query)){
  // 🔥 فلترة إضافية لتحسين الدقة
 currentResults = currentResults.filter(row => {
     let text = normalize(row.join(" "));
-    let words = query.split(" ");
+    let words = query.split(" ").filter(w => w.length > 1);
 
 let strongMatch = words.every(word => {
     if(/[a-z]/i.test(word)){
