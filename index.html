@@ -115,6 +115,16 @@
   
 <button onclick="show('admin')">🧑‍💻 إدارة</button>
 
+  <button onclick="toggleAddBook()">➕ مقتنيات جديدة</button>
+
+<div id="addBookBox" style="display:none;">
+    <input id="newBookAr" placeholder="العنوان بالعربية">
+    <input id="newBookFr" placeholder="Titre FR">
+    <input id="newBookEn" placeholder="Title EN">
+
+    <button onclick="addNewBook()">حفظ</button>
+</div>
+
   <button onclick="toggleDark()">🌙</button>
 
   
