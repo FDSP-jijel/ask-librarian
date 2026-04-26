@@ -421,6 +421,8 @@ function startVoice(){
     recognition.continuous = false;
     recognition.interimResults = false;
 
+   recognition.maxAlternatives = 1;
+   
     recognition.start();
 
     console.log("🎤 بدأ التسجيل");
