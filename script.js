@@ -258,10 +258,8 @@ function saveChat(){
 }
 
 function loadChat(){
-    let saved = localStorage.getItem("chat");
-    if(saved){
-        document.getElementById("chatbox").innerHTML = saved;
-    }
+    // ❌ لا نحمّل أي محادثة قديمة
+    document.getElementById("chatbox").innerHTML = "";
 }
 
 /* =========================
