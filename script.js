@@ -328,8 +328,8 @@ function highlight(text, query){
 
     if(!query) return text;
 
-    let words = query.split(" ").filter(w => w.length > 1);
-
+    let words = query.split(" ").filter(w => w.length > 0);
+   
     words.forEach(word => {
         let regex = new RegExp(`(${word})`, "gi");
         text = text.replace(regex, `<span style="background:#fde68a; padding:2px 4px; border-radius:4px;">$1</span>`);
