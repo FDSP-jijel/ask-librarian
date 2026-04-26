@@ -112,31 +112,55 @@
   </button>
 
 <button onclick="show('contact')">📬 تواصل</button>
-  
-<button onclick="show('admin')">🧑‍💻 إدارة</button>
+  <button onclick="show('contact')">
+    <span data-lang="ar">📬 تواصل</span>
+    <span data-lang="fr">📬 Contact</span>
+    <span data-lang="en">📬 Contact</span>
+  </button>
 
-  <button onclick="toggleAddBook()">➕ مقتنيات جديدة</button>
+  <button onclick="show('admin')">
+    <span data-lang="ar">🧑‍💻 إدارة</span>
+    <span data-lang="fr">🧑‍💻 Administration</span>
+    <span data-lang="en">🧑‍💻 Admin</span>
+  </button>
 
-<div id="addBookBox" style="display:none;">
+  <button onclick="toggleAddBook()">
+    <span data-lang="ar">➕ مقتنيات جديدة</span>
+    <span data-lang="fr">➕ Nouveaux ouvrages</span>
+    <span data-lang="en">➕ New Books</span>
+  </button>
+
+  <div id="addBookBox" style="display:none;">
     <input id="newBookAr" placeholder="العنوان بالعربية">
     <input id="newBookFr" placeholder="Titre FR">
     <input id="newBookEn" placeholder="Title EN">
 
-    <button onclick="addNewBook()">حفظ</button>
-</div>
+    <button onclick="addNewBook()">
+      <span data-lang="ar">حفظ</span>
+      <span data-lang="fr">Enregistrer</span>
+      <span data-lang="en">Save</span>
+    </button>
+  </div>
 
-<button onclick="toggleUrgent()">🚨 إعلان عاجل</button>
+  <button onclick="toggleUrgent()">
+    <span data-lang="ar">🚨 إعلان عاجل</span>
+    <span data-lang="fr">🚨 Annonce urgente</span>
+    <span data-lang="en">🚨 Urgent News</span>
+  </button>
 
-<div id="urgentBox" style="display:none;">
+  <div id="urgentBox" style="display:none;">
     <input id="urgentTitle" placeholder="عنوان عاجل">
     <textarea id="urgentContent" placeholder="محتوى الإعلان"></textarea>
 
-    <button onclick="addUrgentNews()">نشر عاجل</button>
-</div>
+    <button onclick="addUrgentNews()">
+      <span data-lang="ar">نشر</span>
+      <span data-lang="fr">Publier</span>
+      <span data-lang="en">Publish</span>
+    </button>
+  </div>
   
   <button onclick="toggleDark()">🌙</button>
 
-  
 </nav>
 
 <!-- ================= HOME ================= -->
