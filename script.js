@@ -151,7 +151,7 @@ function generateReply(q){
  // 🔍 ربط ذكي مع الفهرس
 let query = normalize(q);
 
-if(query.length > 2){
+if(query.length > 2 && !["مرحبا","hello","bonjour"].includes(query)){
    
     currentResults = catalog.map(row => {
 
