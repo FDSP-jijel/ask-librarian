@@ -149,8 +149,10 @@ function generateReply(q){
     ];
 
  // 🔍 ربط ذكي مع الفهرس
-if(q.includes("كتاب") || q.includes("book") || q.includes("livre")){
+let query = normalize(q);
 
+if(query.length > 2){
+   
     let query = normalize(q);
 
     currentResults = catalog.map(row => {
