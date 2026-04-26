@@ -776,6 +776,32 @@ function toggleAddBook(){
     box.style.display = (box.style.display === "none") ? "block" : "none";
 }
 
+function addNewBook(){
+
+    let ar = document.getElementById("newBookAr").value.trim();
+    let fr = document.getElementById("newBookFr").value.trim();
+    let en = document.getElementById("newBookEn").value.trim();
+
+    if(!ar || !fr || !en){
+        alert("يرجى ملء جميع الحقول");
+        return;
+    }
+
+    let newRow = [ar, fr, en];
+
+    // إضافة للفهرس
+    catalog.push(newRow);
+
+    // حفظ محلي (اختياري)
+    localStorage.setItem("customCatalog", JSON.stringify(catalog));
+
+    alert("تمت إضافة الكتاب بنجاح ✅");
+
+    document.getElementById("newBookAr").value = "";
+    document.getElementById("newBookFr").value = "";
+    document.getElementById("newBookEn").value = "";
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
