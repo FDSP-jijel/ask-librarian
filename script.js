@@ -186,7 +186,7 @@ if(query.length > 2){
  // 🔥 فلترة إضافية لتحسين الدقة
 currentResults = currentResults.filter(row => {
     let text = normalize(row.join(" "));
-    return query.split(" ").some(word => text.includes(word));
+    return query.split(" ").every(word => text.includes(word));
 });  
 
 displayIndex = 0;
