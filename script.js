@@ -807,6 +807,11 @@ function addNewBook(){
     document.getElementById("newBookEn").value = "";
 }
 
+function toggleUrgent(){
+    let box = document.getElementById("urgentBox");
+    box.style.display = (box.style.display === "none") ? "block" : "none";
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
