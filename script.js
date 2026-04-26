@@ -257,8 +257,6 @@ function reply(){
 function saveChat(){
     // ❌ لا نحفظ شيء
 }
-    localStorage.setItem("chat", document.getElementById("chatbox").innerHTML);
-}
 
 function loadChat(){
     // ❌ لا نحمّل أي محادثة قديمة
