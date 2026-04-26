@@ -626,6 +626,11 @@ async function loadCatalog() {
             throw new Error("CSV not found");
         }
 
+let saved = localStorage.getItem("customCatalog");
+if(saved){
+    catalog = JSON.parse(saved);
+}
+       
         let data = await res.text();
 
         let rows = data
