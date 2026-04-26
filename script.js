@@ -252,6 +252,8 @@ function reply(){
    CHAT SAVE / LOAD
 ========================= */
 function saveChat(){
+    // ❌ لا نحفظ شيء
+}
     localStorage.setItem("chat", document.getElementById("chatbox").innerHTML);
 }
 
