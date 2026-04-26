@@ -151,6 +151,7 @@ function generateReply(q){
 
  // 🔍 ربط ذكي مع الفهرس
 let query = normalize(q);
+lastQuery = query;
 
 if(query.length > 2 && !["مرحبا","hello","bonjour"].includes(query)){
    
