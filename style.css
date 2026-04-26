@@ -741,6 +741,17 @@ body.dark .dash-card {
     background: rgba(0,0,0,0.05);
 }
 
+.card i {
+    font-size: 30px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.card img {
+    display: block;
+    margin: auto;
+}
+
 /* ===== تصميم حديث للبطاقات ===== */
 .modern-card {
     text-align: center;
