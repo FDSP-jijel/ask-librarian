@@ -853,6 +853,16 @@ function addUrgentNews(){
     document.getElementById("urgentContent").value = "";
 }
 
+function copyEmail(){
+    navigator.clipboard.writeText("fdsprbib@gmail.com")
+    .then(() => {
+        alert("📋 تم نسخ البريد الإلكتروني");
+    })
+    .catch(() => {
+        alert("❌ فشل النسخ");
+    });
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
