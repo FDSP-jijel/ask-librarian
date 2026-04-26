@@ -10,7 +10,10 @@ let lastQuery = "";
    INIT
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
-    let lang = localStorage.getItem("lang") || "ar";
+    
+   localStorage.removeItem("chat");
+   
+   let lang = localStorage.getItem("lang") || "ar";
     setLanguage(lang);
 
     loadChat();
