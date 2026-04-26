@@ -431,7 +431,9 @@ function startVoice(){
         recognition.stop();
     }
 
-    recognition = new SpeechRecognition();
+    if(!recognition){
+    recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+}
 
     let lang = getLang();
 
