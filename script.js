@@ -190,7 +190,7 @@ currentResults = currentResults.filter(row => {
 
 let strongMatch = words.some(word => {
     let regex = new RegExp(`\\b${word}\\b`, "i");
-    return regex.test(text);
+    return text.includes(word);
 });
 
 return strongMatch;
