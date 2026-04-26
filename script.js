@@ -153,8 +153,6 @@ let query = normalize(q);
 
 if(query.length > 2){
    
-    let query = normalize(q);
-
     currentResults = catalog.map(row => {
 
     let full = normalize(row.join(" "));
