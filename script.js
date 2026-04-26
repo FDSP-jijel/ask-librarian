@@ -187,8 +187,9 @@ if(query.length > 2 && !["مرحبا","hello","bonjour"].includes(query)){
 currentResults = currentResults.filter(row => {
     let text = normalize(row.join(" "));
     return query.split(" ").every(word => {
-    let regex = new RegExp(`\\b${word}\\b`, "i");
-    return regex.test(text);
+        let regex = new RegExp(`\\b${word}\\b`, "i");
+        return regex.test(text);
+    });
 });
 
 displayIndex = 0;
