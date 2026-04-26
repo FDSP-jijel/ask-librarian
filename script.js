@@ -186,17 +186,19 @@ if(query.length > 2 && !["مرحبا","hello","bonjour"].includes(query)){
  // 🔥 فلترة إضافية لتحسين الدقة
 currentResults = currentResults.filter(row => {
     let text = normalize(row.join(" "));
+    
+    // 👇 هنا التعديل
     let words = query.split(" ").filter(w => w.length > 1);
 
-let strongMatch = words.every(word => {
-    if(/[a-z]/i.test(word)){
-        let regex = new RegExp(`\\b${word}\\b`, "i");
-        return regex.test(text);
-    }
-    return text.includes(word);
-});
+    let strongMatch = words.every(word => {
+        if(/[a-z]/i.test(word)){
+            let regex = new RegExp(`\\b${word}\\b`, "i");
+            return regex.test(text);
+        }
+        return text.includes(word);
+    });
 
-return strongMatch;
+    return strongMatch;
 });
 
 displayIndex = 0;
