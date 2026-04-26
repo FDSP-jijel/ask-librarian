@@ -812,6 +812,32 @@ function toggleUrgent(){
     box.style.display = (box.style.display === "none") ? "block" : "none";
 }
 
+function addUrgentNews(){
+
+    let title = document.getElementById("urgentTitle").value.trim();
+    let content = document.getElementById("urgentContent").value.trim();
+
+    if(!title || !content){
+        alert("املأ كل الحقول");
+        return;
+    }
+
+    let item = {
+        title,
+        content,
+        urgent: true,
+        time: new Date().toLocaleString()
+    };
+
+    news.push(item);
+    localStorage.setItem("news", JSON.stringify(news));
+
+    displayNews();
+
+    document.getElementById("urgentTitle").value = "";
+    document.getElementById("urgentContent").value = "";
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
