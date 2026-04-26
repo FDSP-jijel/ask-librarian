@@ -10,6 +10,7 @@ let lastQuery = "";
    INIT
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     
    localStorage.removeItem("chat");
    
@@ -24,13 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let searchInput = document.getElementById("searchBook");
 
-if(searchInput){
-    searchInput.addEventListener("keypress", function(e){
-        if(e.key === "Enter"){
-            searchBooks();
-        }
-    });
-}
+    if(searchInput){
+        searchInput.addEventListener("keypress", function(e){
+            if(e.key === "Enter"){
+                searchBooks();
+            }
+        });
+    }
+
+});
 
 /* =========================
    GET CURRENT LANGUAGE
