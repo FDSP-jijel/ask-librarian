@@ -415,8 +415,8 @@ function startVoice(){
     let lang = getLang();
 
     recognition.lang = (lang === "ar") ? "ar-SA" :
-                       (lng === "fr") ? "fr-FR" :
-                       "en-US";
+                   (lang === "fr") ? "fr-FR" :
+                   "en-US";
 
     recognition.continuous = false;
     recognition.interimResults = false;
