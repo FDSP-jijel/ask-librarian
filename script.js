@@ -193,13 +193,17 @@ currentResults = currentResults.filter(row => {
     // 👇 هنا التعديل
     let words = query.split(" ").filter(w => w.length > 1);
 
-    let strongMatch = words.every(word => {
-        if(/[a-z]/i.test(word)){
-            let regex = new RegExp(`\\b${word}\\b`, "i");
-            return regex.test(text);
-        }
+    let strongMatch = words.some(word => {
+
+    // إذا الكلمة عربية → includes فقط
+    if(/[؀-ۿ]/.test(word)){
         return text.includes(word);
-    });
+    }
+
+    // إذا لاتينية → regex دقيق
+    let regex = new RegExp(`\\b${word}\\b`, "i");
+    return regex.test(text);
+});
 
     return strongMatch;
 });
