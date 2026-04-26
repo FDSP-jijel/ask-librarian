@@ -4,6 +4,7 @@
 let catalog = [];
 let currentResults = []; // 👈 هنا
 let displayIndex = 0;    // 👈 هنا
+let lastQuery = "";
 
 /* =========================
    INIT
