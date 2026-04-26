@@ -188,7 +188,7 @@ currentResults = currentResults.filter(row => {
     let text = normalize(row.join(" "));
     let words = query.split(" ");
 
-let strongMatch = words.some(word => {
+let strongMatch = words.every(word => {
     if(/[a-z]/i.test(word)){
         let regex = new RegExp(`\\b${word}\\b`, "i");
         return regex.test(text);
