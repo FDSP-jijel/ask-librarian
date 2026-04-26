@@ -22,13 +22,15 @@ document.addEventListener("DOMContentLoaded", () => {
     loadMessages();
     loadCatalog();
 
-    // 👇 ضع الكود هنا بالضبط
-    document.getElementById("searchBook").addEventListener("keypress", function(e){
+    let searchInput = document.getElementById("searchBook");
+
+if(searchInput){
+    searchInput.addEventListener("keypress", function(e){
         if(e.key === "Enter"){
             searchBooks();
         }
     });
-});
+}
 
 /* =========================
    GET CURRENT LANGUAGE
