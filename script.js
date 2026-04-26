@@ -697,7 +697,7 @@ function displayChatResults(){
             r[2];
 
 // 🔥 تطبيق التلوين
-let query = lastQuery;
+let query = normalize(document.getElementById("q").value || lastQuery);
 title = highlight(title, query);
 
         html += `
