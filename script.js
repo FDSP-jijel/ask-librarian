@@ -184,8 +184,10 @@ if(query.length > 2){
  // 🔥 فلترة إضافية لتحسين الدقة
 currentResults = currentResults.filter(row => {
     let text = normalize(row.join(" "));
-    return query.split(" ").every(word => text.includes(word));
-});  
+    return query.split(" ").every(word => {
+    let regex = new RegExp(`\\b${word}\\b`, "i");
+    return regex.test(text);
+});
 
 displayIndex = 0;
 
