@@ -292,14 +292,29 @@ function addNews(){
 }
 
 function displayNews(){
+
     let box = document.getElementById("newsList");
     if(!box) return;
 
     box.innerHTML = "";
 
     news.slice().reverse().forEach(n=>{
+
+        let style = n.urgent
+            ? "border:2px solid red; background:#fff3f3;"
+            : "";
+
+        let badge = n.urgent ? "🚨 عاجل" : "";
+
         let div = document.createElement("div");
-        div.innerHTML = `<h3>${n.title}</h3><p>${n.content}</p>`;
+
+        div.style = style;
+
+        div.innerHTML = `
+            <h3>${badge} ${n.title}</h3>
+            <p>${n.content}</p>
+        `;
+
         box.appendChild(div);
     });
 }
