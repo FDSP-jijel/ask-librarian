@@ -870,24 +870,47 @@ function copyEmail(){
     });
 }
 
+let api = null;
+
 function showMeeting(){
 
-    // إخفاء كل الصفحات
     document.querySelectorAll("section").forEach(s=>{
         s.classList.add("hidden");
     });
 
-    // إظهار صفحة الاجتماع
     document.getElementById("meeting").classList.remove("hidden");
 
-    // إدخال الاجتماع داخل الصفحة
-    document.getElementById("meetContainer").innerHTML = `
-        <iframe
-            src="https://meet.jit.si/AskLibrarianRoom"
-            style="width:100%; height:500px; border:0;"
-            allow="camera; microphone; fullscreen; display-capture">
-        </iframe>
-    `;
+    const container = document.getElementById("meetContainer");
+    container.innerHTML = "";
+
+    if(api){
+        api.dispose();
+        api = null;
+    }
+
+    api = new JitsiMeetExternalAPI("meet.jit.si", {
+        roomName: "AskLibrarianRoom",
+        parentNode: container,
+        width: "100%",
+        height: 500,
+
+        configOverwrite: {
+            prejoinPageEnabled: false,
+            startWithAudioMuted: false,
+            startWithVideoMuted: false
+        },
+
+        interfaceConfigOverwrite: {
+            TOOLBAR_BUTTONS: [
+                "microphone",
+                "camera",
+                "chat",
+                "hangup"
+            ],
+            SHOW_JITSI_WATERMARK: false,
+            SHOW_WATERMARK_FOR_GUESTS: false
+        }
+    });
 }
 
 window.show = show;
