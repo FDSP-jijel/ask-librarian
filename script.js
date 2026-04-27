@@ -746,6 +746,7 @@ title = highlight(title, query);
 
      <div style="font-weight:bold;">📚 ${title}</div>
      <div style="font-size:12px; color:#666;">📖 اضغط لرؤية التفاصيل</div>
+
 </div>
 `;
     });
