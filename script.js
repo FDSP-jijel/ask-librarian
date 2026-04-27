@@ -745,7 +745,7 @@ title = highlight(title, query);
      onmouseout="this.style.background='white'">
 
      <div style="font-weight:bold;">📚 ${title}</div>
-     <div style="font-size:12px; color:#666;">
+     <div style="font-size:12px; color:#ef4444;">
 📖 <span style="color:red;">
 ${
     lang === "ar" ? "اضغط لرؤية التفاصيل" :
