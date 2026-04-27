@@ -870,6 +870,26 @@ function copyEmail(){
     });
 }
 
+function showMeeting(){
+
+    // إخفاء كل الصفحات
+    document.querySelectorAll("section").forEach(s=>{
+        s.classList.add("hidden");
+    });
+
+    // إظهار صفحة الاجتماع
+    document.getElementById("meeting").classList.remove("hidden");
+
+    // إدخال الاجتماع داخل الصفحة
+    document.getElementById("meetContainer").innerHTML = `
+        <iframe
+            src="https://meet.jit.si/AskLibrarianRoom"
+            style="width:100%; height:500px; border:0;"
+            allow="camera; microphone; fullscreen; display-capture">
+        </iframe>
+    `;
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
