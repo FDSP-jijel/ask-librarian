@@ -932,7 +932,13 @@ function shareMeeting(){
     } else {
         // نسخ الرابط
         navigator.clipboard.writeText(link);
-        alert("📋 تم نسخ رابط الاجتماع");
+        let lang = getLang();
+
+alert(
+    lang === "ar" ? "📋 تم نسخ الرابط" :
+    lang === "fr" ? "📋 Lien copié" :
+    "📋 Link copied"
+);
     }
 }
 
