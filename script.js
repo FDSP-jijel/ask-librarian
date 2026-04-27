@@ -893,6 +893,9 @@ function showMeeting(){
         parentNode: container,
         width: "100%",
         height: 500,
+       api.addEventListener('videoConferenceJoined', () => {
+    api.executeCommand('password', '1234');
+});
 
         configOverwrite: {
             prejoinPageEnabled: false,
