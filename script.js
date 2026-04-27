@@ -918,6 +918,24 @@ function showMeeting(){
     });
 }
 
+function shareMeeting(){
+
+    let link = "https://meet.jit.si/AskLibrarianRoom";
+
+    // إذا الهاتف يدعم المشاركة
+    if(navigator.share){
+        navigator.share({
+            title: "Library Meeting",
+            text: "انضم إلى الاجتماع",
+            url: link
+        });
+    } else {
+        // نسخ الرابط
+        navigator.clipboard.writeText(link);
+        alert("📋 تم نسخ رابط الاجتماع");
+    }
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
