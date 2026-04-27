@@ -807,3 +807,79 @@ body.dark .dash-card {
     color: #666;
     font-size: 12px;
 }
+
+#about{
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    line-height: 1.8;
+}
+
+/* العنوان الرئيسي */
+#about h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+/* العناوين */
+#about h3{
+    margin-top: 25px;
+    color: #1e293b;
+    border-right: 5px solid #2563eb;
+    padding-right: 10px;
+}
+
+#about h4{
+    margin-top: 15px;
+    color: #334155;
+}
+
+/* بطاقات */
+.library-card{
+    background: linear-gradient(135deg, #dbeafe, #f8fafc);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #93c5fd;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+    transition: 0.3s;
+}
+
+.library-card:hover{
+    transform: translateY(-4px);
+}
+
+/* اسم المسؤول */
+.library-card .name{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* خدمات */
+.service-box{
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.service-box:hover{
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+
+/* القوائم */
+ul{
+    padding-right: 20px;
+}
+
+/* الهاتف */
+@media(max-width:768px){
+    #about{
+        padding: 10px;
+    }
+}
