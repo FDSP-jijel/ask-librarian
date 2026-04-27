@@ -893,9 +893,6 @@ function showMeeting(){
         parentNode: container,
         width: "100%",
         height: 500,
-       api.addEventListener('videoConferenceJoined', () => {
-    api.executeCommand('password', '1234');
-});
 
         configOverwrite: {
             prejoinPageEnabled: false,
@@ -913,6 +910,11 @@ function showMeeting(){
             SHOW_JITSI_WATERMARK: false,
             SHOW_WATERMARK_FOR_GUESTS: false
         }
+    });
+
+    // ✅ هنا المكان الصحيح
+    api.addEventListener('videoConferenceJoined', () => {
+        api.executeCommand('password', '1234');
     });
 }
 
