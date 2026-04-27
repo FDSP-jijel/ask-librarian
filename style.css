@@ -883,3 +883,16 @@ ul{
         padding: 10px;
     }
 }
+
+.lib-img-rect{
+    width: 100%;
+    max-width: 420px;
+    display: block;
+    margin: 15px auto;
+    
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    
+    object-fit: contain;
+}
