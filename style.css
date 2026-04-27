@@ -896,3 +896,8 @@ ul{
     
     object-fit: contain;
 }
+
+.lib-img-rect:hover{
+    transform: scale(1.02);
+    transition: 0.3s;
+}
