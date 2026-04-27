@@ -744,7 +744,7 @@ title = highlight(title, query);
      onmouseover="this.style.background='#f1f5f9'"
      onmouseout="this.style.background='white'">
 
-     <div style="font-weight:bold;">📚 ${title}</div>
+     <div style="font-size:12px; color:#666;">${hint}</div>
      let hint = (lang === "ar") ? "📖 اضغط لرؤية التفاصيل" :
            (lang === "fr") ? "📖 Cliquez pour voir التفاصيل" :
            "📖 Click to view details";
