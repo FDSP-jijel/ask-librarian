@@ -919,26 +919,26 @@ function showMeeting(){
 }
 
 function shareMeeting(){
+function shareMeeting(){
 
-    let link = "https://meet.jit.si/AskLibrarianRoom";
+    let link = "https://meet.jit.si/AskLibrarianRoom_2026_SECURE";
 
-    // إذا الهاتف يدعم المشاركة
     if(navigator.share){
         navigator.share({
-            title: "Library Meeting",
-            text: "انضم إلى الاجتماع",
+            title: "📚 Library Meeting",
+            text: "انضم إلى اجتماع المكتبة",
             url: link
         });
     } else {
-        // نسخ الرابط
         navigator.clipboard.writeText(link);
+
         let lang = getLang();
 
-alert(
-    lang === "ar" ? "📋 تم نسخ الرابط" :
-    lang === "fr" ? "📋 Lien copié" :
-    "📋 Link copied"
-);
+        alert(
+            lang === "ar" ? "📋 تم نسخ رابط الاجتماع" :
+            lang === "fr" ? "📋 Lien copié" :
+            "📋 Link copied"
+        );
     }
 }
 
