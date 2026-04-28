@@ -901,3 +901,9 @@ ul{
     transform: scale(1.02);
     transition: 0.3s;
 }
+
+.details-text{
+    color:red;
+    font-weight:bold;
+    font-size:12px;
+}
