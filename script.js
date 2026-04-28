@@ -745,16 +745,18 @@ title = highlight(title, query);
      onmouseout="this.style.background='white'">
 
      <div style="font-weight:bold;">📚 ${title}</div>
-     <div style="font-size:12px; color:#ef4444;">
-📖 <span style="color:red;">
-${
-    lang === "ar" ? "اضغط لرؤية التفاصيل" :
-    lang === "fr" ? "Cliquez pour voir les détails" :
-    "Click to view details"
-}
-</span>
 
-</div>
+     <div style="font-size:12px; color:#ef4444;">
+        📖 <span style="color:red;">
+        ${
+            lang === "ar" ? "اضغط لرؤية التفاصيل" :
+            lang === "fr" ? "Cliquez pour voir les détails" :
+            "Click to view details"
+        }
+        </span>
+     </div>
+
+</div>  <!-- 🔥 هذا هو الإغلاق المهم -->
 `;
     });
 
