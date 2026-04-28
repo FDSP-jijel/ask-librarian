@@ -987,7 +987,10 @@ function openStructure(type){
     };
 
     box.style.display = "block";
+    if(content[type] && content[type][lang]){
     box.innerHTML = content[type][lang];
+} else {
+    box.innerHTML = "❌ لا توجد معلومات";
 }
    
 window.show = show;
