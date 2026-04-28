@@ -916,8 +916,8 @@ function showMeeting(){
 
     // ✅ هنا المكان الصحيح
     api.addEventListener('videoConferenceJoined', () => {
-       roomName: "AskLibrarianRoom_2026_SECURE",
-    });
+   console.log("User joined meeting");
+});
 }
 
 function shareMeeting(){
