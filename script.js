@@ -914,7 +914,7 @@ function showMeeting(){
 
     // ✅ هنا المكان الصحيح
     api.addEventListener('videoConferenceJoined', () => {
-        api.executeCommand('password', '1234');
+       roomName: "AskLibrarianRoom_2026_SECURE",
     });
 }
 
