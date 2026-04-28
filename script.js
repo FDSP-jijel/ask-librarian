@@ -921,8 +921,6 @@ function showMeeting(){
 }
 
 function shareMeeting(){
-function shareMeeting(){
-
     let link = "https://meet.jit.si/AskLibrarianRoom_2026_SECURE";
 
     if(navigator.share){
