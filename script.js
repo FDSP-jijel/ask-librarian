@@ -891,7 +891,7 @@ function showMeeting(){
     }
 
     api = new JitsiMeetExternalAPI("meet.jit.si", {
-        roomName: "AskLibrarianRoom",
+        roomName: "AskLibrarianRoom_2026_SECURE",
         parentNode: container,
         width: "100%",
         height: 500,
