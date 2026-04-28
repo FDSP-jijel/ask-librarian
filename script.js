@@ -993,6 +993,7 @@ function openStructure(type){
     box.innerHTML = "❌ لا توجد معلومات";
 }
    
+// ⬇️ هنا مباشرة (آخر الملف تماماً)
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
@@ -1001,3 +1002,4 @@ window.reply = reply;
 window.setLanguage = setLanguage;
 window.showBookDetails = showBookDetails;
 window.loadMoreChat = loadMoreChat;
+window.openStructure = openStructure;
