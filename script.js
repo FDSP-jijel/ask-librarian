@@ -942,6 +942,54 @@ alert(
     }
 }
 
+function openStructure(type){
+
+    let box = document.getElementById("structureDetails");
+    let lang = getLang();
+
+    let content = {
+
+        admin: {
+            ar: "تشرف الإدارة على تسيير المكتبة وتنظيم العمل.",
+            fr: "L'administration gère l'organisation de la bibliothèque.",
+            en: "Administration manages the library operations."
+        },
+
+        storage: {
+            ar: "المخزن يحتوي على الكتب والأرشيف.",
+            fr: "Le magasin contient les livres et archives.",
+            en: "Storage contains books and archives."
+        },
+
+        loan: {
+            ar: "بنك الإعارة يسمح باستعارة الكتب.",
+            fr: "Service de prêt pour emprunter des livres.",
+            en: "Loan service allows borrowing books."
+        },
+
+        journals: {
+            ar: "قاعة الدوريات تضم المجلات العلمية.",
+            fr: "Salle des périodiques pour les revues.",
+            en: "Journals room for scientific magazines."
+        },
+
+        teachers: {
+            ar: "قاعة خاصة بالأساتذة للبحث.",
+            fr: "Salle réservée aux enseignants.",
+            en: "Room dedicated for teachers."
+        },
+
+        reading: {
+            ar: "قاعة المطالعة مخصصة للقراءة.",
+            fr: "Salle de lecture pour les étudiants.",
+            en: "Reading room for students."
+        }
+    };
+
+    box.style.display = "block";
+    box.innerHTML = content[type][lang];
+}
+   
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
