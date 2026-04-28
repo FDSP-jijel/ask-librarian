@@ -747,7 +747,7 @@ title = highlight(title, query);
      <div style="font-weight:bold;">📚 ${title}</div>
 
      <div style="font-size:12px; color:#ef4444;">
-        📖 <span style="color:red;">
+        📖 <span>
         ${
             lang === "ar" ? "اضغط لرؤية التفاصيل" :
             lang === "fr" ? "Cliquez pour voir les détails" :
