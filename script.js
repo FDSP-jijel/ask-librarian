@@ -987,13 +987,14 @@ function openStructure(type){
     };
 
     box.style.display = "block";
-    if(content[type] && content[type][lang]){
+if(content[type] && content[type][lang]){
     box.innerHTML = content[type][lang];
 } else {
     box.innerHTML = "❌ لا توجد معلومات";
 }
-   
-// ⬇️ هنا مباشرة (آخر الملف تماماً)
+
+} // ✅ مهم جداً
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
@@ -1002,4 +1003,3 @@ window.reply = reply;
 window.setLanguage = setLanguage;
 window.showBookDetails = showBookDetails;
 window.loadMoreChat = loadMoreChat;
-window.openStructure = openStructure;
