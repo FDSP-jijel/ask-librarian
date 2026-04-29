@@ -915,23 +915,21 @@ ul{
     left: 15px;
 }
 
+/* الصورة */
 .top-left-image img{
-    width: 80px;
-    border-radius: 10px;
+    width: 160px; /* 👈 كبرناها */
+    max-width: 22vw; /* 👈 تتكيف مع الشاشة */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: 0.3s;
+}
+
+/* تأثير hover */
+.top-left-image img:hover{
+    transform: scale(1.08);
 }
 
 /* مهم: خلي الهيدر relative */
 .main-header{
     position: relative;
-}
-
-.top-left-image img{
-    width: 80px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
-
-.top-left-image img:hover{
-    transform: scale(1.1);
 }
