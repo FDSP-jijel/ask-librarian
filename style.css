@@ -915,18 +915,11 @@ ul{
     left: 15px;
 }
 
-/* الصورة */
+/* تكبير الصورة فقط */
 .top-left-image img{
-    width: 160px; /* 👈 كبرناها */
-    max-width: 22vw; /* 👈 تتكيف مع الشاشة */
+    width: 300px; /* 👈 حجم كبير وواضح */
+    max-width: 30vw; /* 👈 تتكيف مع الشاشة */
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    transition: 0.3s;
-}
-
-/* تأثير hover */
-.top-left-image img:hover{
-    transform: scale(1.08);
 }
 
 /* مهم: خلي الهيدر relative */
