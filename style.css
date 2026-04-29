@@ -907,3 +907,20 @@ ul{
     font-weight:bold;
     font-size:12px;
 }
+
+/* الصورة أعلى اليسار */
+.top-left-image{
+    position: absolute;
+    top: 10px;
+    left: 15px;
+}
+
+.top-left-image img{
+    width: 80px;
+    border-radius: 10px;
+}
+
+/* مهم: خلي الهيدر relative */
+.main-header{
+    position: relative;
+}
