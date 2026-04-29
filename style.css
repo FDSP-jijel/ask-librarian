@@ -924,3 +924,14 @@ ul{
 .main-header{
     position: relative;
 }
+
+.top-left-image img{
+    width: 80px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.top-left-image img:hover{
+    transform: scale(1.1);
+}
