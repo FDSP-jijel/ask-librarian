@@ -243,32 +243,32 @@
     ⬅️ رجوع
   </button>
 
-  <!-- ===== TITLE ===== -->
+  <!-- العنوان -->
   <h2>
     <span data-lang="ar">📚 منشورات كلية الحقوق والعلوم السياسية</span>
-    <span data-lang="fr" style="display:none;">📚 Publications de la faculté de droit et des sciences politiques</span>
-    <span data-lang="en" style="display:none;">📚 Faculty of Law and Political Science Publications</span>
+    <span data-lang="fr">📚 Publications de la Faculté de Droit et Sciences Politiques</span>
+    <span data-lang="en">📚 Faculty of Law and Political Science Publications</span>
   </h2>
 
   <!-- ===== NAV TABS ===== -->
   <div style="display:flex; gap:10px; flex-wrap:wrap; margin:20px 0;">
 
-    <button onclick="openTab('rulesPub')" style="padding:10px; border:none; border-radius:10px; cursor:pointer;">
+    <button onclick="openTab('rulesPub')">
       <span data-lang="ar">📜 ضوابط النشر</span>
-      <span data-lang="fr" style="display:none;">📜 Règles de publication</span>
-      <span data-lang="en" style="display:none;">📜 Publication rules</span>
+      <span data-lang="fr">📜 Règlement de publication</span>
+      <span data-lang="en">📜 Publication Rules</span>
     </button>
 
-    <button onclick="openTab('formPub')" style="padding:10px; border:none; border-radius:10px; cursor:pointer;">
+    <button onclick="openTab('formPub')">
       <span data-lang="ar">📄 نموذج بيانات النشر</span>
-      <span data-lang="fr" style="display:none;">📄 Formulaire de publication</span>
-      <span data-lang="en" style="display:none;">📄 Publication form</span>
+      <span data-lang="fr">📄 Formulaire de publication</span>
+      <span data-lang="en">📄 Publication Form</span>
     </button>
 
-    <button onclick="openTab('listPub')" style="padding:10px; border:none; border-radius:10px; cursor:pointer;">
+    <button onclick="openTab('listPub')">
       <span data-lang="ar">📚 قائمة المنشورات</span>
-      <span data-lang="fr" style="display:none;">📚 Liste des publications</span>
-      <span data-lang="en" style="display:none;">📚 Publications list</span>
+      <span data-lang="fr">📚 Liste des publications</span>
+      <span data-lang="en">📚 Publications List</span>
     </button>
 
   </div>
@@ -278,14 +278,14 @@
 
     <h3>
       <span data-lang="ar">📜 ضوابط النشر</span>
-      <span data-lang="fr" style="display:none;">📜 Règles de publication</span>
-      <span data-lang="en" style="display:none;">📜 Publication rules</span>
+      <span data-lang="fr">📜 Règlement</span>
+      <span data-lang="en">📜 Rules</span>
     </h3>
 
     <p style="text-align:center; opacity:0.7;">
       <span data-lang="ar">سيتم نشر ضوابط النشر لاحقًا بعد اعتمادها من طرف العميد.</span>
-      <span data-lang="fr" style="display:none;">Les règles seront publiées après validation du doyen.</span>
-      <span data-lang="en" style="display:none;">Rules will be published after dean approval.</span>
+      <span data-lang="fr">Les règles seront publiées après validation du doyen.</span>
+      <span data-lang="en">Rules will be published after dean approval.</span>
     </p>
 
   </div>
@@ -295,86 +295,89 @@
 
     <h3>
       <span data-lang="ar">📄 نموذج بيانات النشر</span>
-      <span data-lang="fr" style="display:none;">📄 Formulaire de publication</span>
-      <span data-lang="en" style="display:none;">📄 Publication form</span>
+      <span data-lang="fr">📄 Formulaire de publication</span>
+      <span data-lang="en">📄 Publication Form</span>
     </h3>
 
     <p>
-      <span data-lang="ar">يمكنك تحميل نموذج النشر الرسمي:</span>
-      <span data-lang="fr" style="display:none;">Télécharger le formulaire officiel :</span>
-      <span data-lang="en" style="display:none;">Download the official form:</span>
+      <span data-lang="ar">يمكنك تحميل النموذج:</span>
+      <span data-lang="fr">Télécharger le formulaire :</span>
+      <span data-lang="en">Download the form:</span>
     </p>
 
-    <a href="form-word.docx" download style="
-      display:inline-block;
-      padding:10px;
-      background:#3b82f6;
-      color:white;
-      border-radius:10px;
-      text-decoration:none;
-      margin:5px;
-    ">
+    <a href="form-word.docx" download style="padding:10px; background:#3b82f6; color:white; border-radius:10px; margin:5px;">
       ⬇️ Word
     </a>
 
-    <a href="form-pdf.pdf" download style="
-      display:inline-block;
-      padding:10px;
-      background:#ef4444;
-      color:white;
-      border-radius:10px;
-      text-decoration:none;
-      margin:5px;
-    ">
+    <a href="form-pdf.pdf" download style="padding:10px; background:#ef4444; color:white; border-radius:10px; margin:5px;">
       ⬇️ PDF
     </a>
 
   </div>
 
-<!-- ===== LIST ===== -->
-<div id="listPub" class="pub-tab hidden">
+  <!-- ===== LIST ===== -->
+  <div id="listPub" class="pub-tab hidden">
 
-  <h3>
-    <span data-lang="ar">📚 قائمة منشورات الكلية</span>
-    <span data-lang="fr" style="display:none;">📚 Liste des publications</span>
-    <span data-lang="en" style="display:none;">📚 Publications list</span>
-  </h3>
+    <h3>
+      <span data-lang="ar">📚 قائمة منشورات الكلية</span>
+      <span data-lang="fr">📚 Liste des publications</span>
+      <span data-lang="en">📚 Publications List</span>
+    </h3>
 
-  <div style="background:#f8fafc; padding:15px; border-radius:10px;">
+    <div style="background:#f8fafc; padding:15px; border-radius:10px;">
 
-    <ul>
+      <ul style="list-style:none; padding:0;">
 
-      <li>
-        📘 <strong>العدالة الدستورية</strong><br>
-        <span data-lang="ar">المؤلف: بولعراوي الصادق</span>
-        <span data-lang="fr" style="display:none;">Auteur : Boulaaraoui Sadek</span>
-        <span data-lang="en" style="display:none;">Author: Boulaaraoui Sadek</span><br>
-        ر.د.م.ك: 978-9969-3779-2-5
-      </li>
+        <!-- كتاب 1 -->
+        <li style="margin-bottom:15px;">
+          📘 <strong>العدالة الدستورية</strong><br>
 
-      <li>
-        📘 <strong>النزاعات المسلحة: تصنيفات اتفاقيات جنيف والواقع في الميدان</strong><br>
-        <span data-lang="ar">المؤلف: عزوزي عبد المالك</span>
-        <span data-lang="fr" style="display:none;">Auteur : Azzouzi Abdelmalek</span>
-        <span data-lang="en" style="display:none;">Author: Azzouzi Abdelmalek</span><br>
-        ر.د.م.ك: 978-9969-3779-0-1
-      </li>
+          <span data-lang="ar">المؤلف: بولعراوي الصادق</span>
+          <span data-lang="fr">Auteur: Boularaoui Sadek</span>
+          <span data-lang="en">Author: Boularaoui Sadek</span>
+          <br>
 
-      <li>
-        📘 <strong>التسيير الإلكتروني للبلديات: الأبعاد والرهانات</strong><br>
-        <span data-lang="ar">المؤلف: كريبش نبيل</span>
-        <span data-lang="fr" style="display:none;">Auteur : Kribech Nabil</span>
-        <span data-lang="en" style="display:none;">Author: Kribech Nabil</span><br>
-        ر.د.م.ك: 978-9969-3779-1-8
-      </li>
+          <span data-lang="ar">ر.د.م.ك:</span>
+          <span data-lang="fr">ISBN:</span>
+          <span data-lang="en">ISBN:</span>
+          <span dir="ltr">978-9969-7732-5</span>
+        </li>
 
-    </ul>
+        <!-- كتاب 2 -->
+        <li style="margin-bottom:15px;">
+          📘 <strong>النزاعات المسلحة: تصنيفات اتفاقيات جنيف والواقع في الميدان</strong><br>
+
+          <span data-lang="ar">المؤلف: عزوزي عبد المالك</span>
+          <span data-lang="fr">Auteur: Azzouzi Abdelmalek</span>
+          <span data-lang="en">Author: Azzouzi Abdelmalek</span>
+          <br>
+
+          <span data-lang="ar">ر.د.م.ك:</span>
+          <span data-lang="fr">ISBN:</span>
+          <span data-lang="en">ISBN:</span>
+          <span dir="ltr">978-9969-7730-1</span>
+        </li>
+
+        <!-- كتاب 3 -->
+        <li style="margin-bottom:15px;">
+          📘 <strong>التسيير الإلكتروني للبلديات: الأبعاد والرهانات</strong><br>
+
+          <span data-lang="ar">المؤلف: كريبش نبيل</span>
+          <span data-lang="fr">Auteur: Kribech Nabil</span>
+          <span data-lang="en">Author: Kribech Nabil</span>
+          <br>
+
+          <span data-lang="ar">ر.د.م.ك:</span>
+          <span data-lang="fr">ISBN:</span>
+          <span data-lang="en">ISBN:</span>
+          <span dir="ltr">978-9969-7731-8</span>
+        </li>
+
+      </ul>
+
+    </div>
 
   </div>
-
-</div>
-
-</div>
 
 </section>
 
