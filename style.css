@@ -917,7 +917,7 @@ ul{
 
 /* تكبير الصورة فقط */
 .top-left-image img{
-    width: 300px; /* 👈 حجم كبير وواضح */
+    width: 400px; /* 👈 حجم كبير وواضح */
     max-width: 30vw; /* 👈 تتكيف مع الشاشة */
     border-radius: 12px;
 }
@@ -937,4 +937,9 @@ ul{
 
 .top-right-logo img{
     width: 160px;
+}
+
+.main-header{
+    position: relative;
+    padding-top: 60px; /* 👈 يعطي مساحة للشعارات */
 }
