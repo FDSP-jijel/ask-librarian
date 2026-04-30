@@ -243,42 +243,67 @@
     ⬅️ رجوع
   </button>
 
-  <h2>📚 منشورات كلية الحقوق والعلوم السياسية</h2>
+  <!-- ===== TITLE ===== -->
+  <h2>
+    <span data-lang="ar">📚 منشورات كلية الحقوق والعلوم السياسية</span>
+    <span data-lang="fr" style="display:none;">📚 Publications de la faculté de droit et des sciences politiques</span>
+    <span data-lang="en" style="display:none;">📚 Faculty of Law and Political Science Publications</span>
+  </h2>
 
   <!-- ===== NAV TABS ===== -->
   <div style="display:flex; gap:10px; flex-wrap:wrap; margin:20px 0;">
 
     <button onclick="openTab('rulesPub')" style="padding:10px; border:none; border-radius:10px; cursor:pointer;">
-      📜 ضوابط النشر
+      <span data-lang="ar">📜 ضوابط النشر</span>
+      <span data-lang="fr" style="display:none;">📜 Règles de publication</span>
+      <span data-lang="en" style="display:none;">📜 Publication rules</span>
     </button>
 
     <button onclick="openTab('formPub')" style="padding:10px; border:none; border-radius:10px; cursor:pointer;">
-      📄 نموذج النشر
+      <span data-lang="ar">📄 نموذج بيانات النشر</span>
+      <span data-lang="fr" style="display:none;">📄 Formulaire de publication</span>
+      <span data-lang="en" style="display:none;">📄 Publication form</span>
     </button>
 
     <button onclick="openTab('listPub')" style="padding:10px; border:none; border-radius:10px; cursor:pointer;">
-      📚 قائمة المنشورات
+      <span data-lang="ar">📚 قائمة المنشورات</span>
+      <span data-lang="fr" style="display:none;">📚 Liste des publications</span>
+      <span data-lang="en" style="display:none;">📚 Publications list</span>
     </button>
 
   </div>
 
-  <!-- ===== 1 RULES (فارغة كما طلبت اللجنة) ===== -->
+  <!-- ===== RULES ===== -->
   <div id="rulesPub" class="pub-tab">
 
-    <h3>📜 ضوابط النشر</h3>
+    <h3>
+      <span data-lang="ar">📜 ضوابط النشر</span>
+      <span data-lang="fr" style="display:none;">📜 Règles de publication</span>
+      <span data-lang="en" style="display:none;">📜 Publication rules</span>
+    </h3>
 
     <p style="text-align:center; opacity:0.7;">
-        سيتم نشر ضوابط النشر لاحقًا بعد اعتمادها من طرف العميد.
+      <span data-lang="ar">سيتم نشر ضوابط النشر لاحقًا بعد اعتمادها من طرف العميد.</span>
+      <span data-lang="fr" style="display:none;">Les règles seront publiées après validation du doyen.</span>
+      <span data-lang="en" style="display:none;">Rules will be published after dean approval.</span>
     </p>
 
   </div>
 
-  <!-- ===== 2 FORM ===== -->
+  <!-- ===== FORM ===== -->
   <div id="formPub" class="pub-tab hidden">
 
-    <h3>📄 نموذج النشر</h3>
+    <h3>
+      <span data-lang="ar">📄 نموذج بيانات النشر</span>
+      <span data-lang="fr" style="display:none;">📄 Formulaire de publication</span>
+      <span data-lang="en" style="display:none;">📄 Publication form</span>
+    </h3>
 
-    <p>يمكنك تحميل نموذج النشر الرسمي:</p>
+    <p>
+      <span data-lang="ar">يمكنك تحميل نموذج النشر الرسمي:</span>
+      <span data-lang="fr" style="display:none;">Télécharger le formulaire officiel :</span>
+      <span data-lang="en" style="display:none;">Download the official form:</span>
+    </p>
 
     <a href="form-word.docx" download style="
       display:inline-block;
@@ -289,7 +314,7 @@
       text-decoration:none;
       margin:5px;
     ">
-      ⬇️ تحميل Word
+      ⬇️ Word
     </a>
 
     <a href="form-pdf.pdf" download style="
@@ -301,15 +326,19 @@
       text-decoration:none;
       margin:5px;
     ">
-      ⬇️ تحميل PDF
+      ⬇️ PDF
     </a>
 
   </div>
 
-  <!-- ===== 3 LIST (كتب الكلية) ===== -->
+  <!-- ===== LIST ===== -->
   <div id="listPub" class="pub-tab hidden">
 
-    <h3>📚 قائمة منشورات الكلية</h3>
+    <h3>
+      <span data-lang="ar">📚 قائمة منشورات الكلية</span>
+      <span data-lang="fr" style="display:none;">📚 Liste des publications</span>
+      <span data-lang="en" style="display:none;">📚 Publications list</span>
+    </h3>
 
     <div style="background:#f8fafc; padding:15px; border-radius:10px;">
 
@@ -317,20 +346,26 @@
 
         <li>
           📘 <strong>العدالة الدستورية</strong><br>
-          المؤلف: بولعراوي الصادق<br>
-          ر.د.م.ك: 5-2-9773-9969-978
+          <span data-lang="ar">المؤلف: بولعراوي الصادق</span>
+          <span data-lang="fr" style="display:none;">Auteur : Boulaaraoui Sadek</span>
+          <span data-lang="en" style="display:none;">Author: Boulaaraoui Sadek</span><br>
+          ISBN: 5-2-9773-9969-978
         </li>
 
         <li>
           📘 <strong>النزاعات المسلحة: تصنيفات اتفاقيات جنيف والواقع في الميدان</strong><br>
-          المؤلف: عزوزي عبد المالك<br>
-          ر.د.م.ك: 1-0-9773-9969-978
+          <span data-lang="ar">المؤلف: عزوزي عبد المالك</span>
+          <span data-lang="fr" style="display:none;">Auteur : Azzouzi Abdelmalek</span>
+          <span data-lang="en" style="display:none;">Author: Azzouzi Abdelmalek</span><br>
+          ISBN: 01-9773-9969-978
         </li>
 
         <li>
           📘 <strong>التسيير الإلكتروني للبلديات: الأبعاد والرهانات</strong><br>
-          المؤلف: كريبش نبيل<br>
-          ر.د.م.ك: 8-1-9773-9969-978
+          <span data-lang="ar">المؤلف: كريبش نبيل</span>
+          <span data-lang="fr" style="display:none;">Auteur : Kribech Nabil</span>
+          <span data-lang="en" style="display:none;">Author: Kribech Nabil</span><br>
+          ISBN: 8-1-9773-9969-978
         </li>
 
       </ul>
