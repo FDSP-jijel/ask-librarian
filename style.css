@@ -976,3 +976,29 @@ ul{
     background: #2563eb;
     color: white;
 }
+
+.download-buttons{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* الأزرار */
+.download-buttons a{
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Word */
+.download-buttons a:first-child{
+    background: #3b82f6;
+}
+
+/* PDF */
+.download-buttons a:last-child{
+    background: #ef4444;
+}
