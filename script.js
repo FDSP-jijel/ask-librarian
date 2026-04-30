@@ -1001,7 +1001,8 @@ function openTab(id){
         t.classList.add("hidden");
     });
 
-    document.getElementById(id).classList.remove("hidden");
+    let el = document.getElementById(id);
+    if(el) el.classList.remove("hidden");
 }
 
 window.show = show;
