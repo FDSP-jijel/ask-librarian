@@ -938,3 +938,8 @@ ul{
 .top-right-logo img{
     width: 160px;
 }
+
+.top-left-image img,
+.top-right-logo img{
+    width: 180px;
+}
