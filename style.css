@@ -943,3 +943,36 @@ ul{
     position: relative;
     padding-top: 60px; /* 👈 يعطي مساحة للشعارات */
 }
+
+/* ===== PUBLICATIONS TABS ===== */
+
+.pub-tab {
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+/* إخفاء العناصر */
+.hidden {
+    display: none;
+}
+
+/* شكل أزرار التابات */
+.pub-tabs button {
+    background: #e5e7eb;
+    transition: 0.3s;
+}
+
+.pub-tabs button:hover {
+    background: #3b82f6;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* الزر النشط (اختياري لاحقاً) */
+.pub-tabs button.active {
+    background: #2563eb;
+    color: white;
+}
