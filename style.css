@@ -938,8 +938,3 @@ ul{
 .top-right-logo img{
     width: 160px;
 }
-
-.main-header{
-    position: relative;
-    padding-top: 60px; /* 👈 يعطي مساحة للشعارات */
-}
