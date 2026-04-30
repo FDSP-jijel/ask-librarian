@@ -926,3 +926,15 @@ ul{
 .main-header{
     position: relative;
 }
+
+/* شعار على اليمين */
+.top-right-logo{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* 👈 مهم */
+}
+
+.top-right-logo img{
+    width: 160px;
+}
