@@ -230,7 +230,7 @@
 
 </section>
 
-  <section id="publications" class="page hidden">
+<section id="publications" class="page hidden">
 
   <button onclick="show('home')" style="
     background:#e5e7eb;
@@ -240,42 +240,91 @@
     cursor:pointer;
     margin-bottom:10px;
   ">
-    ⬅️ 
-    <span data-lang="ar">رجوع</span>
-    <span data-lang="fr">Retour</span>
-    <span data-lang="en">Back</span>
+    ⬅️ رجوع
   </button>
 
-  <h2>
-    ©️
-    <span data-lang="ar">منشورات الكلية</span>
-    <span data-lang="fr">Publications de la faculté</span>
-    <span data-lang="en">Faculty Publications</span>
-  </h2>
+  <h2>📚 منشورات كلية الحقوق والعلوم السياسية</h2>
 
-  <div style="
-    background:#f8fafc;
-    padding:20px;
-    border-radius:10px;
-    line-height:1.8;
-  ">
+  <!-- ===== NAV TABS ===== -->
+  <div style="display:flex; gap:10px; flex-wrap:wrap; margin:20px 0;">
 
-    <p>
-      <span data-lang="ar">
-        تعرض هذه الصفحة قائمة الكتب والمنشورات العلمية الصادرة عن كلية الحقوق والعلوم السياسية،
-        في إطار نشاطها كدار نشر جامعية.
-      </span>
+    <button onclick="openTab('rulesPub')" style="padding:10px; border:none; border-radius:10px; cursor:pointer;">
+      📜 ضوابط النشر
+    </button>
 
-      <span data-lang="fr">
-        Cette page présente les ouvrages et publications scientifiques édités par la faculté
-        dans le cadre de son activité en tant que maison d’édition universitaire.
-      </span>
+    <button onclick="openTab('formPub')" style="padding:10px; border:none; border-radius:10px; cursor:pointer;">
+      📄 نموذج النشر
+    </button>
 
-      <span data-lang="en">
-        This page presents books and scientific publications issued by the faculty
-        as part of its activity as a university publishing house.
-      </span>
-    </p>
+    <button onclick="openTab('listPub')" style="padding:10px; border:none; border-radius:10px; cursor:pointer;">
+      📚 قائمة المنشورات
+    </button>
+
+  </div>
+
+  <!-- ===== 1 RULES ===== -->
+  <div id="rulesPub" class="pub-tab">
+
+    <h3>📜 ضوابط النشر</h3>
+
+    <ul>
+      <li>أن يكون العمل أكاديميًا أصيلًا وغير منقول</li>
+      <li>احترام قواعد التوثيق العلمي</li>
+      <li>الالتزام بمجال تخصص الكلية</li>
+      <li>عدم نشر محتوى مخالف للقانون أو الأخلاقيات</li>
+      <li>يخضع العمل للتحكيم العلمي قبل القبول</li>
+    </ul>
+
+  </div>
+
+  <!-- ===== 2 FORM ===== -->
+  <div id="formPub" class="pub-tab hidden">
+
+    <h3>📄 نموذج النشر</h3>
+
+    <p>يمكنك تحميل نموذج النشر الرسمي:</p>
+
+    <a href="form-word.docx" download style="
+      display:inline-block;
+      padding:10px;
+      background:#3b82f6;
+      color:white;
+      border-radius:10px;
+      text-decoration:none;
+      margin:5px;
+    ">
+      ⬇️ تحميل Word
+    </a>
+
+    <a href="form-pdf.pdf" download style="
+      display:inline-block;
+      padding:10px;
+      background:#ef4444;
+      color:white;
+      border-radius:10px;
+      text-decoration:none;
+      margin:5px;
+    ">
+      ⬇️ تحميل PDF
+    </a>
+
+  </div>
+
+  <!-- ===== 3 LIST ===== -->
+  <div id="listPub" class="pub-tab hidden">
+
+    <h3>📚 قائمة منشورات الكلية</h3>
+
+    <div style="background:#f8fafc; padding:15px; border-radius:10px;">
+
+      <ul>
+        <li>📘 مجلة الحقوق السياسية - العدد 01</li>
+        <li>📘 دراسات في القانون الدستوري</li>
+        <li>📘 أبحاث في العلوم السياسية المعاصرة</li>
+        <li>📘 أعمال ملتقى الحوكمة والإدارة</li>
+      </ul>
+
+    </div>
 
   </div>
 
