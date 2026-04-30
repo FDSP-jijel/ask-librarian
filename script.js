@@ -995,6 +995,15 @@ if(content[type] && content[type][lang]){
 
 } // ✅ مهم جداً
 
+function openTab(id){
+
+    document.querySelectorAll(".pub-tab").forEach(t=>{
+        t.classList.add("hidden");
+    });
+
+    document.getElementById(id).classList.remove("hidden");
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
