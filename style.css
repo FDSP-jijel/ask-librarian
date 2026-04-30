@@ -1024,3 +1024,8 @@ body.dark .pub-card{
     background:#1e293b;
     color:white;
 }
+
+.isbn{
+    direction: ltr;
+    unicode-bidi: bidi-override;
+}
