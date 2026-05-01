@@ -807,9 +807,9 @@ function showBookDetails(index){
     addMessage("bot", details);
 }
 
-function toggleAddBook(){
-    let box = document.getElementById("addBookBox");
-    box.style.display = (box.style.display === "none") ? "block" : "none";
+function toggleAddBook() {
+  const box = document.getElementById("addBookBox");
+  box.style.display = (box.style.display === "none") ? "block" : "none";
 }
 
 function addNewBook(){
