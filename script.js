@@ -48,14 +48,23 @@ function getLang(){
 ========================= */
 function show(id){
 
+    // إخفاء فقط الأقسام إن وجدت
     document.querySelectorAll("section").forEach(s=>{
         s.classList.add("hidden");
     });
 
-    let page = document.getElementById(id);
-    if(page) page.classList.remove("hidden");
+    // إظهار المطلوب
+    const page = document.getElementById(id);
+    if(page){
+        page.classList.remove("hidden");
+    }
 
-    // 👇 عند فتح لوحة التحكم
+    // ⚠️ ضمان عدم ضياع الصفحة الرئيسية
+    const home = document.getElementById("home");
+    if(home && id === "home"){
+        home.classList.remove("hidden");
+    }
+
     if(id === "admin"){
         loadMessages();
         updateDashboard();
