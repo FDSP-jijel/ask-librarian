@@ -1398,58 +1398,102 @@ It is a shared space for students dedicated to reading, research, and group work
 
     <section id="newBooks" class="page hidden">
 
+  <!-- زر رجوع -->
   <button onclick="show('home')">⬅️ رجوع</button>
 
+  <!-- العنوان -->
   <h2>
     <span data-lang="ar">📚 المقتنيات الجديدة</span>
     <span data-lang="fr">📚 Nouveaux ouvrages</span>
     <span data-lang="en">📚 New Items</span>
   </h2>
 
-  <!-- زر الإضافة -->
-  <button onclick="toggleAddBook()">
-    <span data-lang="ar">➕ إضافة كتاب</span>
-    <span data-lang="fr">➕ Ajouter</span>
-    <span data-lang="en">➕ Add</span>
-  </button>
-
-  <!-- الفورم -->
-  <div id="addBookBox" style="display:none; margin-top:10px;">
-
-    <input id="newBookAr" placeholder="العنوان بالعربية">
-    <input id="newBookFr" placeholder="Titre en français">
-    <input id="newBookEn" placeholder="English title">
-
-    <input id="newAuthor" placeholder="المؤلف">
-    <input id="newPublisher" placeholder="دار النشر">
-    <input id="newYear" placeholder="السنة">
-    <input id="newEdition" placeholder="الطبعة">
-    <input id="newClass" placeholder="التصنيف">
-    <input id="newCopies" placeholder="عدد النسخ">
-
-    <button onclick="addNewBook()">
-      <span data-lang="ar">حفظ</span>
-      <span data-lang="fr">Enregistrer</span>
-      <span data-lang="en">Save</span>
-    </button>
-
-  </div>
-
   <!-- الجدول -->
-  <table border="1" style="width:100%; margin-top:15px; text-align:center;">
-    <thead>
+  <table border="1" style="width:100%; border-collapse:collapse; text-align:center; margin-top:15px;">
+
+    <thead style="background:#f3f4f6;">
       <tr>
-        <th>العنوان</th>
-        <th>المؤلف</th>
-        <th>دار النشر</th>
-        <th>السنة</th>
-        <th>الطبعة</th>
-        <th>التصنيف</th>
-        <th>النسخ</th>
+        <th>
+          <span data-lang="ar">العنوان</span>
+          <span data-lang="fr">Titre</span>
+          <span data-lang="en">Title</span>
+        </th>
+
+        <th>
+          <span data-lang="ar">المؤلف</span>
+          <span data-lang="fr">Auteur</span>
+          <span data-lang="en">Author</span>
+        </th>
+
+        <th>
+          <span data-lang="ar">دار النشر</span>
+          <span data-lang="fr">Éditeur</span>
+          <span data-lang="en">Publisher</span>
+        </th>
+
+        <th>
+          <span data-lang="ar">السنة</span>
+          <span data-lang="fr">Année</span>
+          <span data-lang="en">Year</span>
+        </th>
+
+        <th>
+          <span data-lang="ar">الطبعة</span>
+          <span data-lang="fr">Édition</span>
+          <span data-lang="en">Edition</span>
+        </th>
+
+        <th>
+          <span data-lang="ar">التصنيف</span>
+          <span data-lang="fr">Cote</span>
+          <span data-lang="en">Call Number</span>
+        </th>
+
+        <th>
+          <span data-lang="ar">النسخ</span>
+          <span data-lang="fr">Copies</span>
+          <span data-lang="en">Copies</span>
+        </th>
       </tr>
     </thead>
 
-    <tbody id="booksTableBody"></tbody>
+    <tbody>
+
+      <!-- كتاب 1 -->
+      <tr>
+        <td>القانون الإداري</td>
+        <td>أحمد بن علي</td>
+        <td>دار المعرفة</td>
+        <td>2023</td>
+        <td>2</td>
+        <td>345.01</td>
+        <td>5</td>
+      </tr>
+
+      <!-- كتاب 2 -->
+      <tr>
+        <td>Introduction au droit</td>
+        <td>Jean Dupont</td>
+        <td>Éditions Paris</td>
+        <td>2022</td>
+        <td>1</td>
+        <td>340.1</td>
+        <td>3</td>
+      </tr>
+
+      <!-- كتاب 3 -->
+      <tr>
+        <td>Political Science Basics</td>
+        <td>John Smith</td>
+        <td>Oxford Press</td>
+        <td>2021</td>
+        <td>3</td>
+        <td>320</td>
+        <td>4</td>
+      </tr>
+
+    </tbody>
+
   </table>
 
 </section>
