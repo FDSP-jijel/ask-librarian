@@ -1398,6 +1398,64 @@ It is a shared space for students dedicated to reading, research, and group work
   <div id="meetContainer" style="width:100%; height:500px;"></div>
 
 </section>
+
+    <section id="newBooks" class="page hidden">
+
+  <button onclick="show('home')">⬅️ رجوع</button>
+
+  <h2>
+    <span data-lang="ar">📚 المقتنيات الجديدة</span>
+    <span data-lang="fr">📚 Nouveaux ouvrages</span>
+    <span data-lang="en">📚 New Items</span>
+  </h2>
+
+  <!-- زر الإضافة -->
+  <button onclick="toggleAddBook()">
+    <span data-lang="ar">➕ إضافة كتاب</span>
+    <span data-lang="fr">➕ Ajouter</span>
+    <span data-lang="en">➕ Add</span>
+  </button>
+
+  <!-- الفورم -->
+  <div id="addBookBox" style="display:none; margin-top:10px;">
+
+    <input id="newBookAr" placeholder="العنوان بالعربية">
+    <input id="newBookFr" placeholder="Titre en français">
+    <input id="newBookEn" placeholder="English title">
+
+    <input id="newAuthor" placeholder="المؤلف">
+    <input id="newPublisher" placeholder="دار النشر">
+    <input id="newYear" placeholder="السنة">
+    <input id="newEdition" placeholder="الطبعة">
+    <input id="newClass" placeholder="التصنيف">
+    <input id="newCopies" placeholder="عدد النسخ">
+
+    <button onclick="addNewBook()">
+      <span data-lang="ar">حفظ</span>
+      <span data-lang="fr">Enregistrer</span>
+      <span data-lang="en">Save</span>
+    </button>
+
+  </div>
+
+  <!-- الجدول -->
+  <table border="1" style="width:100%; margin-top:15px; text-align:center;">
+    <thead>
+      <tr>
+        <th>العنوان</th>
+        <th>المؤلف</th>
+        <th>دار النشر</th>
+        <th>السنة</th>
+        <th>الطبعة</th>
+        <th>التصنيف</th>
+        <th>النسخ</th>
+      </tr>
+    </thead>
+
+    <tbody id="booksTableBody"></tbody>
+  </table>
+
+</section>
   
 <script src="script.js?v=3" defer></script>
 <script src="lang.js" defer></script>
