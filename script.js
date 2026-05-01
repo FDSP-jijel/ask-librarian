@@ -48,13 +48,14 @@ function show(id){
 
     // إخفاء الصفحات فقط
     document.querySelectorAll(".page").forEach(p=>{
-        p.classList.add("hidden");
+        p.style.display = "none";
     });
 
     // إظهار الصفحة المطلوبة
-    const page = document.getElementById(id);
+    let page = document.getElementById(id);
+
     if(page){
-        page.classList.remove("hidden");
+        page.style.display = "block";
     }
 
     // تحديث الأدمن فقط
