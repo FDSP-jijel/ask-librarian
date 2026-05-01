@@ -46,19 +46,21 @@ function getLang(){
 ========================= */
 function show(id){
 
-    // إخفاء الصفحات فقط
     document.querySelectorAll(".page").forEach(p=>{
-        p.style.display = "none";
+        p.classList.add("hidden");
     });
 
-    // إظهار الصفحة المطلوبة
-    let page = document.getElementById(id);
+    document.querySelectorAll(".navbar button").forEach(b=>{
+        b.classList.remove("active");
+    });
 
+    let page = document.getElementById(id);
     if(page){
-        page.style.display = "block";
+        page.classList.remove("hidden");
     }
 
-    // تحديث الأدمن فقط
+    event?.target?.classList.add("active");
+
     if(id === "admin"){
         loadMessages();
         updateDashboard();
