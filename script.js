@@ -11,6 +11,8 @@ let lastQuery = "";
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
 
+   document.querySelectorAll("section").forEach(s => s.classList.remove("hidden"));
+
    localStorage.removeItem("chat");
 
    let lang = localStorage.getItem("lang") || "ar";
