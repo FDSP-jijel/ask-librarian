@@ -1014,6 +1014,11 @@ function openTab(id){
     if(el) el.classList.remove("hidden");
 }
 
+function toggleStructure() {
+  const el = document.getElementById("structureContent");
+  el.classList.toggle("hidden");
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
