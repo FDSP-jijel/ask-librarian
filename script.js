@@ -812,30 +812,32 @@ function toggleAddBook() {
   box.style.display = (box.style.display === "none") ? "block" : "none";
 }
 
-function addNewBook(){
+function addNewBook() {
 
-    let ar = document.getElementById("newBookAr").value.trim();
-    let fr = document.getElementById("newBookFr").value.trim();
-    let en = document.getElementById("newBookEn").value.trim();
+  const ar = document.getElementById("newBookAr").value;
+  const fr = document.getElementById("newBookFr").value;
+  const en = document.getElementById("newBookEn").value;
 
-    if(!ar || !fr || !en){
-        alert("يرجى ملء جميع الحقول");
-        return;
-    }
+  const author = document.getElementById("newAuthor").value;
+  const publisher = document.getElementById("newPublisher").value;
+  const year = document.getElementById("newYear").value;
+  const edition = document.getElementById("newEdition").value;
+  const call = document.getElementById("newClass").value;
+  const copies = document.getElementById("newCopies").value;
 
-    let newRow = [ar, fr, en];
+  const row = `
+    <tr>
+      <td>${ar} / ${fr} / ${en}</td>
+      <td>${author}</td>
+      <td>${publisher}</td>
+      <td>${year}</td>
+      <td>${edition}</td>
+      <td>${call}</td>
+      <td>${copies}</td>
+    </tr>
+  `;
 
-    // إضافة للفهرس
-    catalog.push(newRow);
-
-    // حفظ محلي (اختياري)
-    localStorage.setItem("customCatalog", JSON.stringify(catalog));
-
-    alert("تمت إضافة الكتاب بنجاح ✅");
-
-    document.getElementById("newBookAr").value = "";
-    document.getElementById("newBookFr").value = "";
-    document.getElementById("newBookEn").value = "";
+  document.getElementById("booksTableBody").innerHTML += row;
 }
 
 function toggleUrgent(){
