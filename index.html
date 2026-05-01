@@ -1247,30 +1247,37 @@ It is a shared space for students dedicated to reading, research, and group work
   </h2>
 </section>
 
-<section id="news" class="page hidden">
+<section id="ads" class="page hidden">
+
+  <!-- رجوع -->
+  <button onclick="show('home')">⬅️ رجوع</button>
+
   <h2>
     <span data-lang="ar">📢 الإعلانات</span>
     <span data-lang="fr">📢 Annonces</span>
-    <span data-lang="en">📢 News</span>
+    <span data-lang="en">📢 Announcements</span>
   </h2>
 
-  <input id="newsTitle"
-    data-lang-placeholder-ar="عنوان الإعلان"
-    data-lang-placeholder-fr="Titre"
-    data-lang-placeholder-en="Title">
+  <!-- الإعلانات -->
 
-  <textarea id="newsContent"
-    data-lang-placeholder-ar="محتوى الإعلان"
-    data-lang-placeholder-fr="Contenu"
-    data-lang-placeholder-en="Content"></textarea>
+  <div style="background:#f8fafc; padding:15px; margin-bottom:10px; border-radius:8px;">
+    <h3>📌 إعلان هام</h3>
+    <p>مكتبة "اقرأ" لديوان المطبوعات الجامعية تواجه مشكلة تقنية مؤقتة في نظام الفهرسة الإلكتروني، وسيتم استئناف الخدمة في أقرب وقت ممكن.</p>
+    <small>2026-05-02</small>
+  </div>
 
-  <button onclick="addNews()">
-    <span data-lang="ar">نشر</span>
-    <span data-lang="fr">Publier</span>
-    <span data-lang="en">Publish</span>
-  </button>
+  <div style="background:#f8fafc; padding:15px; margin-bottom:10px; border-radius:8px;">
+    <h3>📌 Avis important</h3>
+    <p>La bibliothèque "Iqra" de l’Office des publications universitaires rencontre un problème technique temporaire dans le système de catalogage électronique.</p>
+    <small>02/05/2026</small>
+  </div>
 
-  <div id="newsList"></div>
+  <div style="background:#f8fafc; padding:15px; margin-bottom:10px; border-radius:8px;">
+    <h3>📌 Important Notice</h3>
+    <p>The "Iqra" Library of the University Publications Office is currently experiencing a temporary technical issue in the electronic catalog system.</p>
+    <small>2026-05-02</small>
+  </div>
+
 </section>
 
 <section id="images" class="page hidden">
