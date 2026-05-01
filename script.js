@@ -45,14 +45,23 @@ function getLang(){
    NAVIGATION
 ========================= */
 function show(id){
-  document.querySelectorAll(".page").forEach(p => {
-    p.classList.add("hidden");
-  });
 
-  const page = document.getElementById(id);
-  page.classList.remove("hidden");
+    // إخفاء فقط الصفحات الرئيسية
+    document.querySelectorAll(".main-page").forEach(p=>{
+        p.classList.add("hidden");
+    });
 
-  // مهم: لا تعيد بناء home
+    // إظهار المطلوب
+    const page = document.getElementById(id);
+    if(page){
+        page.classList.remove("hidden");
+    }
+
+    // admin
+    if(id === "admin"){
+        loadMessages();
+        updateDashboard();
+    }
 }
 
 /* =========================
