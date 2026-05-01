@@ -138,17 +138,26 @@
   <span data-lang="en">➕ New Books</span>
 </button>
 
-  <div id="addBookBox" style="display:none;">
-    <input id="newBookAr" placeholder="العنوان بالعربية">
-    <input id="newBookFr" placeholder="Titre FR">
-    <input id="newBookEn" placeholder="Title EN">
+  <div id="addBookBox" style="display:none; margin-top:10px;">
 
-    <button onclick="addNewBook()">
-      <span data-lang="ar">حفظ</span>
-      <span data-lang="fr">Enregistrer</span>
-      <span data-lang="en">Save</span>
-    </button>
-  </div>
+  <input id="newBookAr" placeholder="العنوان بالعربية">
+  <input id="newBookFr" placeholder="Titre en français">
+  <input id="newBookEn" placeholder="English title">
+
+  <input id="newAuthor" placeholder="المؤلف / Auteur / Author">
+  <input id="newPublisher" placeholder="دار النشر / Éditeur / Publisher">
+  <input id="newYear" placeholder="سنة النشر / Year">
+  <input id="newEdition" placeholder="الطبعة / Edition">
+  <input id="newClass" placeholder="رقم التصنيف / Call Number">
+  <input id="newCopies" placeholder="عدد النسخ / Copies">
+
+  <button onclick="addNewBook()">
+    <span data-lang="ar">حفظ</span>
+    <span data-lang="fr">Enregistrer</span>
+    <span data-lang="en">Save</span>
+  </button>
+
+</div>
 
   <button onclick="toggleUrgent()">
     <span data-lang="ar">🚨 إعلان عاجل</span>
