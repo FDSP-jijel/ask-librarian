@@ -1067,78 +1067,146 @@ function deactivateUrgent() {
   document.getElementById("urgentBtn").classList.remove("active");
 }
 
-   /* ===== CONTACT SECTION ✨ ===== */
-#contact.contact-section{
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    text-align: center;
+/* ===== CONTACT WRAPPER ===== */
+.contact-wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-#contact .contact-title{
-    font-size: 28px;
+/* زر الرجوع */
+.back-btn{
+    align-self: flex-start;
+    margin-bottom: 20px;
+
+    padding: 10px 18px;
+    border: none;
+    border-radius: 12px;
+
+    background: rgba(0,0,0,0.08);
+    cursor: pointer;
+
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.back-btn:hover{
+    transform: scale(1.05);
+    background: #e2e8f0;
+}
+
+/* البطاقة الرئيسية */
+.contact-card-modern{
+    width: 100%;
+    max-width: 600px;
+
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(15px);
+
+    border-radius: 20px;
+    padding: 30px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+
+    text-align: center;
+
+    animation: fadeIn 0.5s ease;
+}
+
+/* العنوان */
+.contact-card-modern h2{
+    margin-bottom: 5px;
+    font-size: 26px;
+}
+
+/* وصف صغير */
+.subtitle{
+    color: #64748b;
     margin-bottom: 25px;
 }
 
-/* الكارد */
-#contact .contact-card{
-    display: flex;
-    flex-direction: column;
+/* الشبكة */
+.contact-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
 }
 
-/* العناصر */
-#contact .contact-item{
+/* البطاقات */
+.contact-box{
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 
-    padding: 18px;
+    padding: 15px;
     border-radius: 15px;
 
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(12px);
+    text-decoration: none;
+    color: #0f172a;
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 
     transition: 0.3s;
 }
 
-/* Hover */
-#contact .contact-item:hover{
-    transform: translateY(-5px) scale(1.02);
+/* Hover احترافي */
+.contact-box:hover{
+    transform: translateY(-5px) scale(1.03);
+    background: #f1f5f9;
 }
 
 /* الأيقونة */
-#contact .icon{
-    font-size: 28px;
-    width: 50px;
-    height: 50px;
+.contact-box .icon{
+    font-size: 26px;
+    width: 45px;
+    height: 45px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 50%;
     background: #e0f2fe;
+    border-radius: 12px;
 }
 
 /* النص */
-#contact h3{
+.contact-box h3{
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
 }
 
-#contact a{
-    color: #2563eb;
-    font-weight: bold;
-    text-decoration: none;
+.contact-box p{
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
 }
 
-#contact a:hover{
-    text-decoration: underline;
+/* أنيميشن دخول */
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* DARK MODE */
-body.dark #contact .contact-item{
+body.dark .contact-card-modern{
     background: rgba(255,255,255,0.05);
+}
+
+body.dark .contact-box{
+    background: rgba(255,255,255,0.08);
+    color: white;
+}
+
+body.dark .subtitle{
+    color: #cbd5e1;
 }
