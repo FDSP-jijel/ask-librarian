@@ -1033,15 +1033,15 @@ ul{
     background: #ef4444;
 }
 
-/* زر عادي */
+/* عادي مثل باقي الأزرار */
 #urgentBtn {
-    background: #ef4444;
-    color: white;
-    border-radius: 8px;
+    transition: 0.3s;
 }
 
-/* عند وجود إعلان */
+/* فقط عند وجود إعلان */
 #urgentBtn.active {
+    background: #ef4444;
+    color: white;
     animation: pulse 1s infinite;
 }
 
