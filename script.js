@@ -60,11 +60,6 @@ function show(id){
     }
 
     event?.target?.classList.add("active");
-
-    if(id === "admin"){
-        loadMessages();
-        updateDashboard();
-    }
 }
 
 /* =========================
