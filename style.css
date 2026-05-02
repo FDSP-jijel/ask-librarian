@@ -1082,11 +1082,15 @@ function deactivateUrgent() {
 }
 
 .contact-info a{
+    display: inline-block;
+    margin: 10px 0;
+    font-size: 18px;
     color: #2563eb;
     text-decoration: none;
     font-weight: bold;
 }
 
 .contact-info a:hover{
-    text-decoration: underline;
-} 
+    color: #1d4ed8;
+    transform: scale(1.05);
+}
