@@ -574,52 +574,6 @@ function sendMessage(){
     document.getElementById("message").value = "";
 }
 
-function loadMessages(){
-
-    let messages = JSON.parse(localStorage.getItem("messages")) || [];
-    let box = document.getElementById("messagesList");
-
-    if(!box) return;
-
-    box.innerHTML = "";
-
-    messages.slice().reverse().forEach((m, index)=>{
-
-        let div = document.createElement("div");
-        div.className = "msg-admin";
-
-        div.innerHTML = `
-            <div class="msg-avatar">👤</div>
-
-            <div class="msg-content">
-                <div class="msg-header">
-                    <span class="msg-name">${m.name}</span>
-                    <span class="msg-time">${m.time || ""}</span>
-                </div>
-
-                <div class="msg-text">${m.message}</div>
-
-                <button class="delete-btn" onclick="deleteMessage(${index})">
-                    🗑 حذف
-                </button>
-            </div>
-        `;
-
-        box.appendChild(div);
-    });
-}
-
-function deleteMessage(i){
-
-    let messages = JSON.parse(localStorage.getItem("messages")) || [];
-
-    messages.splice(i,1);
-
-    localStorage.setItem("messages", JSON.stringify(messages));
-
-    loadMessages();
-}
-
 async function loadCatalog() {
     try {
         console.log("📂 Loading catalog...");
