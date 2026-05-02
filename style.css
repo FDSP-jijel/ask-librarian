@@ -229,11 +229,13 @@ body {
     justify-content: center;
 }
 
-.image-box {
+..image-box {
     width: 220px;
-    border-radius: 20px;
-    overflow: hidden;
-    background: rgba(255,255,255,0.6);
+    border-radius: 15px;
+    padding: 10px;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    text-align: center;
     transition: 0.3s;
 }
 
