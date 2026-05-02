@@ -138,22 +138,12 @@
   <span data-lang="en">➕ New Books</span>
 </button>
 
-  <button onclick="toggleUrgent()">
-    <span data-lang="ar">🚨 إعلان عاجل</span>
-    <span data-lang="fr">🚨 Annonce urgente</span>
-    <span data-lang="en">🚨 Urgent News</span>
-  </button>
-
-  <div id="urgentBox" style="display:none;">
-    <input id="urgentTitle" placeholder="عنوان عاجل">
-    <textarea id="urgentContent" placeholder="محتوى الإعلان"></textarea>
-
-    <button onclick="addUrgentNews()">
-      <span data-lang="ar">نشر</span>
-      <span data-lang="fr">Publier</span>
-      <span data-lang="en">Publish</span>
-    </button>
-  </div>
+<button id="urgentBtn" onclick="show('urgent')">
+  🚨 
+  <span data-lang="ar">إعلان عاجل</span>
+  <span data-lang="fr">Annonce urgente</span>
+  <span data-lang="en">Urgent News</span>
+</button>
 
 <button onclick="showMeeting()">
   🎥
