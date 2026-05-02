@@ -1066,3 +1066,24 @@ function deactivateUrgent() {
   urgentActive = false;
   document.getElementById("urgentBtn").classList.remove("active");
 }
+
+   .contact-section{
+    padding: 40px;
+    background: #f8fafc;
+}
+
+.contact-info{
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.contact-info a{
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover{
+    text-decoration: underline;
+} 
