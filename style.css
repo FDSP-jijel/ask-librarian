@@ -1051,3 +1051,18 @@ ul{
     70% { box-shadow: 0 0 0 10px rgba(239,68,68,0); }
     100% { box-shadow: 0 0 0 0 rgba(239,68,68,0); }
 }
+
+// حالة الإعلان
+let urgentActive = false;
+
+// تشغيل التنبيه
+function activateUrgent() {
+  urgentActive = true;
+  document.getElementById("urgentBtn").classList.add("active");
+}
+
+// إيقاف التنبيه
+function deactivateUrgent() {
+  urgentActive = false;
+  document.getElementById("urgentBtn").classList.remove("active");
+}
