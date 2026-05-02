@@ -1067,30 +1067,78 @@ function deactivateUrgent() {
   document.getElementById("urgentBtn").classList.remove("active");
 }
 
-   ..contact-section{
-    padding: 40px;
-    background: rgba(255,255,255,0.7);
+   /* ===== CONTACT SECTION ✨ ===== */
+#contact.contact-section{
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+}
+
+#contact .contact-title{
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+/* الكارد */
+#contact .contact-card{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* العناصر */
+#contact .contact-item{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 18px;
     border-radius: 15px;
-    text-align: center;
-    backdrop-filter: blur(10px);
+
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
 }
 
-.contact-info{
-    max-width: 400px;
-    margin: auto;
-    text-align: center;
+/* Hover */
+#contact .contact-item:hover{
+    transform: translateY(-5px) scale(1.02);
 }
 
-.contact-info a{
-    display: inline-block;
-    margin: 10px 0;
-    font-size: 18px;
+/* الأيقونة */
+#contact .icon{
+    font-size: 28px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: #e0f2fe;
+}
+
+/* النص */
+#contact h3{
+    margin: 0;
+    font-size: 16px;
+}
+
+#contact a{
     color: #2563eb;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
 }
 
-.contact-info a:hover{
-    color: #1d4ed8;
-    transform: scale(1.05);
+#contact a:hover{
+    text-decoration: underline;
+}
+
+/* DARK MODE */
+body.dark #contact .contact-item{
+    background: rgba(255,255,255,0.05);
 }
