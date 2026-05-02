@@ -102,12 +102,6 @@
     <span data-lang="en">📜 Rules</span>
   </button>
 
-  <button onclick="show('ads')">
-  <span data-lang="ar">📢 الإعلانات</span>
-  <span data-lang="fr">📢 Annonces</span>
-  <span data-lang="en">📢 Ads</span>
-</button>
-
   <button onclick="show('images')">
     <span data-lang="ar">📷 الصور</span>
     <span data-lang="fr">📷 Photos</span>
@@ -126,18 +120,18 @@
     <span data-lang="en">📬 Contact</span>
   </button>
 
-  <button onclick="show('admin')">
-    <span data-lang="ar">🧑‍💻  إدارة المكتبة</span>
-    <span data-lang="fr">🧑‍💻 Administration de la Bibliothèques</span>
-    <span data-lang="en">🧑‍💻 Library Admin</span>
-  </button>
-
 <button onclick="show('newBooks')">
   <span data-lang="ar">➕ مقتنيات جديدة</span>
   <span data-lang="fr">➕ Nouveaux ouvrages</span>
   <span data-lang="en">➕ New Books</span>
 </button>
 
+<button onclick="show('ads')">
+  <span data-lang="ar">📢 الإعلانات</span>
+  <span data-lang="fr">📢 Annonces</span>
+  <span data-lang="en">📢 Ads</span>
+</button>
+  
 <button id="urgentBtn" onclick="show('urgent')">
   🚨 
   <span data-lang="ar">إعلان عاجل</span>
@@ -1377,47 +1371,6 @@ It is a shared space for students dedicated to reading, research, and group work
 
     <button onclick="sendMessage()">إرسال</button>
   </div>
-
-</section>
-
-<section id="admin" class="page hidden">
-
-  <h2>📊 لوحة التحكم</h2>
-<canvas id="myChart"></canvas>
-<canvas id="pieChart"></canvas>
-  
-  <!-- ===== CARDS ===== -->
-  <div class="dashboard-cards">
-
-    <div class="dash-card">
-      📚
-      <h3 id="totalBooks">0</h3>
-      <p>عدد الكتب</p>
-    </div>
-
-    <div class="dash-card">
-      👥
-      <h3 id="totalVisitors">0</h3>
-      <p>عدد الزوار</p>
-    </div>
-
-    <div class="dash-card">
-      📩
-      <h3 id="totalMessages">0</h3>
-      <p>عدد الرسائل</p>
-    </div>
-
-    <div class="dash-card">
-      📢
-      <h3 id="totalNews">0</h3>
-      <p>عدد الإعلانات</p>
-    </div>
-
-  </div>
-
-  <!-- ===== MESSAGES ===== -->
-  <h3>📩 آخر الرسائل</h3>
-  <div id="messagesList"></div>
 
 </section>
 
