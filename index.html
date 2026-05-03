@@ -1583,68 +1583,113 @@ It is a shared space for students dedicated to reading, research, and group work
   <!-- العنوان -->
   <h2>
     📖 
-    <span data-lang="ar">منصة اقرأ - ديوان المطبوعات الجامعية</span>
-    <span data-lang="fr">Plateforme IQRAA - OPU</span>
-    <span data-lang="en">IQRAA Platform - OPU</span>
+    <span data-lang="ar">منصة اقرأ</span>
+    <span data-lang="fr">Plateforme IQRAA</span>
+    <span data-lang="en">IQRAA Platform</span>
   </h2>
 
-  <!-- التعريف -->
-  <div class="info-card">
-    <h3>
-      <span data-lang="ar">📌 التعريف بالمنصة</span>
-      <span data-lang="fr">📌 Présentation</span>
-      <span data-lang="en">📌 About the Platform</span>
-    </h3>
+  <!-- ===== الكروت ===== -->
+  <div class="iqraa-menu">
+
+    <div class="iqraa-card" onclick="openIqraa('aboutIqraa')">
+      📌
+      <h3>
+        <span data-lang="ar">التعريف بالمنصة</span>
+        <span data-lang="fr">Présentation</span>
+        <span data-lang="en">About</span>
+      </h3>
+    </div>
+
+    <div class="iqraa-card" onclick="openIqraa('registerIqraa')">
+      📝
+      <h3>
+        <span data-lang="ar">كيفية التسجيل</span>
+        <span data-lang="fr">Inscription</span>
+        <span data-lang="en">Registration</span>
+      </h3>
+    </div>
+
+    <div class="iqraa-card" onclick="openIqraa('linkIqraa')">
+      🌐
+      <h3>
+        <span data-lang="ar">رابط المنصة</span>
+        <span data-lang="fr">Lien</span>
+        <span data-lang="en">Link</span>
+      </h3>
+    </div>
+
+  </div>
+
+  <!-- ===== التعريف ===== -->
+  <div id="aboutIqraa" class="iqraa-content hidden">
 
     <p>
       <span data-lang="ar">
-        المكتبة الرقمية لديوان المطبوعات الجامعية "إقرأ" تتيح لكم الوصول وعرض جميع إصدارات الديوان في مختلف التخصصات.
+        تُعد منصة <strong>إقرأ (IQRAA)</strong> مكتبة رقمية وطنية تابعة لديوان المطبوعات الجامعية،
+        تهدف إلى دعم التعليم العالي والبحث العلمي في الجزائر من خلال توفير محتوى أكاديمي غني
+        لفائدة الطلبة والأساتذة والباحثين.
       </span>
+
       <span data-lang="fr">
-        La bibliothèque numérique IQRAA permet d’accéder à toutes les publications de l’OPU.
+        La plateforme IQRAA est une bibliothèque numérique nationale visant à soutenir l’enseignement supérieur.
       </span>
+
       <span data-lang="en">
-        IQRAA digital library provides access to all publications of the University Publications Office.
+        IQRAA is a national digital library supporting higher education and research.
       </span>
     </p>
+
+    <p>
+      <span data-lang="ar">
+        توفر المنصة آلاف الكتب الجامعية في تخصصات متعددة مثل الحقوق، العلوم السياسية،
+        العلوم الاجتماعية والعلوم الدقيقة، مما يجعلها مرجعًا علميًا مهمًا داخل الجامعة.
+      </span>
+
+      <span data-lang="fr">Elle offre des milliers de livres académiques.</span>
+      <span data-lang="en">It provides thousands of academic books.</span>
+    </p>
+
+    <ul>
+      <li><span data-lang="ar">📚 آلاف الكتب</span><span data-lang="fr">📚 Livres</span><span data-lang="en">📚 Books</span></li>
+      <li><span data-lang="ar">🎓 للطلبة والأساتذة</span><span data-lang="fr">🎓 Étudiants</span><span data-lang="en">🎓 Students</span></li>
+      <li><span data-lang="ar">🌐 وصول رقمي سريع</span><span data-lang="fr">🌐 Accès rapide</span><span data-lang="en">🌐 Fast access</span></li>
+    </ul>
+
   </div>
 
-  <!-- التسجيل -->
-  <div class="info-card">
-    <h3>
-      <span data-lang="ar">📝 كيفية التسجيل</span>
-      <span data-lang="fr">📝 Inscription</span>
-      <span data-lang="en">📝 Registration</span>
-    </h3>
+  <!-- ===== التسجيل ===== -->
+  <div id="registerIqraa" class="iqraa-content hidden">
 
     <ol>
       <li>
-        <span data-lang="ar">التسجيل باستخدام البريد الإلكتروني المهني</span>
-        <span data-lang="fr">Utiliser l’email professionnel</span>
-        <span data-lang="en">Use your professional email</span>
+        <span data-lang="ar">الدخول إلى رابط المنصة</span>
+        <span data-lang="fr">Accéder au site</span>
+        <span data-lang="en">Open the platform</span>
       </li>
 
       <li>
-        <span data-lang="ar">الدخول عبر الرابط الرسمي</span>
-        <span data-lang="fr">Accéder via le lien officiel</span>
-        <span data-lang="en">Access the official link</span>
+        <span data-lang="ar">إنشاء حساب باستخدام البريد الجامعي</span>
+        <span data-lang="fr">Créer un compte</span>
+        <span data-lang="en">Create account</span>
       </li>
 
       <li>
-        <span data-lang="ar">تفعيل الحساب عبر المكتبة</span>
-        <span data-lang="fr">Activer le compte via la bibliothèque</span>
-        <span data-lang="en">Activate your account via the library</span>
+        <span data-lang="ar">تأكيد التسجيل عبر البريد</span>
+        <span data-lang="fr">Confirmer email</span>
+        <span data-lang="en">Confirm email</span>
+      </li>
+
+      <li>
+        <span data-lang="ar">إرسال طلب تفعيل إلى:</span>
+        <br>
+        <strong>bib.inf@univ-jijel.dz</strong>
       </li>
     </ol>
+
   </div>
 
-  <!-- الرابط -->
-  <div class="info-card">
-    <h3>
-      <span data-lang="ar">🌐 رابط المنصة</span>
-      <span data-lang="fr">🌐 Lien</span>
-      <span data-lang="en">🌐 Link</span>
-    </h3>
+  <!-- ===== الرابط ===== -->
+  <div id="linkIqraa" class="iqraa-content hidden">
 
     <a href="https://st.iqraa.opu.dz" target="_blank" class="main-btn">
       🚀 
@@ -1652,35 +1697,11 @@ It is a shared space for students dedicated to reading, research, and group work
       <span data-lang="fr">Accéder à IQRAA</span>
       <span data-lang="en">Go to IQRAA</span>
     </a>
-  </div>
 
-  <!-- التفعيل -->
-  <div class="info-card warning">
-    <h3>
-      <span data-lang="ar">⚠️ تفعيل الحساب</span>
-      <span data-lang="fr">⚠️ Activation</span>
-      <span data-lang="en">⚠️ Account Activation</span>
-    </h3>
-
-    <p>
-      <span data-lang="ar">
-        بعد التسجيل، يجب إرسال طلب تفعيل الحساب إلى البريد الإلكتروني:
-      </span>
-      <span data-lang="fr">
-        Après inscription, envoyez une demande d’activation à :
-      </span>
-      <span data-lang="en">
-        After registration, send activation request to:
-      </span>
-    </p>
-
-    <a href="mailto:bib.inf@univ-jijel.dz" class="email-btn">
-      📧 bib.inf@univ-jijel.dz
-    </a>
   </div>
 
 </section>
-    
+  
 <script src="script.js?v=3" defer></script>
 <script src="lang.js" defer></script>
 
