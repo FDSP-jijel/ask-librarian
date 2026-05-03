@@ -811,7 +811,9 @@ function showMeeting(){
         prejoinPageEnabled: false,
         startWithAudioMuted: false,
         startWithVideoMuted: false,
-        disableDeepLinking: true   // ⭐ مهم جدًا
+
+        // ❌ لا تمنع التطبيق (نريد مرونة)
+        disableDeepLinking: false
     },
 
     interfaceConfigOverwrite: {
@@ -820,9 +822,7 @@ function showMeeting(){
             "camera",
             "chat",
             "hangup"
-        ],
-        SHOW_JITSI_WATERMARK: false,
-        SHOW_WATERMARK_FOR_GUESTS: false
+        ]
     }
 });
 
