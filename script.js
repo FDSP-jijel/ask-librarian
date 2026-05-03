@@ -793,7 +793,6 @@ function startJitsi(){
     const container = document.getElementById("meetContainer");
     container.innerHTML = "";
 
-    // إيقاف أي جلسة سابقة
     if(api){
         api.dispose();
         api = null;
@@ -803,7 +802,14 @@ function startJitsi(){
         roomName: "AskLibrarianRoom_2026_SECURE",
         parentNode: container,
         width: "100%",
-        height: 500,
+        height: 500
+    });
+
+    // ✅ عند دخول المستخدم
+    api.addEventListener('videoConferenceJoined', () => {
+        document.getElementById("meetingStatus").style.display = "none";
+    });
+}
 
         configOverwrite: {
             prejoinPageEnabled: false,
