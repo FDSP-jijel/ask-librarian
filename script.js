@@ -921,6 +921,14 @@ function toggleStructure() {
   el.classList.toggle("hidden");
 }
 
+function openIqraa(id){
+  document.querySelectorAll('.iqraa-content').forEach(el=>{
+    el.classList.add('hidden');
+  });
+
+  document.getElementById(id).classList.remove('hidden');
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
