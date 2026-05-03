@@ -1405,28 +1405,50 @@ It is a shared space for students dedicated to reading, research, and group work
 
 <section id="meeting" class="page hidden">
 
-  <h2>🎥 الاجتماع المباشر</h2>
+  <h2>
+    🎥 
+    <span data-lang="ar">الاجتماع المباشر</span>
+    <span data-lang="fr">Réunion en direct</span>
+    <span data-lang="en">Live Meeting</span>
+  </h2>
 
   <p style="color:red;font-weight:bold;">
-    اختر طريقة الدخول إلى الاجتماع
+    ⚠️ 
+    <span data-lang="ar">اختر طريقة الدخول إلى الاجتماع</span>
+    <span data-lang="fr">Choisissez le mode de réunion</span>
+    <span data-lang="en">Choose meeting mode</span>
   </p>
 
-  <!-- أزرار التحكم -->
+  <!-- 🔘 الأزرار -->
   <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
 
     <button onclick="startJitsi()"
-      style="background:#2563eb;color:white;padding:10px;border:none;border-radius:8px;">
-      🎥 داخل الموقع (Jitsi)
+      style="background:#2563eb;color:white;padding:10px;border:none;border-radius:8px;cursor:pointer;">
+      🎥 
+      <span data-lang="ar">داخل الموقع (Jitsi)</span>
+      <span data-lang="fr">Dans le site (Jitsi)</span>
+      <span data-lang="en">Inside site (Jitsi)</span>
     </button>
 
-    <button onclick="openMeet()"
-      style="background:#10b981;color:white;padding:10px;border:none;border-radius:8px;">
-      🌐 Google Meet داخل الصفحة
+    <button onclick="startGoogleMeet()"
+      style="background:#10b981;color:white;padding:10px;border:none;border-radius:8px;cursor:pointer;">
+      🌐 
+      <span data-lang="ar">Google Meet</span>
+      <span data-lang="fr">Google Meet</span>
+      <span data-lang="en">Google Meet</span>
+    </button>
+
+    <button onclick="shareMeeting()"
+      style="background:#f59e0b;color:white;padding:10px;border:none;border-radius:8px;cursor:pointer;">
+      📤 
+      <span data-lang="ar">مشاركة</span>
+      <span data-lang="fr">Partager</span>
+      <span data-lang="en">Share</span>
     </button>
 
   </div>
 
-  <!-- مكان العرض -->
+  <!-- 🎥 العرض -->
   <div id="meetContainer" style="width:100%;height:500px;"></div>
 
 </section>
