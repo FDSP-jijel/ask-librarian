@@ -1405,49 +1405,29 @@ It is a shared space for students dedicated to reading, research, and group work
 
 <section id="meeting" class="page hidden">
 
-  <h2>
-    🎥 <span data-lang="ar">الاجتماع المباشر</span>
-    <span data-lang="fr">Réunion en direct</span>
-    <span data-lang="en">Live Meeting</span>
-  </h2>
+  <h2>🎥 الاجتماع المباشر</h2>
 
   <p style="color:red;font-weight:bold;">
-    ⚠️ 
-    <span data-lang="ar">الاجتماع يتم عبر Google Meet</span>
-    <span data-lang="fr">Réunion via Google Meet</span>
-    <span data-lang="en">Meeting via Google Meet</span>
+    اختر طريقة الدخول إلى الاجتماع
   </p>
 
-  <p>
-    🔐 
-    <span data-lang="ar">اضغط للدخول أو شارك الرابط مباشرة</span>
-    <span data-lang="fr">Cliquez pour rejoindre ou partager le lien</span>
-    <span data-lang="en">Click to join or share the link</span>
-  </p>
+  <!-- أزرار التحكم -->
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
 
-  <!-- 🔘 أزرار التحكم -->
-  <div style="margin-bottom:10px;">
+    <button onclick="startJitsi()"
+      style="background:#2563eb;color:white;padding:10px;border:none;border-radius:8px;">
+      🎥 داخل الموقع (Jitsi)
+    </button>
 
-    <!-- دخول الاجتماع -->
-    <a href="https://meet.google.com/fjz-kqbd-cwo"
-       target="_blank"
-       style="display:inline-block;background:#2563eb;color:white;padding:10px 15px;border-radius:8px;margin:5px;text-decoration:none;">
-      ▶️ 
-      <span data-lang="ar">دخول الاجتماع</span>
-      <span data-lang="fr">Rejoindre</span>
-      <span data-lang="en">Join Meeting</span>
-    </a>
-
-    <!-- مشاركة -->
-    <button onclick="shareMeeting()"
-      style="background:#10b981;color:white;padding:10px 15px;border:none;border-radius:8px;margin:5px;cursor:pointer;">
-      📤 
-      <span data-lang="ar">مشاركة الاجتماع</span>
-      <span data-lang="fr">Partager</span>
-      <span data-lang="en">Share</span>
+    <button onclick="openMeet()"
+      style="background:#10b981;color:white;padding:10px;border:none;border-radius:8px;">
+      🌐 Google Meet داخل الصفحة
     </button>
 
   </div>
+
+  <!-- مكان العرض -->
+  <div id="meetContainer" style="width:100%;height:500px;"></div>
 
 </section>
 
