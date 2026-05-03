@@ -785,33 +785,81 @@ function copyEmail(){
 
 let api = null;
 
-function showMeeting(){
+/* =========================
+   🎥 JITSI داخل الموقع
+========================= */
+function startJitsi(){
 
-    // إخفاء كل الصفحات
-    document.querySelectorAll("section").forEach(s=>{
-        s.classList.add("hidden");
+    const container = document.getElementById("meetContainer");
+    container.innerHTML = "";
+
+    // إيقاف أي جلسة سابقة
+    if(api){
+        api.dispose();
+        api = null;
+    }
+
+    api = new JitsiMeetExternalAPI("meet.jit.si", {
+        roomName: "AskLibrarianRoom_2026_SECURE",
+        parentNode: container,
+        width: "100%",
+        height: 500,
+
+        configOverwrite: {
+            prejoinPageEnabled: false,
+            startWithAudioMuted: false,
+            startWithVideoMuted: false
+        },
+
+        interfaceConfigOverwrite: {
+            TOOLBAR_BUTTONS: [
+                "microphone",
+                "camera",
+                "chat",
+                "hangup"
+            ],
+            SHOW_JITSI_WATERMARK: false,
+            SHOW_WATERMARK_FOR_GUESTS: false
+        }
     });
-
-    // إظهار صفحة الاجتماع
-    document.getElementById("meeting").classList.remove("hidden");
-
-    // لا يوجد iframe أو API بعد الآن
 }
 
+
+/* =========================
+   🌐 GOOGLE MEET داخل الصفحة
+========================= */
+function startGoogleMeet(){
+
+    const container = document.getElementById("meetContainer");
+
+    container.innerHTML = `
+        <iframe
+            src="https://meet.google.com/fjz-kqbd-cwo"
+            style="width:100%;height:500px;border:0;border-radius:10px;"
+            allow="camera; microphone; fullscreen; display-capture"
+        ></iframe>
+    `;
+}
+
+
+/* =========================
+   📤 مشاركة الاجتماع
+========================= */
 function shareMeeting(){
 
+    // نشارك Google Meet لأنه الأكثر توافقًا
     let link = "https://meet.google.com/fjz-kqbd-cwo";
 
     if(navigator.share){
         navigator.share({
             title: "📚 اجتماع المكتبة",
-            text: "انضم إلى الاجتماع المباشر عبر Google Meet",
+            text: "انضم إلى الاجتماع المباشر",
             url: link
         });
     } else {
         navigator.clipboard.writeText(link);
 
-        let lang = getLang();
+        let lang = getLang ? getLang() : "ar";
 
         alert(
             lang === "ar" ? "📋 تم نسخ رابط الاجتماع" :
