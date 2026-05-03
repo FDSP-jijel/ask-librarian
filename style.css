@@ -1234,3 +1234,41 @@ body.dark .contact-box{
 body.dark .info-card{
   background:rgba(255,255,255,0.05);
 }
+
+/* ===== IQRAA MENU (الجديد) ===== */
+
+.iqraa-menu{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:20px 0;
+}
+
+.iqraa-card{
+  background:#f8fafc;
+  padding:20px;
+  border-radius:15px;
+  width:200px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.iqraa-card:hover{
+  transform:translateY(-5px) scale(1.05);
+}
+
+.iqraa-content{
+  margin-top:20px;
+  padding:20px;
+  background:#f1f5f9;
+  border-radius:12px;
+}
+
+/* دارك مود */
+body.dark .iqraa-card,
+body.dark .iqraa-content{
+  background:rgba(255,255,255,0.05);
+}
