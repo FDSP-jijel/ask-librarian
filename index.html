@@ -1404,7 +1404,7 @@ It is a shared space for students dedicated to reading, research, and group work
 
 </section>
 
-<section id="meeting" class="page hidden">
+<<section id="meeting" class="page hidden">
 
   <h2>
     🎥 <span data-lang="ar">الاجتماع المباشر</span>
@@ -1412,34 +1412,42 @@ It is a shared space for students dedicated to reading, research, and group work
     <span data-lang="en">Live Meeting</span>
   </h2>
 
-<!-- 👇 هنا نضع كلمة السر -->
-<p style="color:red; font-weight:bold;">
-  ⚠️ <span data-lang="ar">رابط الاجتماع مخصص للطلبة فقط</span>
-  <span data-lang="fr">Lien réservé aux étudiants</span>
-  <span data-lang="en">Meeting link is for students only</span>
-</p>
+  <p style="color:red;font-weight:bold;">
+    ⚠️ 
+    <span data-lang="ar">الاجتماع مخصص للطلبة فقط</span>
+    <span data-lang="fr">Réservé aux étudiants</span>
+    <span data-lang="en">For students only</span>
+  </p>
 
-<p>
-  🔐 <span data-lang="ar">كلمة الدخول: 1234</span>
-  <span data-lang="fr">Mot de passe: 1234</span>
-  <span data-lang="en">Password: 1234</span>
-</p>
-  
-<button onclick="shareMeeting()" style="
-    background:#2563eb;
-    color:white;
-    padding:10px;
-    border:none;
-    border-radius:8px;
-    margin-bottom:10px;
-    cursor:pointer;
-">
-📤 
-<span data-lang="ar">مشاركة الاجتماع</span>
-<span data-lang="fr">Partager la réunion</span>
-<span data-lang="en">Share Meeting</span>
-</button>
-  
+  <p>
+    🔐 
+    <span data-lang="ar">رابط الاجتماع يعمل مباشرة من المتصفح أو التطبيق</span>
+    <span data-lang="fr">Le lien fonctionne sur navigateur ou application</span>
+    <span data-lang="en">Works on browser or app</span>
+  </p>
+
+  <!-- 🔘 أزرار التحكم -->
+  <div style="margin-bottom:10px;">
+
+    <button onclick="showMeeting()"
+      style="background:#2563eb;color:white;padding:10px;border:none;border-radius:8px;margin:5px;">
+      ▶️ 
+      <span data-lang="ar">دخول الاجتماع</span>
+      <span data-lang="fr">Rejoindre</span>
+      <span data-lang="en">Join Meeting</span>
+    </button>
+
+    <button onclick="shareMeeting()"
+      style="background:#10b981;color:white;padding:10px;border:none;border-radius:8px;margin:5px;">
+      📤 
+      <span data-lang="ar">مشاركة الاجتماع</span>
+      <span data-lang="fr">Partager</span>
+      <span data-lang="en">Share</span>
+    </button>
+
+  </div>
+
+  <!-- 🎥 مكان الاجتماع -->
   <div id="meetContainer" style="width:100%; height:500px;"></div>
 
 </section>
