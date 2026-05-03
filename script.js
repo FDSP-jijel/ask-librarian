@@ -956,6 +956,7 @@ function showMeeting(){
 }
 
 function openMeet(){
+    document.getElementById("meetingStatus").innerText = "🚀 يتم فتح الاجتماع...";
     window.open("https://meet.google.com/nbx-eakb-tor", "_blank");
 }
 
