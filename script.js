@@ -799,15 +799,13 @@ function showMeeting(){
 }
 
 function shareMeeting(){
-    let room = "AskLibrarianRoom_2026_SECURE";
 
-    // إجبار فتح المتصفح
     let link = "https://meet.google.com/fjz-kqbd-cwo";
 
     if(navigator.share){
         navigator.share({
-            title: "📚 Library Meeting",
-            text: "انضم إلى اجتماع المكتبة",
+            title: "📚 اجتماع المكتبة",
+            text: "انضم إلى الاجتماع المباشر عبر Google Meet",
             url: link
         });
     } else {
