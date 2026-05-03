@@ -785,14 +785,12 @@ function copyEmail(){
 
 let api = null;
 
-/* =========================
-   🎥 JITSI داخل الموقع
-========================= */
 function startJitsi(){
 
     const container = document.getElementById("meetContainer");
     container.innerHTML = "";
 
+    // إغلاق أي جلسة سابقة
     if(api){
         api.dispose();
         api = null;
@@ -802,14 +800,7 @@ function startJitsi(){
         roomName: "AskLibrarianRoom_2026_SECURE",
         parentNode: container,
         width: "100%",
-        height: 500
-    });
-
-    // ✅ عند دخول المستخدم
-    api.addEventListener('videoConferenceJoined', () => {
-        document.getElementById("meetingStatus").style.display = "none";
-    });
-}
+        height: 500,
 
         configOverwrite: {
             prejoinPageEnabled: false,
@@ -827,6 +818,11 @@ function startJitsi(){
             SHOW_JITSI_WATERMARK: false,
             SHOW_WATERMARK_FOR_GUESTS: false
         }
+    });
+
+    // ✅ عند دخول المستخدم
+    api.addEventListener('videoConferenceJoined', () => {
+        document.getElementById("meetingStatus").style.display = "none";
     });
 }
 
