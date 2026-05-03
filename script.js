@@ -848,7 +848,7 @@ function startGoogleMeet(){
 function shareMeeting(){
 
     // نشارك Google Meet لأنه الأكثر توافقًا
-    let link = "https://meet.google.com/fjz-kqbd-cwo";
+    let link = "https://meet.google.com/nbx-eakb-tor";
 
     if(navigator.share){
         navigator.share({
