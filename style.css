@@ -1175,3 +1175,62 @@ body.dark .contact-box{
     background: rgba(255,255,255,0.08);
     color: white;
 }
+
+/* صفحة IQRAA */
+#iqraa{
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.info-card{
+  background:#f8fafc;
+  padding:20px;
+  margin:15px 0;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  line-height:1.8;
+}
+
+.info-card h3{
+  margin-bottom:10px;
+}
+
+.main-btn{
+  display:inline-block;
+  background:#2563eb;
+  color:white;
+  padding:12px 20px;
+  border-radius:10px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.main-btn:hover{
+  background:#1e40af;
+  transform:scale(1.05);
+}
+
+.email-btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 15px;
+  background:#10b981;
+  color:white;
+  border-radius:8px;
+  text-decoration:none;
+}
+
+.email-btn:hover{
+  background:#059669;
+}
+
+.warning{
+  background:#fff7ed;
+  border-right:5px solid orange;
+}
+
+/* دارك مود */
+body.dark .info-card{
+  background:rgba(255,255,255,0.05);
+}
