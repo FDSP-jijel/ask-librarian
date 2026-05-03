@@ -802,28 +802,29 @@ function showMeeting(){
     }
 
     api = new JitsiMeetExternalAPI("meet.jit.si", {
-        roomName: "AskLibrarianRoom_2026_SECURE",
-        parentNode: container,
-        width: "100%",
-        height: 500,
+    roomName: "AskLibrarianRoom_2026_SECURE",
+    parentNode: container,
+    width: "100%",
+    height: 500,
 
-        configOverwrite: {
-            prejoinPageEnabled: false,
-            startWithAudioMuted: false,
-            startWithVideoMuted: false
-        },
+    configOverwrite: {
+        prejoinPageEnabled: false,
+        startWithAudioMuted: false,
+        startWithVideoMuted: false,
+        disableDeepLinking: true   // ⭐ مهم جدًا
+    },
 
-        interfaceConfigOverwrite: {
-            TOOLBAR_BUTTONS: [
-                "microphone",
-                "camera",
-                "chat",
-                "hangup"
-            ],
-            SHOW_JITSI_WATERMARK: false,
-            SHOW_WATERMARK_FOR_GUESTS: false
-        }
-    });
+    interfaceConfigOverwrite: {
+        TOOLBAR_BUTTONS: [
+            "microphone",
+            "camera",
+            "chat",
+            "hangup"
+        ],
+        SHOW_JITSI_WATERMARK: false,
+        SHOW_WATERMARK_FOR_GUESTS: false
+    }
+});
 
     // ✅ هنا المكان الصحيح
     api.addEventListener('videoConferenceJoined', () => {
