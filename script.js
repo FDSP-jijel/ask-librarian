@@ -945,6 +945,14 @@ function openIqraa(id){
   document.getElementById(id).classList.remove('hidden');
 }
 
+function showMeeting(){
+    document.querySelectorAll(".page").forEach(s=>{
+        s.classList.add("hidden");
+    });
+
+    document.getElementById("meeting").classList.remove("hidden");
+}
+       
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
