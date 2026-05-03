@@ -787,49 +787,15 @@ let api = null;
 
 function showMeeting(){
 
+    // إخفاء كل الصفحات
     document.querySelectorAll("section").forEach(s=>{
         s.classList.add("hidden");
     });
 
+    // إظهار صفحة الاجتماع
     document.getElementById("meeting").classList.remove("hidden");
 
-    const container = document.getElementById("meetContainer");
-    container.innerHTML = "";
-
-    if(api){
-        api.dispose();
-        api = null;
-    }
-
-    api = new JitsiMeetExternalAPI("meet.jit.si", {
-    roomName: "AskLibrarianRoom_2026_SECURE",
-    parentNode: container,
-    width: "100%",
-    height: 500,
-
-    configOverwrite: {
-        prejoinPageEnabled: false,
-        startWithAudioMuted: false,
-        startWithVideoMuted: false,
-
-        // ❌ لا تمنع التطبيق (نريد مرونة)
-        disableDeepLinking: false
-    },
-
-    interfaceConfigOverwrite: {
-        TOOLBAR_BUTTONS: [
-            "microphone",
-            "camera",
-            "chat",
-            "hangup"
-        ]
-    }
-});
-
-    // ✅ هنا المكان الصحيح
-    api.addEventListener('videoConferenceJoined', () => {
-   console.log("User joined meeting");
-});
+    // لا يوجد iframe أو API بعد الآن
 }
 
 function shareMeeting(){
