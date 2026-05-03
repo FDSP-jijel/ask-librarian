@@ -832,7 +832,10 @@ function showMeeting(){
 }
 
 function shareMeeting(){
-    let link = "https://meet.jit.si/AskLibrarianRoom_2026_SECURE";
+    let room = "AskLibrarianRoom_2026_SECURE";
+
+    // إجبار فتح المتصفح
+    let link = "https://meet.jit.si/" + room + "#config.startWithVideoMuted=false&config.startWithAudioMuted=false";
 
     if(navigator.share){
         navigator.share({
