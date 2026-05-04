@@ -1276,28 +1276,28 @@ body.dark .iqraa-content{
 @media(max-width:768px){
 
   .top-right-logo{
-    position: static; /* ❗ إلغاء التداخل */
-    text-align: center;
-    margin-bottom: 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
   }
 
   .top-right-logo img{
-    width: 80px; /* تصغير اللوقو */
+    width: 70px; /* تصغير */
   }
 
   .top-left-image{
-    position: static;
-    text-align: center;
-    margin-bottom: 10px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
   }
 
   .top-left-image img{
-    width: 120px;
-    max-width: 80%;
+    width: 90px; /* تصغير */
+    max-width: 25vw;
   }
 
   .main-header{
-    padding-top: 10px; /* إزالة الفراغ الكبير */
+    padding-top: 80px; /* 👈 مهم حتى لا يتداخل النص */
   }
 
 }
