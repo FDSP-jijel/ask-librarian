@@ -1328,27 +1328,3 @@ body.dark .iqraa-content{
   .top-right-logo img{
     width: 45px;
   }
-
-  .institution,
-  .title{
-    margin-top: 70px;
-  }
-
-  .title h1{
-    font-size: 14px;
-  }
-
-  .institution p{
-    font-size: 10px;
-  }
-}
-
-.institution p,
-.title p{
-  margin: 0;
-  line-height: 1;
-}
-
-.title h1{
-  margin: 2px 0;
-}
