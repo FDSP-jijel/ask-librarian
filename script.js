@@ -975,11 +975,14 @@ function loadMessages(){
 
   if(!chatBox) return;
 
-  chatBox.innerHTML = `
-    <div class="bot-message">
-      👋 مرحبًا بك، كيف يمكنني مساعدتك؟
-    </div>
-  `;
+  // فقط إذا فارغ نضيف رسالة ترحيب
+  if(chatBox.children.length === 0){
+    chatBox.innerHTML = `
+      <div class="msg bot">
+        👋 مرحبًا بك، كيف يمكنني مساعدتك؟
+      </div>
+    `;
+  }
 }
 
 window.show = show;
