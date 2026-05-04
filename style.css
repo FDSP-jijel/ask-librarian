@@ -1304,3 +1304,12 @@ body.dark .iqraa-content{
     font-size: 18px;
   }
 }
+
+body {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
