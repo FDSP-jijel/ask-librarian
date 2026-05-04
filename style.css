@@ -1258,8 +1258,10 @@ body.dark .iqraa-content{
 .institution p:last-child{
   font-size: 18px;
   font-weight: bold;
-  color: #2563eb;
+  color: #2563eb !important;
   margin-top: 6px;
+  transition: none !important;
+  will-change: auto;
 }
 
 .title h1{
