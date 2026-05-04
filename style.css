@@ -19,6 +19,11 @@ body {
 }
 
 /* ===== HEADER ===== */
+.main-header {
+    text-align: center;
+    padding: 20px;
+}
+
 .institution {
     font-size: 14px;
     opacity: 0.8;
@@ -911,7 +916,7 @@ ul{
 
 .lib-img-rect{
     width: 100%;
-    max-width: 500px;
+    max-width: 420px;
     display: block;
     margin: 15px auto;
     
@@ -931,6 +936,42 @@ ul{
     color:red;
     font-weight:bold;
     font-size:12px;
+}
+
+/* الصورة أعلى اليسار */
+.top-left-image{
+    position: absolute;
+    top: 10px;
+    left: 15px;
+}
+
+/* تكبير الصورة فقط */
+.top-left-image img{
+    width: 400px; /* 👈 حجم كبير وواضح */
+    max-width: 30vw; /* 👈 تتكيف مع الشاشة */
+    border-radius: 12px;
+}
+
+/* مهم: خلي الهيدر relative */
+.main-header{
+    position: relative;
+}
+
+/* شعار على اليمين */
+.top-right-logo{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* 👈 مهم */
+}
+
+.top-right-logo img{
+    width: 160px;
+}
+
+.main-header{
+    position: relative;
+    padding-top: 60px; /* 👈 يعطي مساحة للشعارات */
 }
 
 /* ===== PUBLICATIONS TABS ===== */
@@ -1009,6 +1050,21 @@ ul{
     0% { box-shadow: 0 0 0 0 rgba(239,68,68,0.7); }
     70% { box-shadow: 0 0 0 10px rgba(239,68,68,0); }
     100% { box-shadow: 0 0 0 0 rgba(239,68,68,0); }
+}
+
+// حالة الإعلان
+let urgentActive = false;
+
+// تشغيل التنبيه
+function activateUrgent() {
+  urgentActive = true;
+  document.getElementById("urgentBtn").classList.add("active");
+}
+
+// إيقاف التنبيه
+function deactivateUrgent() {
+  urgentActive = false;
+  document.getElementById("urgentBtn").classList.remove("active");
 }
 
 /* ===== CONTACT WRAPPER (TOP + FULL WIDTH) ===== */
@@ -1215,92 +1271,4 @@ body.dark .info-card{
 body.dark .iqraa-card,
 body.dark .iqraa-content{
   background:rgba(255,255,255,0.05);
-}
-
-.main-header{
-  position: relative;
-  padding: 15px;
-}
-
-/* الصور */
-.top-left-image,
-.top-right-logo{
-  position: absolute;
-  top: 10px;
-}
-
-.top-left-image{ left: 10px; }
-.top-right-logo{ right: 10px; }
-
-.top-left-image img,
-.top-right-logo img{
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  display: block;
-}
-
-/* النص في الوسط */
-.institution,
-.title{
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-/* نص المؤسسة */
-.institution p{
-  margin: 0;
-  line-height: 1.2;
-  font-size: 14px;
-}
-
-/* اسم الكلية (مُثبت بدون وميض) */
-.institution p:last-child{
-  font-size: 18px;
-  font-weight: bold;
-  color: #2563eb !important;
-  margin-top: 6px;
-  transition: none !important;
-  animation: none !important;
-}
-
-/* العنوان */
-.title h1{
-  margin: 4px 0;
-  font-size: 24px;
-}
-
-.title p{
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.2;
-}
-
-/* أزرار اللغة */
-.language-selector{
-  text-align: center;
-  margin-top: 8px;
-}
-
-/* 📱 الهاتف */
-@media(max-width:768px){
-
-  .top-left-image img,
-  .top-right-logo img{
-    width: 55px;
-    height: 55px;
-  }
-
-  .institution p{
-    font-size: 11px;
-  }
-
-  .institution p:last-child{
-    font-size: 14px;
-  }
-
-  .title h1{
-    font-size: 18px;
-  }
 }
