@@ -975,6 +975,21 @@ function openMeet(){
     window.open("https://meet.google.com/nbx-eakb-tor", "_blank");
 }
 
+function loadMessages(){
+  const chatBox = document.getElementById("chatBox");
+
+  if(!chatBox) return;
+
+  // فقط إذا فارغ نضيف رسالة ترحيب
+  if(chatBox.children.length === 0){
+    chatBox.innerHTML = `
+      <div class="msg bot">
+        👋 مرحبًا بك، كيف يمكنني مساعدتك؟
+      </div>
+    `;
+  }
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
