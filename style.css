@@ -1235,9 +1235,9 @@ body.dark .iqraa-content{
 .top-left-image img,
 .top-right-logo img{
   width: 80px;
-  height: 80px;       /* 👈 مهم جدا */
+  height: 80px;
   object-fit: contain;
-  display: block;     /* 👈 يمنع الوميض */
+  display: block;
 }
 
 /* النص في الوسط */
@@ -1248,22 +1248,24 @@ body.dark .iqraa-content{
   padding: 0;
 }
 
-/* تقليل الفراغات */
+/* نص المؤسسة */
 .institution p{
   margin: 0;
   line-height: 1.2;
   font-size: 14px;
 }
 
+/* اسم الكلية (مُثبت بدون وميض) */
 .institution p:last-child{
   font-size: 18px;
   font-weight: bold;
   color: #2563eb !important;
   margin-top: 6px;
   transition: none !important;
-  will-change: auto;
+  animation: none !important;
 }
 
+/* العنوان */
 .title h1{
   margin: 4px 0;
   font-size: 24px;
@@ -1287,6 +1289,7 @@ body.dark .iqraa-content{
   .top-left-image img,
   .top-right-logo img{
     width: 55px;
+    height: 55px;
   }
 
   .institution p{
@@ -1300,8 +1303,4 @@ body.dark .iqraa-content{
   .title h1{
     font-size: 18px;
   }
-}
-
-.institution p:last-child{
-  visibility: visible;
 }
