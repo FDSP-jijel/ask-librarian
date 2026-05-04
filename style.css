@@ -1276,7 +1276,7 @@ body.dark .iqraa-content{
 .main-header{
   display: grid;
   grid-template-columns: 120px 1fr 120px;
-  align-items: center; /* توسيط عمودي صحيح */
+  align-items: center;
   padding: 10px 20px;
   gap: 10px;
 }
@@ -1289,19 +1289,21 @@ body.dark .iqraa-content{
   display: block;
 }
 
-/* 🔥 إصلاح النص بالكامل */
+/* 🔥 إصلاح النص النهائي */
 .institution,
 .title{
   text-align: center;
-  direction: rtl; /* مهم للعربية */
+  width: 100%;      /* مهم جدًا */
+  white-space: normal; /* يمنع الكتابة العمودية */
 }
 
-/* منع التكسير العشوائي */
+/* نصوص المؤسسة */
 .institution p{
   margin: 2px 0;
   line-height: 1.4;
 }
 
+/* العنوان */
 .title h1{
   margin: 5px 0;
 }
@@ -1315,7 +1317,7 @@ body.dark .iqraa-content{
 .language-selector{
   grid-column: 1 / -1;
   text-align: center;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 /* 📱 الهاتف */
@@ -1337,5 +1339,4 @@ body.dark .iqraa-content{
   .title h1{
     font-size: 15px;
   }
-
 }
