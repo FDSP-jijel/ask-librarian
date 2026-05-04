@@ -1301,3 +1301,7 @@ body.dark .iqraa-content{
     font-size: 18px;
   }
 }
+
+.institution p:last-child{
+  visibility: visible;
+}
