@@ -955,6 +955,18 @@ function showMeeting(){
     document.getElementById("meeting").classList.remove("hidden");
 }
 
+function loadMessages(){
+  const chatBox = document.getElementById("chatBox");
+
+  if(!chatBox) return;
+
+  chatBox.innerHTML = `
+    <div class="bot-message">
+      👋 مرحبًا بك، كيف يمكنني مساعدتك؟
+    </div>
+  `;
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
