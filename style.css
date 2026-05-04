@@ -1289,21 +1289,11 @@ body.dark .iqraa-content{
 
   .top-left-image img{
     width: 70px;
+    max-width: 25vw;
   }
 
   .top-right-logo img{
     width: 60px;
-  }
-
-}
-
-  .top-left-image img{
-    width: 90px; /* تصغير */
-    max-width: 25vw;
-  }
-
-  .main-header{
-    padding-top: 80px; /* 👈 مهم حتى لا يتداخل النص */
   }
 
 }
