@@ -1273,18 +1273,27 @@ body.dark .iqraa-content{
   background:rgba(255,255,255,0.05);
 }
 
-/* ===== HEADER بسيط ومستقر ===== */
 .main-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
   padding: 10px 15px;
 }
 
-/* الصور */
+/* الشريط العلوي (يمين + يسار) */
+.top-left-image{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.top-right-logo{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
 .top-left-image img,
 .top-right-logo img{
-  width: 70px;
+  width: 60px;
   height: auto;
 }
 
@@ -1292,10 +1301,10 @@ body.dark .iqraa-content{
 .institution,
 .title{
   text-align: center;
-  flex: 1;
+  margin-top: 80px; /* 👈 هذا هو السر */
 }
 
-/* منع تكسير غريب */
+/* منع تكسير النص */
 .institution p,
 .title p{
   margin: 2px 0;
@@ -1310,15 +1319,19 @@ body.dark .iqraa-content{
 .language-selector{
   text-align: center;
   margin-top: 10px;
-  width: 100%;
 }
 
-/* ===== الهاتف ===== */
+/* 📱 الهاتف */
 @media(max-width:768px){
 
   .top-left-image img,
   .top-right-logo img{
-    width: 50px;
+    width: 45px;
+  }
+
+  .institution,
+  .title{
+    margin-top: 70px;
   }
 
   .title h1{
