@@ -975,19 +975,36 @@ function openMeet(){
     window.open("https://meet.google.com/nbx-eakb-tor", "_blank");
 }
 
-function loadMessages(){
-  const chatBox = document.getElementById("chatBox");
+function handleQuery(msg, data) {
+    if (!msg || !data) return;
 
-  if(!chatBox) return;
+    // تنظيف النص
+    let query = msg.trim().toLowerCase();
 
-  // فقط إذا فارغ نضيف رسالة ترحيب
-  if(chatBox.children.length === 0){
-    chatBox.innerHTML = `
-      <div class="msg bot">
-        👋 مرحبًا بك، كيف يمكنني مساعدتك؟
-      </div>
-    `;
-  }
+    // تقسيم CSV إلى أسطر
+    let rows = data.split(/\r?\n/);
+
+    let results = [];
+
+    rows.forEach(row => {
+        let columns = row.split(",");
+
+        // ابحث في كل سطر
+        let match = columns.some(col => 
+            col.toLowerCase().includes(query)
+        );
+
+        if (match) {
+            results.push(row);
+        }
+    });
+
+    // عرض النتائج
+    if (results.length > 0) {
+        console.log("نتائج:", results);
+    } else {
+        console.log("لم يتم العثور على نتائج");
+    }
 }
 
 window.show = show;
