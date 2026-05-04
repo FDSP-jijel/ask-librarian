@@ -44,7 +44,7 @@ function getLang(){
 /* =========================
    NAVIGATION
 ========================= */
-function show(id, el){
+function show(id){
 
     document.querySelectorAll(".page").forEach(p=>{
         p.classList.add("hidden");
@@ -59,9 +59,7 @@ function show(id, el){
         page.classList.remove("hidden");
     }
 
-    if(el){
-        el.classList.add("active");
-    }
+    event?.target?.classList.add("active");
 }
 
 /* =========================
