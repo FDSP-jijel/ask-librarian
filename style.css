@@ -1291,32 +1291,40 @@ body.dark .iqraa-content{
   right: 10px;
 }
 
-.top-left-image img,
-.top-right-logo img{
-  width: 60px;
+/* 🔥 تكبير صورة اليسار */
+.top-left-image img{
+  width: 75px; /* 👈 أكبر قليلاً */
   height: auto;
 }
 
-/* 🔥 النص في الوسط بدون فراغات */
+/* اللوقو */
+.top-right-logo img{
+  width: 70px;
+  height: auto;
+}
+
+/* النص */
 .institution,
 .title{
   text-align: center;
-  margin: 0; /* حذف الفراغات */
+  margin: 0;
   padding: 0;
 }
 
-/* 🔥 تكبير نص المؤسسة */
+/* نصوص المؤسسة */
 .institution p{
   margin: 0;
   line-height: 1.1;
-  font-size: 15px; /* 👈 أكبر من قبل */
+  font-size: 15px;
   font-weight: 600;
 }
 
-/* جعل أهم سطر أكبر (كلية الحقوق...) */
+/* 🔥 السطر الأخير (كلية الحقوق) */
 .institution p:last-child{
-  font-size: 18px;  /* 👈 الأكبر */
+  font-size: 18px;
   font-weight: bold;
+  color: #2563eb; /* 👈 لون مميز */
+  margin-top: 8px; /* 👈 فراغ سطر واحد فقط */
 }
 
 /* العنوان */
@@ -1340,20 +1348,24 @@ body.dark .iqraa-content{
 /* 📱 الهاتف */
 @media(max-width:768px){
 
-  .top-left-image img,
+  .top-left-image img{
+    width: 55px;
+  }
+
   .top-right-logo img{
-    width: 45px;
-  }
-
-  .institution p:last-child{
-    font-size: 15px;
-  }
-
-  .title h1{
-    font-size: 16px;
+    width: 50px;
   }
 
   .institution p{
     font-size: 11px;
+  }
+
+  .institution p:last-child{
+    font-size: 14px;
+    margin-top: 6px;
+  }
+
+  .title h1{
+    font-size: 16px;
   }
 }
