@@ -1273,77 +1273,43 @@ body.dark .iqraa-content{
   background:rgba(255,255,255,0.05);
 }
 
+/* الهيدر العام */
 .main-header{
-  display: grid;
-  grid-template-columns: 120px 1fr 120px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  gap: 10px;
 }
 
 /* الصور */
 .top-left-image img,
 .top-right-logo img{
   width: 90px;
-  height: auto;
 }
 
-/* النصوص في الوسط */
-.institution,
-.title{
+/* العنوان */
+.header-title{
   text-align: center;
+  flex: 1; /* 👈 هذا هو السر */
 }
 
-/* عنوان الموقع */
-.title h1{
-  margin: 5px 0;
-}
-
-.title p{
+.header-title h1{
   margin: 0;
-}
-
-/* أزرار اللغة */
-.language-selector{
-  grid-column: 1 / -1;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.language-selector button{
-  margin: 3px;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #2563eb;
-  color: white;
 }
 
 /* 📱 الهاتف */
 @media(max-width:768px){
 
-  .main-header{
-    grid-template-columns: 60px 1fr 60px;
-    padding: 10px;
+  .top-left-image img{
+    width: 60px;
   }
 
-  .top-left-image img,
   .top-right-logo img{
     width: 60px;
   }
 
-  .institution{
-    font-size: 11px;
-    line-height: 1.4;
+  .header-title h1{
+    font-size: 18px;
   }
 
-  .title h1{
-    font-size: 16px;
-  }
-
-  .language-selector button{
-    padding: 5px 8px;
-    font-size: 12px;
-  }
 }
