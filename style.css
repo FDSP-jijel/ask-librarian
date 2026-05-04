@@ -1232,14 +1232,12 @@ body.dark .iqraa-content{
 .top-left-image{ left: 10px; }
 .top-right-logo{ right: 10px; }
 
-.top-left-image img{
-  width: 80px;
-  height: auto;
-}
-
+.top-left-image img,
 .top-right-logo img{
-  width: 75px;
-  height: auto;
+  width: 80px;
+  height: 80px;       /* 👈 مهم جدا */
+  object-fit: contain;
+  display: block;     /* 👈 يمنع الوميض */
 }
 
 /* النص في الوسط */
