@@ -1278,7 +1278,7 @@ body.dark .iqraa-content{
   padding: 10px 15px;
 }
 
-/* الصور يمين ويسار */
+/* الصور */
 .top-left-image{
   position: absolute;
   top: 10px;
@@ -1297,28 +1297,44 @@ body.dark .iqraa-content{
   height: auto;
 }
 
-/* النص في الوسط */
+/* 🔥 النص في الوسط بدون فراغات */
 .institution,
 .title{
   text-align: center;
-  margin-top: 80px;
+  margin: 0; /* حذف الفراغات */
+  padding: 0;
 }
 
-/* 🔥 إزالة الفراغات بين النصوص */
-.institution p,
-.title p{
+/* 🔥 تكبير نص المؤسسة */
+.institution p{
   margin: 0;
-  line-height: 1;
+  line-height: 1.1;
+  font-size: 15px; /* 👈 أكبر من قبل */
+  font-weight: 600;
 }
 
+/* جعل أهم سطر أكبر (كلية الحقوق...) */
+.institution p:last-child{
+  font-size: 18px;  /* 👈 الأكبر */
+  font-weight: bold;
+}
+
+/* العنوان */
 .title h1{
   margin: 3px 0;
+  font-size: 22px;
+}
+
+.title p{
+  margin: 0;
+  line-height: 1.1;
+  font-size: 14px;
 }
 
 /* أزرار اللغة */
 .language-selector{
   text-align: center;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 /* 📱 الهاتف */
@@ -1329,16 +1345,15 @@ body.dark .iqraa-content{
     width: 45px;
   }
 
-  .institution,
-  .title{
-    margin-top: 70px;
+  .institution p:last-child{
+    font-size: 15px;
   }
 
   .title h1{
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .institution p{
-    font-size: 10px;
+    font-size: 11px;
   }
 }
