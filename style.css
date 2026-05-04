@@ -1275,21 +1275,27 @@ body.dark .iqraa-content{
 
 @media(max-width:768px){
 
+  .main-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .top-left-image,
   .top-right-logo{
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    position: static;
+  }
+
+  .top-left-image img{
+    width: 70px;
   }
 
   .top-right-logo img{
-    width: 70px; /* تصغير */
+    width: 60px;
   }
 
-  .top-left-image{
-    position: absolute;
-    top: 5px;
-    left: 5px;
-  }
+}
 
   .top-left-image img{
     width: 90px; /* تصغير */
