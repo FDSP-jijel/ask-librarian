@@ -19,11 +19,6 @@ body {
 }
 
 /* ===== HEADER ===== */
-.main-header {
-    text-align: center;
-    padding: 20px;
-}
-
 .institution {
     font-size: 14px;
     opacity: 0.8;
