@@ -1273,31 +1273,43 @@ body.dark .iqraa-content{
   background:rgba(255,255,255,0.05);
 }
 
+/* الهيدر العام */
+.main-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+/* الصور */
+.top-left-image img,
+.top-right-logo img{
+  width: 90px;
+}
+
+/* العنوان */
+.header-title{
+  text-align: center;
+  flex: 1; /* 👈 هذا هو السر */
+}
+
+.header-title h1{
+  margin: 0;
+}
+
+/* 📱 الهاتف */
 @media(max-width:768px){
 
-  .main-header{
-    position: relative;
-    padding-top: 90px; /* 👈 مساحة كافية للنص */
-  }
-
-  .top-left-image{
-    position: absolute;
-    top: 5px;
-    left: 5px;
-  }
-
   .top-left-image img{
-    width: 70px;
-  }
-
-  .top-right-logo{
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    width: 60px;
   }
 
   .top-right-logo img{
     width: 60px;
+  }
+
+  .header-title h1{
+    font-size: 18px;
   }
 
 }
