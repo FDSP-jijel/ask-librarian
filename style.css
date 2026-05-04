@@ -938,42 +938,6 @@ ul{
     font-size:12px;
 }
 
-/* الصورة أعلى اليسار */
-.top-left-image{
-    position: absolute;
-    top: 10px;
-    left: 15px;
-}
-
-/* تكبير الصورة فقط */
-.top-left-image img{
-    width: 400px; /* 👈 حجم كبير وواضح */
-    max-width: 30vw; /* 👈 تتكيف مع الشاشة */
-    border-radius: 12px;
-}
-
-/* مهم: خلي الهيدر relative */
-.main-header{
-    position: relative;
-}
-
-/* شعار على اليمين */
-.top-right-logo{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 1000; /* 👈 مهم */
-}
-
-.top-right-logo img{
-    width: 160px;
-}
-
-.main-header{
-    position: relative;
-    padding-top: 60px; /* 👈 يعطي مساحة للشعارات */
-}
-
 /* ===== PUBLICATIONS TABS ===== */
 
 .pub-tab {
