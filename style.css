@@ -1345,10 +1345,10 @@ body.dark .iqraa-content{
 
 .institution p,
 .title p{
-  margin: 0;        /* إلغاء الفراغات */
-  line-height: 1.1; /* تقليل ارتفاع السطر */
+  margin: 0;
+  line-height: 1;
 }
 
 .title h1{
-  margin: 5px 0;    /* تقليل الفراغ حول العنوان */
+  margin: 2px 0;
 }
