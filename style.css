@@ -1276,7 +1276,7 @@ body.dark .iqraa-content{
 .main-header{
   display: grid;
   grid-template-columns: 120px 1fr 120px;
-  align-items: center; /* 👈 مهم جدًا للتوسيط العمودي */
+  align-items: center; /* توسيط عمودي صحيح */
   padding: 10px 20px;
   gap: 10px;
 }
@@ -1287,39 +1287,42 @@ body.dark .iqraa-content{
   width: 90px;
   height: auto;
   display: block;
-  margin: auto;
 }
 
-/* 🔥 أهم تعديل: رفع النص ليصير في نفس مستوى الصور */
+/* 🔥 إصلاح النص بالكامل */
 .institution,
 .title{
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;  /* توسيط عمودي داخلي */
-  height: 100%;
+  direction: rtl; /* مهم للعربية */
 }
 
-/* إزالة أي نزول زائد */
-.institution p,
-.title h1,
+/* منع التكسير العشوائي */
+.institution p{
+  margin: 2px 0;
+  line-height: 1.4;
+}
+
+.title h1{
+  margin: 5px 0;
+}
+
 .title p{
-  margin: 3px 0;
+  margin: 0;
+  line-height: 1.4;
 }
 
 /* أزرار اللغة */
 .language-selector{
   grid-column: 1 / -1;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 /* 📱 الهاتف */
 @media(max-width:768px){
 
   .main-header{
-    grid-template-columns: 60px 1fr 60px;
-    align-items: center;
+    grid-template-columns: 70px 1fr 70px;
   }
 
   .top-left-image img,
@@ -1327,11 +1330,12 @@ body.dark .iqraa-content{
     width: 60px;
   }
 
-  .title h1{
-    font-size: 16px;
+  .institution p{
+    font-size: 10px;
   }
 
-  .institution{
-    font-size: 11px;
+  .title h1{
+    font-size: 15px;
   }
+
 }
