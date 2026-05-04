@@ -1293,7 +1293,7 @@ body.dark .iqraa-content{
 
 /* 🔥 تكبير صورة اليسار */
 .top-left-image img{
-  width: 200px; /* 👈 أكبر قليلاً */
+  width: 500px; /* 👈 أكبر قليلاً */
   height: auto;
 }
 
