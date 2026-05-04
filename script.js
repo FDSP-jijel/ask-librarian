@@ -967,12 +967,6 @@ function loadMessages(){
   `;
 }
 
-function test(){
-    console.log("JS يعمل بشكل طبيعي");
-}
-test();
-
-
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
