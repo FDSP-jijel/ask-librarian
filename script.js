@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
    updateVisitors();
    loadMessages();
    loadCatalog();
-});
 
    let searchInput = document.getElementById("searchBook");
 
@@ -774,21 +773,6 @@ function addUrgentNews(){
     document.getElementById("urgentContent").value = "";
 }
 
-// حالة الإعلان
-let urgentActive = false;
-
-// تشغيل التنبيه
-function activateUrgent() {
-  urgentActive = true;
-  document.getElementById("urgentBtn").classList.add("active");
-}
-
-// إيقاف التنبيه
-function deactivateUrgent() {
-  urgentActive = false;
-  document.getElementById("urgentBtn").classList.remove("active");
-}
-
 function copyEmail(){
     navigator.clipboard.writeText("fdsprbib@gmail.com")
     .then(() => {
@@ -971,19 +955,9 @@ function showMeeting(){
     document.getElementById("meeting").classList.remove("hidden");
 }
 
-function loadMessages(){
-  const chatBox = document.getElementById("chatBox");
-
-  if(!chatBox) return;
-
-  // فقط إذا فارغ نضيف رسالة ترحيب
-  if(chatBox.children.length === 0){
-    chatBox.innerHTML = `
-      <div class="msg bot">
-        👋 مرحبًا بك، كيف يمكنني مساعدتك؟
-      </div>
-    `;
-  }
+function openMeet(){
+    document.getElementById("meetingStatus").innerText = "🚀 يتم فتح الاجتماع...";
+    window.open("https://meet.google.com/nbx-eakb-tor", "_blank");
 }
 
 window.show = show;
