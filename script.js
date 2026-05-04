@@ -773,6 +773,21 @@ function addUrgentNews(){
     document.getElementById("urgentContent").value = "";
 }
 
+// حالة الإعلان
+let urgentActive = false;
+
+// تشغيل التنبيه
+function activateUrgent() {
+  urgentActive = true;
+  document.getElementById("urgentBtn").classList.add("active");
+}
+
+// إيقاف التنبيه
+function deactivateUrgent() {
+  urgentActive = false;
+  document.getElementById("urgentBtn").classList.remove("active");
+}
+
 function copyEmail(){
     navigator.clipboard.writeText("fdsprbib@gmail.com")
     .then(() => {
