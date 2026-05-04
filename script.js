@@ -975,36 +975,27 @@ function openMeet(){
     window.open("https://meet.google.com/nbx-eakb-tor", "_blank");
 }
 
-function handleQuery(msg, data) {
-    if (!msg || !data) return;
+async function loadMessages() {
+  try {
+    const response = await fetch("catalog.csv");
+    const data = await response.text();
 
-    // تنظيف النص
-    let query = msg.trim().toLowerCase();
+    const rows = data.split("\n").slice(1); // تجاهل العنوان
 
-    // تقسيم CSV إلى أسطر
-    let rows = data.split(/\r?\n/);
-
-    let results = [];
-
-    rows.forEach(row => {
-        let columns = row.split(",");
-
-        // ابحث في كل سطر
-        let match = columns.some(col => 
-            col.toLowerCase().includes(query)
-        );
-
-        if (match) {
-            results.push(row);
-        }
+    const messages = rows.map(row => {
+      const cols = row.split(",");
+      return {
+        title: cols[0]?.trim(),
+        author: cols[1]?.trim(),
+        year: cols[2]?.trim()
+      };
     });
 
-    // عرض النتائج
-    if (results.length > 0) {
-        console.log("نتائج:", results);
-    } else {
-        console.log("لم يتم العثور على نتائج");
-    }
+    return messages;
+  } catch (error) {
+    console.error("خطأ في تحميل الفهرس:", error);
+    return [];
+  }
 }
 
 window.show = show;
