@@ -1342,3 +1342,13 @@ body.dark .iqraa-content{
     font-size: 10px;
   }
 }
+
+.institution p,
+.title p{
+  margin: 0;        /* إلغاء الفراغات */
+  line-height: 1.1; /* تقليل ارتفاع السطر */
+}
+
+.title h1{
+  margin: 5px 0;    /* تقليل الفراغ حول العنوان */
+}
