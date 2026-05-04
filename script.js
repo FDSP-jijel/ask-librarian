@@ -16,8 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
    let lang = localStorage.getItem("lang") || "ar";
    setLanguage(lang);
 
-   document.body.classList.add("loaded"); // ✅ هنا
-
    loadChat();
    displayNews();
    updateVisitors();
