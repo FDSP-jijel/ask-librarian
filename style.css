@@ -1276,7 +1276,7 @@ body.dark .iqraa-content{
 .main-header{
   display: grid;
   grid-template-columns: 120px 1fr 120px;
-  align-items: center;
+  align-items: center; /* 👈 مهم جدًا للتوسيط العمودي */
   padding: 10px 20px;
   gap: 10px;
 }
@@ -1286,21 +1286,25 @@ body.dark .iqraa-content{
 .top-right-logo img{
   width: 90px;
   height: auto;
+  display: block;
+  margin: auto;
 }
 
-/* النصوص في الوسط */
+/* 🔥 أهم تعديل: رفع النص ليصير في نفس مستوى الصور */
 .institution,
 .title{
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* توسيط عمودي داخلي */
+  height: 100%;
 }
 
-/* عنوان الموقع */
-.title h1{
-  margin: 5px 0;
-}
-
+/* إزالة أي نزول زائد */
+.institution p,
+.title h1,
 .title p{
-  margin: 0;
+  margin: 3px 0;
 }
 
 /* أزرار اللغة */
@@ -1310,22 +1314,12 @@ body.dark .iqraa-content{
   margin-top: 10px;
 }
 
-.language-selector button{
-  margin: 3px;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #2563eb;
-  color: white;
-}
-
 /* 📱 الهاتف */
 @media(max-width:768px){
 
   .main-header{
     grid-template-columns: 60px 1fr 60px;
-    padding: 10px;
+    align-items: center;
   }
 
   .top-left-image img,
@@ -1333,17 +1327,11 @@ body.dark .iqraa-content{
     width: 60px;
   }
 
-  .institution{
-    font-size: 11px;
-    line-height: 1.4;
-  }
-
   .title h1{
     font-size: 16px;
   }
 
-  .language-selector button{
-    padding: 5px 8px;
-    font-size: 12px;
+  .institution{
+    font-size: 11px;
   }
 }
