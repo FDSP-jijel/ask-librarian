@@ -998,6 +998,27 @@ async function loadMessages() {
   }
 }
 
+function searchASJP(){
+
+    let q = document.getElementById("asjpSearch").value.trim();
+
+    if(!q){
+        alert("اكتب كلمة للبحث");
+        return;
+    }
+
+    let url = "https://www.asjp.cerist.dz/en/articles?query=" + encodeURIComponent(q);
+
+    window.open(url, "_blank");
+}
+
+function quickSearch(type){
+
+    let url = "https://www.asjp.cerist.dz/en/articles?query=" + encodeURIComponent(type);
+
+    window.open(url, "_blank");
+}
+
 window.show = show;
 window.searchBooks = searchBooks;
 window.startVoice = startVoice;
