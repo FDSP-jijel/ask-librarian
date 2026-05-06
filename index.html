@@ -202,7 +202,7 @@
    
 <div class="card" onclick="window.open('https://asjp.cerist.dz', '_blank')">
 
-  <img src="img/asjp-icon.png" style="width:50px;height:50px;">
+  <img src="asjp-icon.png" style="width:50px;height:50px;">
 
   <h3>
     <span data-lang="ar">منصة ASJP</span>
@@ -342,19 +342,23 @@
     <span data-lang="en" style="display:none;">⬅️ Back</span>
   </button>
 
-  <h2>🌐 منصة ASJP للمجلات العلمية</h2>
+  <h2>
+    🌐 منصة ASJP للمجلات العلمية
+  </h2>
 
   <div class="pub-list">
 
     <!-- تعريف -->
     <div class="pub-card">
+
       <div class="pub-info">
 
         <div style="text-align:center; margin-bottom:10px;">
-          <img src="img/asjp.png" style="width:70px;height:70px;object-fit:contain;">
+          <img src="img/asjp.png" alt="ASJP"
+               style="width:70px;height:70px;object-fit:contain;">
         </div>
 
-        <h3>📌 ما هي منصة ASJP؟</h3>
+        <h3>📌 التعريف بمنصة ASJP</h3>
 
         <p data-lang="ar">
           منصة ASJP هي المنصة الجزائرية الرسمية لنشر المقالات العلمية المحكمة في مختلف التخصصات الجامعية.
@@ -365,68 +369,72 @@
         </p>
 
         <p data-lang="en" style="display:none;">
-          ASJP is the official Algerian platform for scientific journals.
+          ASJP is the official Algerian platform for publishing scientific journals.
         </p>
 
       </div>
     </div>
 
-    <!-- دخول المنصة -->
+    <!-- الدخول -->
     <div class="pub-card">
+
       <div class="pub-info">
 
         <h3>🚀 الدخول إلى المنصة</h3>
 
         <a href="https://www.asjp.cerist.dz" target="_blank" class="pdf-btn">
-          🌐 الدخول إلى ASJP
+          <span data-lang="ar">اضغط هنا للدخول إلى ASJP</span>
+          <span data-lang="fr" style="display:none;">Accéder à ASJP</span>
+          <span data-lang="en" style="display:none;">Access ASJP</span>
         </a>
 
       </div>
     </div>
 
-    <!-- 🔎 بحث ذكي -->
+    <!-- البحث العام -->
     <div class="pub-card">
+
       <div class="pub-info">
 
-        <h3>🔎 بحث ذكي في ASJP</h3>
+        <h3>🔎 البحث في ASJP</h3>
 
-        <input id="asjpSearch" type="text" placeholder="اكتب كلمة مثل: قانون / سياسة / حقوق">
-
-        <button onclick="searchASJP()" class="pdf-btn" style="margin-top:10px;">
-          🔍 بحث
-        </button>
+        <a href="https://www.asjp.cerist.dz/en/articles" target="_blank" class="pdf-btn">
+          🔍 عرض جميع المقالات
+        </a>
 
       </div>
     </div>
 
-    <!-- نتائج جاهزة -->
+    <!-- مقالات حسب التخصص -->
     <div class="pub-card">
+
       <div class="pub-info">
 
-        <h3>📚 روابط مباشرة حسب التخصص</h3>
+        <h3>📚 المقالات حسب التخصص</h3>
 
-        <p>⚖️ القانون</p>
-        <a class="pdf-btn" target="_blank"
-           href="https://www.asjp.cerist.dz/en/articles?query=law">
-          بحث في القانون
+        <!-- القانون -->
+        <p>⚖️ مقالات في القانون</p>
+        <a href="https://www.asjp.cerist.dz/en/articles?query=law" target="_blank" class="pdf-btn">
+          🔎 بحث في القانون
         </a>
 
-        <p style="margin-top:10px;">🏛️ العلوم السياسية</p>
-        <a class="pdf-btn" target="_blank"
-           href="https://www.asjp.cerist.dz/en/articles?query=political">
-          بحث في العلوم السياسية
+        <!-- العلوم السياسية -->
+        <p style="margin-top:10px;">🏛️ مقالات العلوم السياسية</p>
+        <a href="https://www.asjp.cerist.dz/en/articles?query=political" target="_blank" class="pdf-btn">
+          🔎 بحث في العلوم السياسية
         </a>
 
-        <p style="margin-top:10px;">📖 جميع التخصصات</p>
-        <a class="pdf-btn" target="_blank"
-           href="https://www.asjp.cerist.dz/en/articles">
-          عرض كل المقالات
+        <!-- أكاديمية عامة -->
+        <p style="margin-top:10px;">📖 مقالات أكاديمية متنوعة</p>
+        <a href="https://www.asjp.cerist.dz/en/articles" target="_blank" class="pdf-btn">
+          🔎 عرض المقالات الأكاديمية
         </a>
 
       </div>
     </div>
 
   </div>
+
 </section>
  
 <section id="teachersPublications" class="page hidden">
