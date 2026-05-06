@@ -334,6 +334,118 @@
     
 </section> <!-- ✅ هذا إغلاق home -->
 
+<section id="asjpSection" class="page hidden">
+
+  <button onclick="show('home')" class="back-btn">
+    <span data-lang="ar">⬅️ رجوع</span>
+    <span data-lang="fr" style="display:none;">⬅️ Retour</span>
+    <span data-lang="en" style="display:none;">⬅️ Back</span>
+  </button>
+
+  <h2>🌐 منصة ASJP للمجلات العلمية</h2>
+
+  <div class="pub-list">
+
+    <!-- تعريف -->
+    <div class="pub-card">
+      <div class="pub-info">
+
+        <div style="text-align:center;margin-bottom:10px;">
+          <img src="img/asjp.png" style="width:70px;height:70px;object-fit:contain;">
+        </div>
+
+        <h3>📌 التعريف بمنصة ASJP</h3>
+
+        <p data-lang="ar">
+          منصة ASJP هي المنصة الجزائرية الرسمية لنشر المقالات العلمية المحكمة في مختلف التخصصات.
+        </p>
+
+        <p data-lang="fr" style="display:none;">
+          ASJP est la plateforme officielle algérienne pour publier des articles scientifiques.
+        </p>
+
+        <p data-lang="en" style="display:none;">
+          ASJP is the official Algerian platform for scientific journals.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- الدخول -->
+    <div class="pub-card">
+      <div class="pub-info">
+
+        <h3>🚀 الدخول إلى المنصة</h3>
+
+        <a href="https://www.asjp.cerist.dz" target="_blank" class="pdf-btn">
+          🌐 دخول مباشر إلى ASJP
+        </a>
+
+      </div>
+    </div>
+
+    <!-- 🔎 البحث الذكي -->
+    <div class="pub-card">
+      <div class="pub-info">
+
+        <h3>🔎 بحث ذكي في ASJP</h3>
+
+        <input id="asjpSearch" type="text"
+               placeholder="اكتب: قانون / سياسة / حقوق / إدارة">
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+
+          <button onclick="searchASJP()" class="pdf-btn">
+            🔍 بحث
+          </button>
+
+          <button onclick="quickSearch('law')" class="pdf-btn">
+            ⚖️ قانون
+          </button>
+
+          <button onclick="quickSearch('political')" class="pdf-btn">
+            🏛️ سياسة
+          </button>
+
+          <button onclick="quickSearch('human rights')" class="pdf-btn">
+            📖 حقوق
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- روابط مباشرة -->
+    <div class="pub-card">
+      <div class="pub-info">
+
+        <h3>📚 تصفح مباشر حسب التخصص</h3>
+
+        <p>⚖️ القانون</p>
+        <a class="pdf-btn" target="_blank"
+           href="https://www.asjp.cerist.dz/en/articles?query=law">
+          عرض مقالات القانون
+        </a>
+
+        <p style="margin-top:10px;">🏛️ العلوم السياسية</p>
+        <a class="pdf-btn" target="_blank"
+           href="https://www.asjp.cerist.dz/en/articles?query=political">
+          عرض مقالات العلوم السياسية
+        </a>
+
+        <p style="margin-top:10px;">📖 جميع التخصصات</p>
+        <a class="pdf-btn" target="_blank"
+           href="https://www.asjp.cerist.dz/en/articles">
+          عرض كل المقالات
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+ 
 <section id="teachersPublications" class="page hidden">
 
   <button onclick="show('home')" class="back-btn">
