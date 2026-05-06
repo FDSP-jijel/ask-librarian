@@ -1260,51 +1260,74 @@ body.dark .iqraa-content{
 
 .pub-card{
   display:flex;
-  flex-direction:row-reverse; /* الصورة يمين */
+  flex-direction:row; /* الصورة يمين والنص يسار طبيعي */
   gap:15px;
   background:#ffffff;
   padding:15px;
   border-radius:12px;
   box-shadow:0 4px 10px rgba(0,0,0,0.08);
   transition:0.3s;
+  align-items:flex-start;
 }
 
 .pub-card:hover{
   transform:translateY(-3px);
 }
 
+/* الصورة */
 .pub-card img{
-  width:100px;
-  height:140px;
+  width:110px;
+  height:150px;
   object-fit:cover;
   border-radius:8px;
+  flex-shrink:0;
 }
 
+/* النص ملاصق للصورة */
 .pub-info{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
   flex:1;
 }
 
+/* العنوان */
 .pub-info h3{
-  margin-bottom:8px;
+  margin:0;
   font-size:16px;
+  line-height:1.4;
 }
 
+/* الفقرات */
 .pub-info p{
-  margin:2px 0;
+  margin:0;
   font-size:14px;
+  color:#333;
 }
 
+/* زر PDF */
 .pdf-btn{
   display:inline-block;
-  margin-top:8px;
-  padding:6px 10px;
+  margin-top:6px;
+  padding:7px 12px;
   background:#2563eb;
   color:#fff;
   border-radius:6px;
   text-decoration:none;
   font-size:13px;
+  width:max-content;
 }
 
 .pdf-btn:hover{
   background:#1e40af;
+}
+
+/* زر الرجوع */
+.back-btn{
+  background:#e5e7eb;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+  margin-bottom:15px;
 }
