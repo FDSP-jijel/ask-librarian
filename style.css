@@ -1260,7 +1260,7 @@ body.dark .iqraa-content{
 
 .pub-card{
   display:flex;
-  flex-direction:row;
+  flex-direction:row; /* نرجع للوضع الطبيعي */
   gap:12px;
   background:#fff;
   padding:15px;
@@ -1269,21 +1269,20 @@ body.dark .iqraa-content{
   align-items:flex-start;
 }
 
-/* نخلي الصورة دائمًا يمين */
+/* 🔥 هذا هو الحل الحقيقي */
 .pub-card img{
   width:110px;
   height:150px;
   object-fit:cover;
   border-radius:8px;
-  order:2;
+  margin-left:auto; /* يدفع الصورة لليمين */
 }
 
-/* النص يسار الصورة */
+/* النص */
 .pub-info{
   flex:1;
   display:flex;
   flex-direction:column;
   gap:4px;
-  order:1;
   text-align:right;
 }
