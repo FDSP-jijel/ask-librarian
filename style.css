@@ -1267,13 +1267,12 @@ body.dark .iqraa-content{
   flex-shrink:0;
 }
 
-/* النص */
+/* النص ملاصق للصورة */
 .pub-info{
-  flex:1;
   display:flex;
   flex-direction:column;
   gap:4px;
-  text-align:right; /* مهم للعربية */
+  flex:1;
 }
 
 /* العنوان */
@@ -1290,7 +1289,7 @@ body.dark .iqraa-content{
   color:#333;
 }
 
-/* زر التحميل */
+/* زر PDF */
 .pdf-btn{
   display:inline-block;
   margin-top:6px;
