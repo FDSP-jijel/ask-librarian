@@ -1257,3 +1257,54 @@ body.dark .iqraa-card,
 body.dark .iqraa-content{
   background:rgba(255,255,255,0.05);
 }
+
+.pub-card{
+  display:flex;
+  flex-direction:row-reverse; /* الصورة يمين */
+  gap:15px;
+  background:#ffffff;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.pub-card:hover{
+  transform:translateY(-3px);
+}
+
+.pub-card img{
+  width:100px;
+  height:140px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.pub-info{
+  flex:1;
+}
+
+.pub-info h3{
+  margin-bottom:8px;
+  font-size:16px;
+}
+
+.pub-info p{
+  margin:2px 0;
+  font-size:14px;
+}
+
+.pdf-btn{
+  display:inline-block;
+  margin-top:8px;
+  padding:6px 10px;
+  background:#2563eb;
+  color:#fff;
+  border-radius:6px;
+  text-decoration:none;
+  font-size:13px;
+}
+
+.pdf-btn:hover{
+  background:#1e40af;
+}
