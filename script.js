@@ -1007,14 +1007,9 @@ function searchASJP(){
         return;
     }
 
-    let url = "https://www.asjp.cerist.dz/en/articles?query=" + encodeURIComponent(q);
+    let base = "https://www.asjp.cerist.dz/en/articles?query=";
 
-    window.open(url, "_blank");
-}
-
-function quickSearch(type){
-
-    let url = "https://www.asjp.cerist.dz/en/articles?query=" + encodeURIComponent(type);
+    let url = base + encodeURIComponent(q);
 
     window.open(url, "_blank");
 }
