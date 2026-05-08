@@ -1318,38 +1318,3 @@ body.dark .iqraa-content{
   margin-bottom:10px;
 
 }
-
-/* =============================== */
-/* 🧪 FIX LABS LAYOUT (NO COLUMNS) */
-/* =============================== */
-
-#labsSection .cards{
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 15px;
-}
-
-#labsSection .card{
-  width: 100% !important;
-}
-
-/* داخل صفحات المخابر */
-.pub-card,
-.pub-info{
-  display: block !important;
-  width: 100% !important;
-}
-
-/* منع أي grid أو flex يسبب أعمدة */
-#lejaLab .pub-card,
-#dynafLab .pub-card,
-#transformLab .pub-card{
-  display: block !important;
-}
-
-/* تنظيم النصوص */
-.pub-info p{
-  display: block !important;
-  margin: 6px 0;
-  text-align: justify;
-}
