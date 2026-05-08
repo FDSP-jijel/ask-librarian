@@ -1308,3 +1308,13 @@ body.dark .iqraa-content{
 .pdf-btn:hover{
   background:#1e40af;
 }
+
+.lab-img{
+
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:10px;
+
+}
