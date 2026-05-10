@@ -1350,3 +1350,14 @@ body.dark .iqraa-content{
   background:#f7f7f7;
 
 }
+
+@media(max-width:600px){
+
+  .top-right-logo img{
+
+    width:70px;
+    height:auto;
+
+  }
+
+}
