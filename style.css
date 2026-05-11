@@ -947,7 +947,7 @@ ul{
 
 /* تكبير الصورة فقط */
 .top-left-image img{
-    width: 400px; /* 👈 حجم كبير وواضح */
+    width: 250px; /* 👈 حجم كبير وواضح */
     max-width: 30vw; /* 👈 تتكيف مع الشاشة */
     border-radius: 12px;
 }
