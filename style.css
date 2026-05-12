@@ -1361,3 +1361,22 @@ body.dark .iqraa-content{
   }
 
 }
+
+@media(max-width:600px){
+
+  .top-left-image img{
+
+    width:85px !important;
+    height:auto;
+
+  }
+
+  .top-left-image{
+
+    position:absolute;
+    left:5px;
+    top:10px;
+
+  }
+
+}
