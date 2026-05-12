@@ -1006,6 +1006,3 @@ window.reply = reply;
 window.setLanguage = setLanguage;
 window.showBookDetails = showBookDetails;
 window.loadMoreChat = loadMoreChat;
-window.addEventListener("DOMContentLoaded", () => {
-    openTab("rulesPub");
-});
