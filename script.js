@@ -812,7 +812,7 @@ function startJitsi(){
     }
 
     api = new JitsiMeetExternalAPI("meet.jit.si", {
-        roomName: "AskLibrarianRoom_2026_SECURE",
+        roomName: "fdsprbib_room_live_784512",
         parentNode: container,
         width: "100%",
         height: 500,
